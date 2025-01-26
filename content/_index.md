@@ -37,7 +37,7 @@ sections:
       text: |-
         I’m a PhD researcher in Electrical and Computer Engineering (ECE), specializing in AI and Machine Learning applications for next-generation wireless telecommunication networks.
 
-        I apply a range of qualitative and quantitative methods to comprehensively investigate the role of science and technology in the economy.
+        focuses on enhancing 5G and 6G network performance, reliability, and security through AI-driven solutions, particularly in Open Radio Access Networks (O-RAN).
 
         Please reach out to collaborate 😃
     design:
