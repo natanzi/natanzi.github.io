@@ -35,11 +35,14 @@ sections:
       title: '📚 My Research'
       subtitle: ''
       text: |-
-        Use this area to speak to your mission. I'm a research scientist in the Moonshot team at DeepMind. I blog about machine learning, deep learning, and moonshots.
+        I’m a PhD researcher in Electrical and Computer Engineering (ECE), specializing in AI and Machine Learning applications for next-generation wireless telecommunication networks. My research focuses on enhancing 5G and 6G network performance, reliability, and security through AI-driven solutions, particularly in Open Radio Access Networks (O-RAN).
 
-        I apply a range of qualitative and quantitative methods to comprehensively investigate the role of science and technology in the economy.
-        
-        Please reach out to collaborate 😃
+I actively work on AI-assisted beamforming, MIMO optimization, and dynamic spectrum management, leveraging cutting-edge frameworks such as Sionna, TensorFlow, and OpenAirInterface (OAI).
+
+I am passionate about bridging the gap between academic research and real-world deployment in telecommunications.
+
+Please reach out to collaborate on research, innovation, and development in AI-driven wireless systems.😃
+                     
     design:
       columns: '1'
   - block: collection
