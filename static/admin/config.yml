@@ -6,7 +6,7 @@ backend:
   auth_endpoint: https://github.com/login/oauth/authorize
   client_id: Ov23liCcDCNVLNCvXMS3
   scope: repo
-  
+
 media_folder: "static/images"
 public_folder: "/images"
 
