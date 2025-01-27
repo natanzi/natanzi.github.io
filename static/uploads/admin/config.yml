@@ -2,10 +2,12 @@ backend:
   name: github
   repo: natanzi/natanzi.github.io
   branch: main
-  auth_endpoint: https://github.com/login/oauth/authorize
   client_id: Ov23liDheucmsClka1jC
+
 media_folder: "static/images"
 public_folder: "/images"
+
+site_url: "https://natanzi.github.io"
 
 collections:
   - name: "posts"
@@ -17,3 +19,4 @@ collections:
       - {label: "Title", name: "title", widget: "string"}
       - {label: "Date", name: "date", widget: "datetime"}
       - {label: "Body", name: "body", widget: "markdown"}
+
