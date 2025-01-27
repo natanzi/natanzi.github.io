@@ -1,6 +1,6 @@
 backend:
   name: github
-  repo: natanzi/natanzi.github.io  
+  repo: natanzi/natanzi.github.io  # Ensure this is correct
   branch: main
   auth_endpoint: https://github.com/login/oauth/authorize
   client_id: Ov23liCcDCNVLNCvXMS3
