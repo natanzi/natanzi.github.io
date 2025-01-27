@@ -1,8 +1,9 @@
 backend:
   name: github
-  repo: yourusername/natanzi.github.io
+  repo: natanzi/natanzi.github.io
   branch: main
-
+  auth_endpoint: https://github.com/login/oauth/authorize
+  client_id: Ov23liDheucmsClka1jC
 media_folder: "static/images"
 public_folder: "/images"
 
