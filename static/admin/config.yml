@@ -1,8 +1,7 @@
 backend:
   name: github
-  repo: natanzi/natanzi.github.io
+  repo: natanzi/natanzi.github.io  
   branch: main
-  base_url: https://github.com
   auth_endpoint: https://github.com/login/oauth/authorize
   client_id: Ov23liCcDCNVLNCvXMS3
   scope: repo
