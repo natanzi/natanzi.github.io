@@ -17,3 +17,15 @@ collections:
       - { label: "Category", name: "category", widget: "string" }
       - { label: "Description", name: "description", widget: "text" }
       - { label: "Body", name: "body", widget: "markdown" }
+
+  - name: "settings"
+    label: "Site Settings"
+    delete: false
+    editor:
+      preview: false
+    files:
+      - name: "general"
+        label: "General Settings"
+        file: "src/data/settings.json"
+        fields:
+          - { label: "Under Construction Mode", name: "under_construction", widget: "boolean", default: false }
