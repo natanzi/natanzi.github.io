@@ -1,8 +1,15 @@
 ---
 import '../styles/global.css';
+import { 
+    Menu, X, FileText, BookOpen, ArrowRight, ArrowUpRight, 
+    Briefcase, Cpu, Radio, ShieldAlert, Network, Activity,
+    PenTool, Camera, Mail, Linkedin, Github, Hammer, Server, Code, Database 
+} from 'lucide-astro';
 import siteSettings from '../data/settings.json';
 
 const pageTitle = "Milad Natanzi | ECE Researcher & Data Scientist";
+const siteDescription = "Milad Natanzi is a PhD Candidate in ECE at WPI, blending 7+ years of telecom industry experience from MTN Group with advanced machine intelligence. Specializing in 5G/6G infrastructures and O-RAN.";
+const siteUrl = "https://natanzi.com";
 ---
 
 <html lang="en" class="scroll-smooth">
@@ -10,12 +17,42 @@ const pageTitle = "Milad Natanzi | ECE Researcher & Data Scientist";
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{siteSettings.under_construction ? "Coming Soon | Milad Natanzi" : pageTitle}</title>
+    
+    <!-- SEO & Meta Tags -->
+    <meta name="description" content={siteDescription}>
+    <meta name="author" content="Milad Natanzi">
+    <link rel="canonical" href={siteUrl} />
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content={siteUrl}>
+    <meta property="og:title" content={pageTitle}>
+    <meta property="og:description" content={siteDescription}>
+    
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content={siteUrl}>
+    <meta property="twitter:title" content={pageTitle}>
+    <meta property="twitter:description" content={siteDescription}>
+
+    <!-- JSON-LD Structured Data -->
+    <script type="application/ld+json" set:html={JSON.stringify({
+      "@context": "https://schema.org",
+      "@type": "Person",
+      "name": "Milad Natanzi",
+      "jobTitle": "PhD Candidate, ECE Researcher & Data Scientist",
+      "url": "https://natanzi.com",
+      "sameAs": [
+        "https://www.linkedin.com/in/miladnatanzi",
+        "https://github.com/natanzi"
+      ]
+    })} />
+
     <!-- Google Fonts: Inter & Newsreader -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Newsreader:ital,opsz,wght@0,6..72,300;0,6..72,400;1,6..72,300;1,6..72,400&display=swap" rel="stylesheet">
-    <!-- Lucide Icons -->
-    <script src="https://unpkg.com/lucide@latest"></script>
+    
     <!-- Netlify Identity Widget -->
     <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
     <style>
@@ -119,7 +156,7 @@ const pageTitle = "Milad Natanzi | ECE Researcher & Data Scientist";
         <div class="absolute inset-0 bg-gradient-to-br from-zinc-100 to-zinc-200 z-0"></div>
         <div class="relative z-10 text-center px-6">
             <div class="inline-flex items-center justify-center w-16 h-16 rounded-full bg-white shadow-xl mb-8">
-                <i data-lucide="hammer" class="w-8 h-8 text-zinc-900"></i>
+                <Hammer class="w-8 h-8 text-zinc-900" />
             </div>
             <h1 class="text-5xl md:text-6xl font-serif text-zinc-900 mb-6">Under Construction</h1>
             <p class="text-lg text-zinc-600 max-w-md mx-auto">I'm currently updating my portfolio. Please check back shortly.</p>
@@ -148,7 +185,8 @@ const pageTitle = "Milad Natanzi | ECE Researcher & Data Scientist";
             
             <!-- Mobile Menu Toggle -->
             <button id="mobile-menu-btn" class="md:hidden text-zinc-500 hover:text-zinc-900 p-2 -mr-2 focus:outline-none">
-                <i data-lucide="menu" class="w-6 h-6"></i>
+                <div id="icon-menu-wrapper"><Menu class="w-6 h-6" /></div>
+                <div id="icon-close-wrapper" class="hidden"><X class="w-6 h-6" /></div>
             </button>
         </div>
     </nav>
@@ -212,20 +250,20 @@ const pageTitle = "Milad Natanzi | ECE Researcher & Data Scientist";
                         <a href="#" class="group flex items-center justify-between px-5 py-4 glass-card glass-card-hover rounded-xl w-full">
                             <div class="flex items-center text-sm font-semibold text-zinc-800">
                                 <span class="bg-blue-50 p-2 rounded-lg mr-3 group-hover:bg-blue-100 transition-colors">
-                                    <i data-lucide="file-text" class="w-4 h-4 text-blue-600"></i>
+                                    <FileText class="w-4 h-4 text-blue-600" />
                                 </span>
                                 Read My CV
                             </div>
-                            <i data-lucide="arrow-right" class="w-4 h-4 text-zinc-400 group-hover:text-zinc-800 group-hover:translate-x-1 transition-all"></i>
+                            <ArrowRight class="w-4 h-4 text-zinc-400 group-hover:text-zinc-800 group-hover:translate-x-1 transition-all" />
                         </a>
                         <a href="#" class="group flex items-center justify-between px-5 py-4 glass-card glass-card-hover rounded-xl w-full">
                             <div class="flex items-center text-sm font-semibold text-zinc-800">
                                 <span class="bg-emerald-50 p-2 rounded-lg mr-3 group-hover:bg-emerald-100 transition-colors">
-                                    <i data-lucide="book-open" class="w-4 h-4 text-emerald-600"></i>
+                                    <BookOpen class="w-4 h-4 text-emerald-600" />
                                 </span>
                                 Publications
                             </div>
-                            <i data-lucide="arrow-right" class="w-4 h-4 text-zinc-400 group-hover:text-zinc-800 group-hover:translate-x-1 transition-all"></i>
+                            <ArrowRight class="w-4 h-4 text-zinc-400 group-hover:text-zinc-800 group-hover:translate-x-1 transition-all" />
                         </a>
                     </div>
                 </div>
@@ -253,7 +291,7 @@ const pageTitle = "Milad Natanzi | ECE Researcher & Data Scientist";
         <section id="experience" class="mb-32 animate-fade-up delay-100 scroll-mt-24">
             <div class="flex items-center mb-12">
                 <h2 class="text-sm font-semibold text-zinc-900 uppercase tracking-widest flex items-center gap-2">
-                    <i data-lucide="briefcase" class="w-4 h-4 text-blue-500"></i> Experience
+                    <Briefcase class="w-4 h-4 text-blue-500" /> Experience
                 </h2>
                 <div class="ml-6 h-px bg-zinc-200 flex-grow"></div>
             </div>
@@ -301,11 +339,44 @@ const pageTitle = "Milad Natanzi | ECE Researcher & Data Scientist";
             </div>
         </section>
 
+        <!-- Skills & Tools Section -->
+        <section id="skills" class="mb-32 animate-fade-up delay-200 scroll-mt-24">
+            <div class="flex items-center mb-12">
+                <h2 class="text-sm font-semibold text-zinc-900 uppercase tracking-widest flex items-center gap-2">
+                    <Code class="w-4 h-4 text-orange-500" /> Skills & Tools
+                </h2>
+                <div class="ml-6 h-px bg-zinc-200 flex-grow"></div>
+            </div>
+            
+            <div class="flex flex-wrap gap-4">
+                <div class="flex items-center px-4 py-3 bg-white border border-zinc-200 rounded-xl shadow-sm hover:shadow-md transition-shadow">
+                    <Server class="w-5 h-5 text-zinc-500 mr-3" />
+                    <span class="font-medium text-zinc-800">Sionna & USRP</span>
+                </div>
+                <div class="flex items-center px-4 py-3 bg-white border border-zinc-200 rounded-xl shadow-sm hover:shadow-md transition-shadow">
+                    <Activity class="w-5 h-5 text-zinc-500 mr-3" />
+                    <span class="font-medium text-zinc-800">PyTorch</span>
+                </div>
+                <div class="flex items-center px-4 py-3 bg-white border border-zinc-200 rounded-xl shadow-sm hover:shadow-md transition-shadow">
+                    <Code class="w-5 h-5 text-zinc-500 mr-3" />
+                    <span class="font-medium text-zinc-800">Python & MATLAB</span>
+                </div>
+                <div class="flex items-center px-4 py-3 bg-white border border-zinc-200 rounded-xl shadow-sm hover:shadow-md transition-shadow">
+                    <Network class="w-5 h-5 text-zinc-500 mr-3" />
+                    <span class="font-medium text-zinc-800">O-RAN</span>
+                </div>
+                <div class="flex items-center px-4 py-3 bg-white border border-zinc-200 rounded-xl shadow-sm hover:shadow-md transition-shadow">
+                    <Database class="w-5 h-5 text-zinc-500 mr-3" />
+                    <span class="font-medium text-zinc-800">Docker & Kubernetes</span>
+                </div>
+            </div>
+        </section>
+
         <!-- Projects Section -->
         <section id="projects" class="mb-32 animate-fade-up delay-200 scroll-mt-24">
             <div class="flex items-center mb-12">
                 <h2 class="text-sm font-semibold text-zinc-900 uppercase tracking-widest flex items-center gap-2">
-                    <i data-lucide="cpu" class="w-4 h-4 text-emerald-500"></i> Selected Works
+                    <Cpu class="w-4 h-4 text-emerald-500" /> Selected Works
                 </h2>
                 <div class="ml-6 h-px bg-zinc-200 flex-grow"></div>
             </div>
@@ -316,10 +387,10 @@ const pageTitle = "Milad Natanzi | ECE Researcher & Data Scientist";
                     <div>
                         <div class="flex items-center justify-between mb-6">
                             <div class="p-3 bg-blue-50 text-blue-600 rounded-xl border border-blue-100">
-                                <i data-lucide="radio" class="w-6 h-6"></i>
+                                <Radio class="w-6 h-6" />
                             </div>
                             <div class="w-10 h-10 rounded-full border border-zinc-200 bg-white flex items-center justify-center group-hover:bg-zinc-900 group-hover:border-zinc-900 transition-colors shadow-sm">
-                                <i data-lucide="arrow-up-right" class="w-5 h-5 text-zinc-400 group-hover:text-white transition-colors"></i>
+                                <ArrowUpRight class="w-5 h-5 text-zinc-400 group-hover:text-white transition-colors" />
                             </div>
                         </div>
                         <h3 class="text-2xl font-medium text-zinc-900 mb-3">WeaveMind</h3>
@@ -339,10 +410,10 @@ const pageTitle = "Milad Natanzi | ECE Researcher & Data Scientist";
                     <div>
                         <div class="flex items-center justify-between mb-6">
                             <div class="p-3 bg-emerald-50 text-emerald-600 rounded-xl border border-emerald-100">
-                                <i data-lucide="shield-alert" class="w-6 h-6"></i>
+                                <ShieldAlert class="w-6 h-6" />
                             </div>
                             <div class="w-10 h-10 rounded-full border border-zinc-200 bg-white flex items-center justify-center group-hover:bg-zinc-900 group-hover:border-zinc-900 transition-colors shadow-sm">
-                                <i data-lucide="arrow-up-right" class="w-5 h-5 text-zinc-400 group-hover:text-white transition-colors"></i>
+                                <ArrowUpRight class="w-5 h-5 text-zinc-400 group-hover:text-white transition-colors" />
                             </div>
                         </div>
                         <h3 class="text-2xl font-medium text-zinc-900 mb-3">AI-Driven Fuzzing</h3>
@@ -355,6 +426,50 @@ const pageTitle = "Milad Natanzi | ECE Researcher & Data Scientist";
                         <span class="px-2 py-1 bg-zinc-100 rounded text-[10px] font-bold tracking-wider text-zinc-500 uppercase">Optimization</span>
                     </div>
                 </a>
+
+                <!-- Project 3 -->
+                <a href="https://github.com/natanzi" target="_blank" class="group flex flex-col justify-between glass-card glass-card-hover rounded-2xl p-6 md:p-8">
+                    <div>
+                        <div class="flex items-center justify-between mb-6">
+                            <div class="p-3 bg-purple-50 text-purple-600 rounded-xl border border-purple-100">
+                                <Network class="w-6 h-6" />
+                            </div>
+                            <div class="w-10 h-10 rounded-full border border-zinc-200 bg-white flex items-center justify-center group-hover:bg-zinc-900 group-hover:border-zinc-900 transition-colors shadow-sm">
+                                <ArrowUpRight class="w-5 h-5 text-zinc-400 group-hover:text-white transition-colors" />
+                            </div>
+                        </div>
+                        <h3 class="text-2xl font-medium text-zinc-900 mb-3">ORION</h3>
+                        <p class="text-zinc-500 leading-relaxed font-light mb-8 text-base md:text-lg">
+                            Open-source architecture for dynamic RAN slicing in 6G. Employs deep reinforcement learning to dynamically allocate spectrum across distinct network slices, dramatically improving bandwidth efficiency.
+                        </p>
+                    </div>
+                    <div class="flex items-center flex-wrap gap-2 border-t border-zinc-100 pt-6">
+                        <span class="px-2 py-1 bg-zinc-100 rounded text-[10px] font-bold tracking-wider text-zinc-500 uppercase">O-RAN</span>
+                        <span class="px-2 py-1 bg-zinc-100 rounded text-[10px] font-bold tracking-wider text-zinc-500 uppercase">Reinforcement Learning</span>
+                    </div>
+                </a>
+
+                <!-- Project 4 -->
+                <a href="https://github.com/natanzi" target="_blank" class="group flex flex-col justify-between glass-card glass-card-hover rounded-2xl p-6 md:p-8">
+                    <div>
+                        <div class="flex items-center justify-between mb-6">
+                            <div class="p-3 bg-rose-50 text-rose-600 rounded-xl border border-rose-100">
+                                <Activity class="w-6 h-6" />
+                            </div>
+                            <div class="w-10 h-10 rounded-full border border-zinc-200 bg-white flex items-center justify-center group-hover:bg-zinc-900 group-hover:border-zinc-900 transition-colors shadow-sm">
+                                <ArrowUpRight class="w-5 h-5 text-zinc-400 group-hover:text-white transition-colors" />
+                            </div>
+                        </div>
+                        <h3 class="text-2xl font-medium text-zinc-900 mb-3">FairShare</h3>
+                        <p class="text-zinc-500 leading-relaxed font-light mb-8 text-base md:text-lg">
+                            A decentralized resource sharing protocol for edge devices. Utilizes federated learning to allow edge clusters to cooperatively manage power limits without central cloud orchestrators.
+                        </p>
+                    </div>
+                    <div class="flex items-center flex-wrap gap-2 border-t border-zinc-100 pt-6">
+                        <span class="px-2 py-1 bg-zinc-100 rounded text-[10px] font-bold tracking-wider text-zinc-500 uppercase">Edge Computing</span>
+                        <span class="px-2 py-1 bg-zinc-100 rounded text-[10px] font-bold tracking-wider text-zinc-500 uppercase">Federated Learning</span>
+                    </div>
+                </a>
             </div>
         </section>
 
@@ -363,12 +478,12 @@ const pageTitle = "Milad Natanzi | ECE Researcher & Data Scientist";
             <div class="flex flex-col sm:flex-row sm:items-center justify-between mb-12 gap-4">
                 <div class="flex items-center flex-grow">
                     <h2 class="text-sm font-semibold text-zinc-900 uppercase tracking-widest flex items-center gap-2">
-                        <i data-lucide="pen-tool" class="w-4 h-4 text-purple-500"></i> Articles & Thoughts
+                        <PenTool class="w-4 h-4 text-purple-500" /> Articles & Thoughts
                     </h2>
                     <div class="ml-6 h-px bg-zinc-200 flex-grow"></div>
                 </div>
                 <a href="#" class="inline-flex items-center text-sm font-semibold text-zinc-500 hover:text-zinc-900 transition-colors group">
-                    View All Posts <i data-lucide="arrow-right" class="w-4 h-4 ml-1 group-hover:translate-x-1 transition-transform"></i>
+                    View All Posts <ArrowRight class="w-4 h-4 ml-1 group-hover:translate-x-1 transition-transform" />
                 </a>
             </div>
 
@@ -414,12 +529,12 @@ const pageTitle = "Milad Natanzi | ECE Researcher & Data Scientist";
             <div class="flex flex-col sm:flex-row sm:items-center justify-between mb-12 gap-4">
                 <div class="flex items-center flex-grow">
                     <h2 class="text-sm font-semibold text-zinc-900 uppercase tracking-widest flex items-center gap-2">
-                        <i data-lucide="camera" class="w-4 h-4 text-zinc-500"></i> Local Perspectives
+                        <Camera class="w-4 h-4 text-zinc-500" /> Local Perspectives
                     </h2>
                     <div class="ml-6 h-px bg-zinc-200 flex-grow"></div>
                 </div>
                 <a href="#" class="inline-flex items-center text-sm font-semibold text-zinc-500 hover:text-zinc-900 transition-colors group">
-                    View Full Gallery <i data-lucide="arrow-right" class="w-4 h-4 ml-1 group-hover:translate-x-1 transition-transform"></i>
+                    View Full Gallery <ArrowRight class="w-4 h-4 ml-1 group-hover:translate-x-1 transition-transform" />
                 </a>
             </div>
             
@@ -464,22 +579,22 @@ const pageTitle = "Milad Natanzi | ECE Researcher & Data Scientist";
                     <h2 class="text-3xl md:text-4xl font-serif text-zinc-900 mb-4">Let's build the future together.</h2>
                     <p class="text-zinc-500 text-lg leading-relaxed">Currently open for research collaborations, engineering roles, and deep-tech discussions.</p>
                 </div>
-                <a href="mailto:hello@example.com" class="inline-flex items-center justify-center px-8 py-4 text-sm font-bold tracking-wide text-white bg-zinc-900 rounded-full hover:bg-zinc-800 transition-all shadow-lg hover:shadow-xl hover:-translate-y-0.5 group shrink-0">
-                    <i data-lucide="mail" class="w-5 h-5 mr-2 group-hover:-rotate-12 transition-transform"></i> Drop me an email
+                <a href="mailto:contact@natanzi.com" class="inline-flex items-center justify-center px-8 py-4 text-sm font-bold tracking-wide text-white bg-zinc-900 rounded-full hover:bg-zinc-800 transition-all shadow-lg hover:shadow-xl hover:-translate-y-0.5 group shrink-0">
+                    <Mail class="w-5 h-5 mr-2 group-hover:-rotate-12 transition-transform" /> Drop me an email
                 </a>
             </div>
             
             <div class="flex flex-col-reverse md:flex-row justify-between items-center text-sm px-4">
                 <p class="text-zinc-500 mt-8 md:mt-0 font-medium tracking-wide">© 2026 Milad Natanzi. Designed with precision.</p>
                 <div class="flex flex-wrap justify-center gap-6 md:gap-8">
-                    <a href="#" class="text-zinc-600 hover:text-blue-600 transition-colors font-semibold flex items-center group">
-                        <i data-lucide="linkedin" class="w-4 h-4 mr-2 text-zinc-400 group-hover:text-blue-500 transition-colors"></i> LinkedIn
+                    <a href="https://linkedin.com/in/miladnatanzi" target="_blank" class="text-zinc-600 hover:text-blue-600 transition-colors font-semibold flex items-center group">
+                        <Linkedin class="w-4 h-4 mr-2 text-zinc-400 group-hover:text-blue-500 transition-colors" /> LinkedIn
                     </a>
                     <a href="#" class="text-zinc-600 hover:text-emerald-600 transition-colors font-semibold flex items-center group">
-                        <i data-lucide="book-open" class="w-4 h-4 mr-2 text-zinc-400 group-hover:text-emerald-500 transition-colors"></i> Scholar
+                        <BookOpen class="w-4 h-4 mr-2 text-zinc-400 group-hover:text-emerald-500 transition-colors" /> Scholar
                     </a>
-                    <a href="#" class="text-zinc-600 hover:text-zinc-900 transition-colors font-semibold flex items-center group">
-                        <i data-lucide="github" class="w-4 h-4 mr-2 text-zinc-400 group-hover:text-zinc-900 transition-colors"></i> GitHub
+                    <a href="https://github.com/natanzi" target="_blank" class="text-zinc-600 hover:text-zinc-900 transition-colors font-semibold flex items-center group">
+                        <Github class="w-4 h-4 mr-2 text-zinc-400 group-hover:text-zinc-900 transition-colors" /> GitHub
                     </a>
                 </div>
             </div>
@@ -508,7 +623,8 @@ const pageTitle = "Milad Natanzi | ECE Researcher & Data Scientist";
         // Mobile Menu Toggle Logic
         const mobileBtn = document.getElementById('mobile-menu-btn');
         const mobileMenu = document.getElementById('mobile-menu');
-        const menuIcon = mobileBtn.querySelector('i');
+        const iconMenuWrapper = document.getElementById('icon-menu-wrapper');
+        const iconCloseWrapper = document.getElementById('icon-close-wrapper');
         const mobileLinks = document.querySelectorAll('.mobile-link');
         
         let menuOpen = false;
@@ -517,20 +633,19 @@ const pageTitle = "Milad Natanzi | ECE Researcher & Data Scientist";
             menuOpen = !menuOpen;
             if (menuOpen) {
                 mobileMenu.classList.remove('hidden');
-                // Small delay to allow display block to apply before changing opacity for transition
                 setTimeout(() => {
                     mobileMenu.classList.remove('opacity-0');
                     mobileMenu.classList.add('opacity-100');
                     document.body.classList.add('no-scroll');
-                    menuIcon.setAttribute('data-lucide', 'x');
-                    lucide.createIcons(); // re-init icon
+                    iconMenuWrapper.classList.add('hidden');
+                    iconCloseWrapper.classList.remove('hidden');
                 }, 10);
             } else {
                 mobileMenu.classList.remove('opacity-100');
                 mobileMenu.classList.add('opacity-0');
                 document.body.classList.remove('no-scroll');
-                menuIcon.setAttribute('data-lucide', 'menu');
-                lucide.createIcons(); // re-init icon
+                iconCloseWrapper.classList.add('hidden');
+                iconMenuWrapper.classList.remove('hidden');
                 
                 // Wait for fade out before hiding
                 setTimeout(() => {
