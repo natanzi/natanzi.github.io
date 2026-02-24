@@ -1,5 +1,6 @@
 ---
 import '../styles/global.css';
+import { ArrowLeft, Sun, Moon, Calendar, Twitter } from 'lucide-astro';
 
 const { frontmatter } = Astro.props;
 ---
@@ -18,32 +19,26 @@ const { frontmatter } = Astro.props;
     <meta property="og:type" content="article">
     <meta property="og:title" content={frontmatter.title}>
     <meta property="og:description" content={frontmatter.description}>
+    {frontmatter.seo?.og_image && <meta property="og:image" content={frontmatter.seo.og_image}>}
     
     <!-- Twitter -->
     <meta property="twitter:card" content="summary_large_image">
     <meta property="twitter:title" content={frontmatter.title}>
     <meta property="twitter:description" content={frontmatter.description}>
+    {frontmatter.seo?.og_image && <meta property="twitter:image" content={frontmatter.seo.og_image}>}
 
     <!-- Google Fonts: Inter & Newsreader -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Newsreader:ital,opsz,wght@0,6..72,300;0,6..72,400;1,6..72,300;1,6..72,400&display=swap">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Newsreader:ital,opsz,wght@0,6..72,300;0,6..72,400;1,6..72,300;1,6..72,400&display=swap" rel="stylesheet">
+    <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Newsreader:ital,opsz,wght@0,6..72,300;0,6..72,400;1,6..72,300;1,6..72,400&display=swap">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Newsreader:ital,opsz,wght@0,6..72,300;0,6..72,400;1,6..72,300;1,6..72,400&display=swap" rel="stylesheet">
     
     <!-- Preload Author Image -->
     <link rel="preload" href="/Milad-Natanzi.jpg" as="image" />
     
-    <!-- Lucide Icons -->
-    <script src="https://unpkg.com/lucide@latest"></script>
-    
     <style>
-        body { 
-            font-family: 'Inter', sans-serif;
-            background-color: #fafafa;
-        }
-        .font-serif {
-            font-family: 'Newsreader', serif;
-        }
+        body { font-family: 'Inter', sans-serif; }
+        .font-serif { font-family: 'Newsreader', serif; }
         
         .glass-nav {
             background: rgba(250, 250, 250, 0.7);
@@ -77,41 +72,41 @@ const { frontmatter } = Astro.props;
             background: radial-gradient(circle, rgba(59, 130, 246, 0.08) 0%, rgba(9, 9, 11, 0) 70%);
         }
 
-        /* Typography Styles for Markdown Content */
+        /* ── Modern Typography for Markdown Prose ── */
         .prose h2 {
             font-family: 'Newsreader', serif;
             font-size: 2rem;
             font-weight: 500;
             color: #18181b;
-            margin-top: 3rem;
+            margin-top: 3.5rem;
             margin-bottom: 1.5rem;
         }
         .dark .prose h2 { color: #f4f4f5; }
         
         .prose h3 {
             font-family: 'Inter', sans-serif;
-            font-size: 1.5rem;
+            font-size: 1.25rem;
             font-weight: 600;
             color: #27272a;
-            margin-top: 2rem;
+            margin-top: 2.5rem;
             margin-bottom: 1rem;
         }
         .dark .prose h3 { color: #e4e4e7; }
         
         .prose p {
-            color: #52525b;
+            color: #52525b; /* zinc-600 */
             line-height: 1.8;
             font-weight: 300;
             font-size: 1.125rem;
             margin-bottom: 1.5rem;
         }
-        .dark .prose p { color: #d4d4d8; }
+        .dark .prose p { color: #a1a1aa; /* zinc-400 */ }
         
         .prose strong {
             font-weight: 600;
             color: #18181b;
         }
-        .dark .prose strong { color: #ffffff; }
+        .dark .prose strong { color: #e4e4e7; }
         
         .prose ul, .prose ol {
             color: #52525b;
@@ -121,7 +116,7 @@ const { frontmatter } = Astro.props;
             margin-bottom: 1.5rem;
             padding-left: 1.5rem;
         }
-        .dark .prose ul, .dark .prose ol { color: #d4d4d8; }
+        .dark .prose ul, .dark .prose ol { color: #a1a1aa; }
         
         .prose li {
             margin-bottom: 0.5rem;
@@ -129,23 +124,56 @@ const { frontmatter } = Astro.props;
         }
         
         .prose blockquote {
-            border-left: 4px solid #3b82f6;
-            background: rgba(59, 130, 246, 0.05);
-            padding: 1.5rem;
+            border-left: 3px solid #3b82f6; /* accent blue */
+            padding-left: 1.5rem;
             margin: 2rem 0;
-            border-radius: 0 0.75rem 0.75rem 0;
             font-family: 'Newsreader', serif;
             font-style: italic;
-            font-size: 1.25rem;
+            font-size: 1.5rem;
             color: #3f3f46;
         }
         .dark .prose blockquote {
-            background: rgba(59, 130, 246, 0.1);
             color: #d4d4d8;
         }
-        .prose blockquote p {
-            margin-bottom: 0;
-            color: inherit;
+        
+        .prose a {
+            color: #2563eb;
+            text-decoration: underline;
+            text-decoration-color: transparent;
+            transition: text-decoration-color 0.2s;
+        }
+        .prose a:hover {
+            text-decoration-color: #2563eb;
+        }
+        .dark .prose a {
+            color: #60a5fa;
+        }
+        .dark .prose a:hover {
+            text-decoration-color: #60a5fa;
+        }
+
+        .prose code {
+            background-color: rgba(0,0,0,0.05);
+            padding: 0.2em 0.4em;
+            border-radius: 0.25rem;
+            font-size: 0.875em;
+            color: #ef4444; /* red-500 */
+        }
+        .dark .prose code {
+            background-color: rgba(255,255,255,0.1);
+            color: #fca5a5;
+        }
+        .prose pre {
+            background-color: #18181b !important;
+            padding: 1.25rem;
+            border-radius: 0.75rem;
+            overflow-x: auto;
+            margin-bottom: 1.5rem;
+        }
+        .prose pre code {
+            background-color: transparent;
+            color: #e4e4e7;
+            padding: 0;
         }
     </style>
     
@@ -158,15 +186,15 @@ const { frontmatter } = Astro.props;
         }
     </script>
 </head>
-<body class="text-zinc-800 dark:text-zinc-300 antialiased selection:bg-zinc-200 dark:selection:bg-zinc-800 selection:text-zinc-900 dark:selection:text-white min-h-screen relative bg-[#fafafa] dark:bg-zinc-950 transition-colors duration-300">
+<body class="bg-zinc-50 dark:bg-zinc-950 text-zinc-800 dark:text-zinc-200 antialiased min-h-screen transition-colors duration-300">
 
     <div class="bg-glow"></div>
 
     <!-- Navigation -->
     <nav class="fixed top-0 left-0 right-0 z-50 glass-nav transition-all duration-300">
         <div class="max-w-4xl mx-auto px-6 h-16 flex items-center justify-between">
-            <a href="/" class="font-serif text-xl italic font-medium tracking-tight text-zinc-900 dark:text-zinc-100 flex items-center group">
-                <i data-lucide="arrow-left" class="w-4 h-4 mr-2 text-zinc-400 group-hover:text-zinc-900 dark:group-hover:text-zinc-100 transition-colors group-hover:-translate-x-1"></i>
+            <a href="/" class="font-sans text-[1.25rem] font-bold tracking-tight text-transparent bg-clip-text bg-gradient-to-r from-zinc-900 to-zinc-500 dark:from-zinc-100 dark:to-zinc-400 hover:opacity-80 transition-opacity flex items-center group">
+                <ArrowLeft class="w-4 h-4 mr-2 text-zinc-400 group-hover:text-zinc-900 dark:group-hover:text-zinc-100 transition-colors group-hover:-translate-x-1" />
                 Milad Natanzi
             </a>
             <div class="flex items-center space-x-4">
@@ -176,8 +204,8 @@ const { frontmatter } = Astro.props;
                     <span class="text-zinc-900 dark:text-zinc-100">Blog</span>
                 </div>
                 <button id="theme-toggle" class="p-2 text-zinc-500 hover:text-zinc-900 dark:text-zinc-400 dark:hover:text-white transition-colors focus:outline-none rounded-full border border-transparent hover:border-zinc-200 dark:hover:border-zinc-800">
-                    <i data-lucide="sun" class="hidden dark:block w-4 h-4"></i>
-                    <i data-lucide="moon" class="block dark:hidden w-4 h-4"></i>
+                    <Sun class="hidden dark:block w-4 h-4" />
+                    <Moon class="block dark:hidden w-4 h-4" />
                 </button>
             </div>
         </div>
@@ -187,8 +215,8 @@ const { frontmatter } = Astro.props;
         <article>
             <header class="mb-16">
                 <div class="flex items-center space-x-4 mb-6">
-                    <span class="text-sm font-semibold text-zinc-500 dark:text-zinc-400 tracking-wider">
-                        <i data-lucide="calendar" class="w-3.5 h-3.5 inline mr-1"></i> {frontmatter.date}
+                    <span class="text-sm font-semibold text-zinc-500 dark:text-zinc-400 tracking-wider inline-flex items-center">
+                        <Calendar class="w-3.5 h-3.5 mr-1.5" /> {frontmatter.date}
                     </span>
                     <span class="w-1.5 h-1.5 rounded-full bg-zinc-300 dark:bg-zinc-700"></span>
                     <span class="px-3 py-1 bg-white dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 text-zinc-600 dark:text-zinc-300 rounded-lg text-xs font-bold tracking-wider uppercase shadow-sm">
@@ -203,6 +231,17 @@ const { frontmatter } = Astro.props;
                 <p class="text-xl md:text-2xl text-zinc-500 dark:text-zinc-400 font-light leading-relaxed border-l-2 border-emerald-500 dark:border-emerald-600 pl-6 py-2">
                     {frontmatter.description}
                 </p>
+
+                {/* Tags mapping (if any) */}
+                {frontmatter.tags && frontmatter.tags.length > 0 && (
+                    <div class="flex flex-wrap gap-2 mt-8">
+                        {frontmatter.tags.map(tag => (
+                            <span class="px-2.5 py-1 bg-zinc-100 dark:bg-zinc-800/50 text-zinc-600 dark:text-zinc-400 text-xs font-medium rounded-md border border-zinc-200 dark:border-zinc-800">
+                                {tag}
+                            </span>
+                        ))}
+                    </div>
+                )}
             </header>
 
             <div class="prose max-w-none">
@@ -220,8 +259,8 @@ const { frontmatter } = Astro.props;
                             <p class="text-sm text-zinc-500 dark:text-zinc-400">PhD Researcher @ WPI</p>
                         </div>
                     </div>
-                    <a href="https://twitter.com/intent/tweet?text={frontmatter.title}" target="_blank" class="inline-flex items-center px-4 py-2 border border-zinc-200 dark:border-zinc-700 rounded-lg text-sm font-medium text-zinc-700 dark:text-zinc-300 hover:bg-zinc-50 dark:hover:bg-zinc-800 transition-colors">
-                        <i data-lucide="twitter" class="w-4 h-4 mr-2"></i> Share on Twitter
+                    <a href={`https://twitter.com/intent/tweet?text=${encodeURIComponent(frontmatter.title)}`} target="_blank" class="inline-flex items-center px-4 py-2 border border-zinc-200 dark:border-zinc-700 rounded-lg text-sm font-medium text-zinc-700 dark:text-zinc-300 hover:bg-zinc-50 dark:hover:bg-zinc-800 transition-colors">
+                        <Twitter class="w-4 h-4 mr-2" /> Share on X
                     </a>
                 </div>
             </footer>
@@ -230,8 +269,6 @@ const { frontmatter } = Astro.props;
 
     <!-- Scripts -->
     <script>
-        lucide.createIcons();
-        
         // Theme Toggle Logic
         const themeToggleBtn = document.getElementById('theme-toggle');
         if (themeToggleBtn) {
