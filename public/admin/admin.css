@@ -1,0 +1,441 @@
+/*
+ * Decap CMS — Custom Admin Styles
+ * Milad Natanzi Portfolio · natanzi.com
+ * Premium minimal dark theme consistent with the main site
+ */
+
+/* ── Google Font ─────────────────────────────────────────────────────────── */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Newsreader:ital,opsz,wght@0,6..72,400;1,6..72,300&display=swap');
+
+/* ── Base Variables ──────────────────────────────────────────────────────── */
+:root {
+  --accent:       #3b82f6;
+  --accent-hover: #2563eb;
+  --bg-app:       #09090b;
+  --bg-panel:     #111113;
+  --bg-card:      #18181b;
+  --bg-input:     #1c1c1f;
+  --border:       rgba(255,255,255,0.07);
+  --border-focus: rgba(59,130,246,0.5);
+  --text-primary: #f4f4f5;
+  --text-secondary:#a1a1aa;
+  --text-muted:   #52525b;
+  --radius-sm:    6px;
+  --radius-md:    10px;
+  --radius-lg:    16px;
+  --shadow:       0 4px 24px rgba(0,0,0,0.5);
+  --font-sans:    'Inter', -apple-system, sans-serif;
+  --font-serif:   'Newsreader', Georgia, serif;
+}
+
+/* ── App Shell ───────────────────────────────────────────────────────────── */
+body,
+#root,
+.nc-app-main {
+  background: var(--bg-app) !important;
+  font-family: var(--font-sans) !important;
+  color: var(--text-primary) !important;
+}
+
+/* ── Top Navigation Bar ──────────────────────────────────────────────────── */
+header[class*="AppHeader"] {
+  background: rgba(9,9,11,0.9) !important;
+  backdrop-filter: blur(20px) !important;
+  -webkit-backdrop-filter: blur(20px) !important;
+  border-bottom: 1px solid var(--border) !important;
+  box-shadow: none !important;
+  padding: 0 24px !important;
+}
+
+header[class*="AppHeader"] nav a,
+header[class*="AppHeader"] nav button,
+header[class*="AppHeaderNavLink"] {
+  color: var(--text-secondary) !important;
+  font-size: 0.8rem !important;
+  font-weight: 500 !important;
+  letter-spacing: 0.05em !important;
+  text-transform: uppercase !important;
+  border-radius: var(--radius-sm) !important;
+  padding: 6px 12px !important;
+  transition: color 0.2s, background 0.2s !important;
+}
+header[class*="AppHeader"] nav a:hover,
+header[class*="AppHeaderNavLink"]:hover {
+  color: var(--text-primary) !important;
+  background: rgba(255,255,255,0.05) !important;
+}
+
+/* Branding in nav */
+header[class*="AppHeader"] h1,
+header[class*="AppHeader"] [class*="brand"] {
+  font-family: var(--font-serif) !important;
+  font-style: italic !important;
+  font-size: 1.1rem !important;
+  color: var(--text-primary) !important;
+  letter-spacing: -0.01em !important;
+}
+
+/* ── Left Sidebar / Collection List ─────────────────────────────────────── */
+aside[class*="CollectionsSidebar"],
+nav[class*="CollectionsSidebar"] {
+  background: var(--bg-panel) !important;
+  border-right: 1px solid var(--border) !important;
+  padding: 16px !important;
+}
+
+[class*="CollectionsSidebar"] [class*="SidebarNavLink"],
+[class*="CollectionsSidebar"] a {
+  color: var(--text-secondary) !important;
+  font-size: 0.82rem !important;
+  font-weight: 500 !important;
+  border-radius: var(--radius-sm) !important;
+  padding: 8px 12px !important;
+  margin-bottom: 2px !important;
+  transition: all 0.15s !important;
+  display: flex !important;
+  align-items: center !important;
+  gap: 8px !important;
+}
+[class*="CollectionsSidebar"] a:hover {
+  background: rgba(255,255,255,0.05) !important;
+  color: var(--text-primary) !important;
+}
+[class*="CollectionsSidebar"] a[class*="active"],
+[class*="CollectionsSidebar"] a[aria-current="true"] {
+  background: rgba(59,130,246,0.12) !important;
+  color: var(--accent) !important;
+}
+
+/* Section labels */
+[class*="CollectionsSidebar"] [class*="SectionLabel"],
+[class*="CollectionsSidebar"] p {
+  color: var(--text-muted) !important;
+  font-size: 0.65rem !important;
+  font-weight: 700 !important;
+  letter-spacing: 0.12em !important;
+  text-transform: uppercase !important;
+  padding: 12px 12px 4px !important;
+  margin: 0 !important;
+}
+
+/* ── Main Content Area ───────────────────────────────────────────────────── */
+main[class*="MainPanel"],
+div[class*="CollectionView"],
+div[class*="EditorContainer"] {
+  background: var(--bg-app) !important;
+}
+
+/* ── Collection Entry Cards ──────────────────────────────────────────────── */
+[class*="ListItem"],
+[class*="EntryTable"] tr {
+  background: var(--bg-card) !important;
+  border: 1px solid var(--border) !important;
+  border-radius: var(--radius-md) !important;
+  margin-bottom: 8px !important;
+  transition: border-color 0.2s, box-shadow 0.2s !important;
+}
+[class*="ListItem"]:hover,
+[class*="EntryTable"] tr:hover {
+  border-color: rgba(59,130,246,0.3) !important;
+  box-shadow: 0 2px 16px rgba(59,130,246,0.08) !important;
+}
+
+[class*="ListItem"] h2,
+[class*="EntryListing"] [class*="title"] {
+  color: var(--text-primary) !important;
+  font-size: 0.95rem !important;
+  font-weight: 500 !important;
+}
+
+[class*="ListItem"] span,
+[class*="EntryListing"] [class*="date"],
+[class*="EntryListing"] [class*="meta"] {
+  color: var(--text-muted) !important;
+  font-size: 0.75rem !important;
+}
+
+/* ── Editor Toolbar ──────────────────────────────────────────────────────── */
+[class*="EditorToolbar"],
+[class*="Toolbar"] {
+  background: var(--bg-panel) !important;
+  border-bottom: 1px solid var(--border) !important;
+  border-top: none !important;
+  padding: 8px 16px !important;
+  gap: 4px !important;
+}
+
+[class*="EditorToolbar"] button,
+[class*="Toolbar"] button {
+  color: var(--text-secondary) !important;
+  background: transparent !important;
+  border: none !important;
+  border-radius: var(--radius-sm) !important;
+  padding: 6px 8px !important;
+  transition: background 0.15s, color 0.15s !important;
+}
+[class*="EditorToolbar"] button:hover,
+[class*="Toolbar"] button:hover {
+  background: rgba(255,255,255,0.07) !important;
+  color: var(--text-primary) !important;
+}
+[class*="EditorToolbar"] button[class*="active"],
+[class*="Toolbar"] button[class*="active"] {
+  background: rgba(59,130,246,0.15) !important;
+  color: var(--accent) !important;
+}
+
+/* ── Form Fields / Inputs ─────────────────────────────────────────────────── */
+input[type="text"],
+input[type="email"],
+input[type="url"],
+input[type="number"],
+input[type="search"],
+textarea,
+select,
+[class*="StyledSelect"],
+[class*="StringInput"],
+[class*="TextInput"] {
+  background: var(--bg-input) !important;
+  border: 1px solid var(--border) !important;
+  border-radius: var(--radius-sm) !important;
+  color: var(--text-primary) !important;
+  font-family: var(--font-sans) !important;
+  font-size: 0.875rem !important;
+  padding: 8px 12px !important;
+  transition: border-color 0.2s, box-shadow 0.2s !important;
+  outline: none !important;
+}
+input:focus,
+textarea:focus,
+select:focus,
+[class*="StyledSelect"]:focus-within {
+  border-color: var(--border-focus) !important;
+  box-shadow: 0 0 0 3px rgba(59,130,246,0.15) !important;
+}
+
+/* Field Labels */
+label,
+[class*="FieldLabel"],
+[class*="Control"] label {
+  color: var(--text-secondary) !important;
+  font-size: 0.75rem !important;
+  font-weight: 600 !important;
+  letter-spacing: 0.06em !important;
+  text-transform: uppercase !important;
+  margin-bottom: 6px !important;
+  display: block !important;
+}
+
+/* Hints */
+[class*="Hint"],
+[class*="helpText"] {
+  color: var(--text-muted) !important;
+  font-size: 0.72rem !important;
+  margin-top: 4px !important;
+  font-style: italic !important;
+}
+
+/* ── Rich Text / Markdown Editor ─────────────────────────────────────────── */
+[class*="EditorWrapper"],
+[class*="MarkdownEditor"] {
+  background: var(--bg-input) !important;
+  border: 1px solid var(--border) !important;
+  border-radius: var(--radius-md) !important;
+}
+
+[class*="EditorWrapper"] [contenteditable],
+[class*="MarkdownEditor"] [contenteditable],
+[class*="cm-editor"],
+[class*="CodeMirror"] {
+  background: var(--bg-input) !important;
+  color: var(--text-primary) !important;
+  font-family: 'SF Mono', 'Fira Code', monospace !important;
+  font-size: 0.875rem !important;
+  line-height: 1.7 !important;
+}
+
+/* ── Buttons ─────────────────────────────────────────────────────────────── */
+button[class*="primary"],
+button[data-testid*="publish"],
+[class*="PublishBtn"],
+[class*="WorkflowPublish"] {
+  background: var(--accent) !important;
+  color: #fff !important;
+  border: none !important;
+  border-radius: 999px !important;
+  font-size: 0.8rem !important;
+  font-weight: 600 !important;
+  letter-spacing: 0.04em !important;
+  padding: 8px 20px !important;
+  transition: background 0.2s, transform 0.15s, box-shadow 0.2s !important;
+  cursor: pointer !important;
+}
+button[class*="primary"]:hover,
+[class*="PublishBtn"]:hover {
+  background: var(--accent-hover) !important;
+  box-shadow: 0 4px 16px rgba(59,130,246,0.3) !important;
+  transform: translateY(-1px) !important;
+}
+
+button[class*="secondary"],
+button[class*="cancel"],
+button[class*="default"]:not([class*="primary"]) {
+  background: var(--bg-card) !important;
+  color: var(--text-secondary) !important;
+  border: 1px solid var(--border) !important;
+  border-radius: 999px !important;
+  font-size: 0.8rem !important;
+  font-weight: 500 !important;
+  padding: 8px 20px !important;
+  transition: border-color 0.2s, color 0.2s !important;
+}
+button[class*="secondary"]:hover,
+button[class*="cancel"]:hover {
+  border-color: rgba(255,255,255,0.15) !important;
+  color: var(--text-primary) !important;
+}
+
+/* ── Dropdown / Select Menus ─────────────────────────────────────────────── */
+[class*="Dropdown"],
+[class*="DropdownList"],
+[class*="Menu"] {
+  background: var(--bg-card) !important;
+  border: 1px solid var(--border) !important;
+  border-radius: var(--radius-md) !important;
+  box-shadow: var(--shadow) !important;
+  padding: 6px !important;
+  overflow: hidden !important;
+}
+[class*="DropdownItem"],
+[class*="MenuItem"] {
+  color: var(--text-secondary) !important;
+  border-radius: var(--radius-sm) !important;
+  padding: 8px 12px !important;
+  font-size: 0.85rem !important;
+  transition: background 0.12s, color 0.12s !important;
+}
+[class*="DropdownItem"]:hover,
+[class*="MenuItem"]:hover {
+  background: rgba(255,255,255,0.06) !important;
+  color: var(--text-primary) !important;
+}
+
+/* ── List Widget Items ───────────────────────────────────────────────────── */
+[class*="ListItemTopBar"],
+[class*="SortableElement"] {
+  background: var(--bg-card) !important;
+  border: 1px solid var(--border) !important;
+  border-radius: var(--radius-md) !important;
+  margin-bottom: 8px !important;
+  padding: 12px 16px !important;
+  transition: border-color 0.2s !important;
+}
+[class*="ListItemTopBar"]:hover,
+[class*="SortableElement"]:hover {
+  border-color: rgba(59,130,246,0.25) !important;
+}
+
+/* Collapse / expand chevrons */
+[class*="Collapse"] svg,
+[class*="Expand"] svg,
+[class*="chevron"] svg {
+  color: var(--text-muted) !important;
+}
+
+/* ── Object Widget ───────────────────────────────────────────────────────── */
+[class*="ObjectWidgetTopBar"],
+[class*="ObjectControl"] > div:first-child {
+  background: rgba(59,130,246,0.06) !important;
+  border: 1px solid rgba(59,130,246,0.15) !important;
+  border-radius: var(--radius-md) !important;
+  padding: 10px 16px !important;
+  margin-bottom: 8px !important;
+}
+
+/* ── Workflow / Kanban Board ─────────────────────────────────────────────── */
+[class*="WorkflowCard"],
+[class*="DraftCard"],
+[class*="ReviewCard"] {
+  background: var(--bg-card) !important;
+  border: 1px solid var(--border) !important;
+  border-radius: var(--radius-md) !important;
+  box-shadow: none !important;
+  transition: box-shadow 0.2s, transform 0.2s !important;
+}
+[class*="WorkflowCard"]:hover {
+  box-shadow: var(--shadow) !important;
+  transform: translateY(-2px) !important;
+}
+
+[class*="WorkflowColumn"] header,
+[class*="ColumnHeader"] {
+  font-size: 0.7rem !important;
+  font-weight: 700 !important;
+  letter-spacing: 0.12em !important;
+  text-transform: uppercase !important;
+  color: var(--text-muted) !important;
+  border-bottom: 1px solid var(--border) !important;
+  padding-bottom: 12px !important;
+  margin-bottom: 12px !important;
+}
+
+/* ── Media / Image Widget ────────────────────────────────────────────────── */
+[class*="ImageCard"],
+[class*="ImageWidgetButton"] {
+  background: var(--bg-input) !important;
+  border: 2px dashed var(--border) !important;
+  border-radius: var(--radius-md) !important;
+  color: var(--text-muted) !important;
+  transition: border-color 0.2s, color 0.2s !important;
+}
+[class*="ImageCard"]:hover,
+[class*="ImageWidgetButton"]:hover {
+  border-color: var(--accent) !important;
+  color: var(--accent) !important;
+}
+
+/* ── Notifications / Toast ───────────────────────────────────────────────── */
+[class*="Toast"],
+[class*="Notification"] {
+  background: var(--bg-card) !important;
+  border: 1px solid var(--border) !important;
+  border-radius: var(--radius-md) !important;
+  box-shadow: var(--shadow) !important;
+  color: var(--text-primary) !important;
+  font-size: 0.875rem !important;
+}
+[class*="Toast"][class*="success"],
+[class*="Notification"][class*="success"] {
+  border-color: rgba(34,197,94,0.3) !important;
+}
+[class*="Toast"][class*="error"],
+[class*="Notification"][class*="error"] {
+  border-color: rgba(239,68,68,0.3) !important;
+}
+
+/* ── Scrollbar ───────────────────────────────────────────────────────────── */
+::-webkit-scrollbar { width: 6px; height: 6px; }
+::-webkit-scrollbar-track { background: transparent; }
+::-webkit-scrollbar-thumb {
+  background: rgba(255,255,255,0.1);
+  border-radius: 3px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(255,255,255,0.18);
+}
+
+/* ── Typography in Editor Preview ───────────────────────────────────────── */
+[class*="PreviewPane"] {
+  background: var(--bg-app) !important;
+  color: var(--text-secondary) !important;
+  font-family: var(--font-sans) !important;
+}
+[class*="PreviewPane"] h1,
+[class*="PreviewPane"] h2,
+[class*="PreviewPane"] h3 {
+  font-family: var(--font-serif) !important;
+  color: var(--text-primary) !important;
+}
+
+/* ── Transitions / Animations ────────────────────────────────────────────── */
+* { transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1); }
