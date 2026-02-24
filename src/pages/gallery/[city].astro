@@ -3,7 +3,7 @@ import galleryData from '../../data/gallery.json';
 import '../../styles/global.css';
 
 export async function getStaticPaths() {
-    return galleryData.map(city => ({
+    return galleryData.cities.map(city => ({
         params: { city: city.slug },
         props: { city },
     }));
