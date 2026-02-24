@@ -27,7 +27,11 @@ const { frontmatter } = Astro.props;
     <!-- Google Fonts: Inter & Newsreader -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Newsreader:ital,opsz,wght@0,6..72,300;0,6..72,400;1,6..72,300;1,6..72,400&display=swap">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Newsreader:ital,opsz,wght@0,6..72,300;0,6..72,400;1,6..72,300;1,6..72,400&display=swap" rel="stylesheet">
+    
+    <!-- Preload Author Image -->
+    <link rel="preload" href="/Milad-Natanzi.jpg" as="image" />
     
     <!-- Lucide Icons -->
     <script src="https://unpkg.com/lucide@latest"></script>
