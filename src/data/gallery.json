@@ -1,0 +1,110 @@
+[
+    {
+        "slug": "chicago",
+        "name": "Chicago",
+        "tagline": "The Windy City from ground to sky",
+        "cover": "https://images.unsplash.com/photo-1477959858617-67f85cf4f1df?auto=format&fit=crop&q=80&w=800",
+        "photos": [
+            {
+                "src": "https://images.unsplash.com/photo-1477959858617-67f85cf4f1df?auto=format&fit=crop&q=80&w=1200",
+                "caption": "Chicago skyline at dusk"
+            },
+            {
+                "src": "https://images.unsplash.com/photo-1534430480872-3498386e7856?auto=format&fit=crop&q=80&w=1200",
+                "caption": "The Bean (Cloud Gate)"
+            },
+            {
+                "src": "https://images.unsplash.com/photo-1598935898639-81586f7d2129?auto=format&fit=crop&q=80&w=1200",
+                "caption": "Architecture along the Chicago River"
+            },
+            {
+                "src": "https://images.unsplash.com/photo-1607434470681-1b7f99e27ab7?auto=format&fit=crop&q=80&w=1200",
+                "caption": "Chicago at night"
+            },
+            {
+                "src": "https://images.unsplash.com/photo-1581373449483-37449f962b6c?auto=format&fit=crop&q=80&w=1200",
+                "caption": "Chicago streets in summer"
+            },
+            {
+                "src": "https://images.unsplash.com/photo-1575562150-0b94f62f0f5a?auto=format&fit=crop&q=80&w=1200",
+                "caption": "Lake Michigan shoreline"
+            },
+            {
+                "src": "https://images.unsplash.com/photo-1527004013197-933c4bb611b3?auto=format&fit=crop&q=80&w=1200",
+                "caption": "Snowy Chicago winter"
+            },
+            {
+                "src": "https://images.unsplash.com/photo-1618580747500-c738b1067a46?auto=format&fit=crop&q=80&w=1200",
+                "caption": "Chicago Riverwalk"
+            }
+        ]
+    },
+    {
+        "slug": "boston",
+        "name": "Boston",
+        "tagline": "History meets modernity in the Bay State",
+        "cover": "https://images.unsplash.com/photo-1501979376754-4ff580d7e73b?auto=format&fit=crop&q=80&w=800",
+        "photos": [
+            {
+                "src": "https://images.unsplash.com/photo-1501979376754-4ff580d7e73b?auto=format&fit=crop&q=80&w=1200",
+                "caption": "Boston skyline from the harbor"
+            },
+            {
+                "src": "https://images.unsplash.com/photo-1564501049412-61c2a3083791?auto=format&fit=crop&q=80&w=1200",
+                "caption": "Beacon Hill brownstones"
+            },
+            {
+                "src": "https://images.unsplash.com/photo-1569761316261-9a8696fa2ca3?auto=format&fit=crop&q=80&w=1200",
+                "caption": "The Freedom Trail"
+            },
+            {
+                "src": "https://images.unsplash.com/photo-1543470373-e055b73a8f29?auto=format&fit=crop&q=80&w=1200",
+                "caption": "Charles River in autumn"
+            },
+            {
+                "src": "https://images.unsplash.com/photo-1600147131656-1594b608bc3b?auto=format&fit=crop&q=80&w=1200",
+                "caption": "WPI campus — Worcester, MA"
+            },
+            {
+                "src": "https://images.unsplash.com/photo-1514924013411-cbf25faa35bb?auto=format&fit=crop&q=80&w=1200",
+                "caption": "Quincy Market"
+            }
+        ]
+    },
+    {
+        "slug": "new-york-city",
+        "name": "New York City",
+        "tagline": "The city that never sleeps",
+        "cover": "https://images.unsplash.com/photo-1499092346302-b8d7c22b6ce8?auto=format&fit=crop&q=80&w=800",
+        "photos": [
+            {
+                "src": "https://images.unsplash.com/photo-1499092346302-b8d7c22b6ce8?auto=format&fit=crop&q=80&w=1200",
+                "caption": "Manhattan skyline at night"
+            },
+            {
+                "src": "https://images.unsplash.com/photo-1546977474-49aeea0408a8?auto=format&fit=crop&q=80&w=1200",
+                "caption": "Brooklyn Bridge at sunrise"
+            },
+            {
+                "src": "https://images.unsplash.com/photo-1534430480872-3498386e7856?auto=format&fit=crop&q=80&w=1200",
+                "caption": "Times Square"
+            },
+            {
+                "src": "https://images.unsplash.com/photo-1543872084-c7bd3822856f?auto=format&fit=crop&q=80&w=1200",
+                "caption": "Central Park in fall"
+            },
+            {
+                "src": "https://images.unsplash.com/photo-1490644658840-3f2e3f8c5625?auto=format&fit=crop&q=80&w=1200",
+                "caption": "The High Line"
+            },
+            {
+                "src": "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&q=80&w=1200",
+                "caption": "New York streets"
+            },
+            {
+                "src": "https://images.unsplash.com/photo-1582037928769-181f2644ecb7?auto=format&fit=crop&q=80&w=1200",
+                "caption": "Statue of Liberty"
+            }
+        ]
+    }
+]

@@ -203,7 +203,7 @@ const siteUrl = "https://natanzi.com";
                 <a href="#experience" class="hover:text-zinc-900 dark:hover:text-white transition-colors">Experience</a>
                 <a href="#projects" class="hover:text-zinc-900 dark:hover:text-white transition-colors">Projects</a>
                 <a href="#blog" class="hover:text-zinc-900 dark:hover:text-white transition-colors">Blog</a>
-                <a href="#photography" class="hover:text-zinc-900 dark:hover:text-white transition-colors">Photography</a>
+                <a href="#photography" class="hover:text-zinc-900 dark:hover:text-white transition-colors">Out of Office</a>
             </div>
             
             <div class="flex items-center space-x-4">
@@ -230,7 +230,7 @@ const siteUrl = "https://natanzi.com";
         <a href="#experience" class="mobile-link text-2xl font-serif text-zinc-600 dark:text-zinc-400 hover:text-zinc-900 dark:hover:text-white transition-colors">Experience</a>
         <a href="#projects" class="mobile-link text-2xl font-serif text-zinc-600 dark:text-zinc-400 hover:text-zinc-900 dark:hover:text-white transition-colors">Projects</a>
         <a href="#blog" class="mobile-link text-2xl font-serif text-zinc-600 dark:text-zinc-400 hover:text-zinc-900 dark:hover:text-white transition-colors">Blog</a>
-        <a href="#photography" class="mobile-link text-2xl font-serif text-zinc-600 dark:text-zinc-400 hover:text-zinc-900 dark:hover:text-white transition-colors">Photography</a>
+        <a href="#photography" class="mobile-link text-2xl font-serif text-zinc-600 dark:text-zinc-400 hover:text-zinc-900 dark:hover:text-white transition-colors">Out of Office</a>
         <a href="mailto:milad@natanzi.com" class="mobile-link mt-8 px-8 py-3 text-sm font-medium tracking-wide text-white bg-zinc-900 dark:bg-white dark:text-zinc-900 rounded-full shadow-md">
             Get in touch
         </a>
@@ -552,51 +552,66 @@ const siteUrl = "https://natanzi.com";
             </div>
         </section>
 
-        <!-- Photography Section -->
+        <!-- Out of Office / Gallery Section -->
         <section id="photography" class="mb-32 animate-fade-up delay-300 scroll-mt-24">
-            <div class="flex flex-col sm:flex-row sm:items-center justify-between mb-12 gap-4">
-                <div class="flex items-center flex-grow">
-                    <h2 class="text-sm font-semibold text-zinc-900 dark:text-zinc-100 uppercase tracking-widest flex items-center gap-2">
-                        <Camera class="w-4 h-4 text-zinc-500 dark:text-zinc-400" /> Local Perspectives
-                    </h2>
-                    <div class="ml-6 h-px bg-zinc-200 dark:bg-zinc-800 flex-grow"></div>
+            <div class="flex flex-col sm:flex-row sm:items-start justify-between mb-8 gap-4">
+                <div>
+                    <div class="flex items-center mb-3">
+                        <Camera class="w-4 h-4 text-zinc-500 dark:text-zinc-400 mr-2" />
+                        <h2 class="text-sm font-semibold text-zinc-900 dark:text-zinc-100 uppercase tracking-widest">Out of Office</h2>
+                        <div class="ml-6 h-px bg-zinc-200 dark:bg-zinc-800 flex-grow w-24"></div>
+                    </div>
+                    <p class="text-zinc-500 dark:text-zinc-400 font-light text-base leading-relaxed max-w-lg italic font-serif">
+                        Stepping away from the servers and lab to capture the world in focus.
+                    </p>
                 </div>
-                <a href="#" class="inline-flex items-center text-sm font-semibold text-zinc-500 dark:text-zinc-400 hover:text-zinc-900 dark:hover:text-zinc-100 transition-colors group">
+                <a href="/gallery" class="inline-flex items-center text-sm font-semibold text-zinc-500 dark:text-zinc-400 hover:text-zinc-900 dark:hover:text-zinc-100 transition-colors group shrink-0 mt-2 sm:mt-0">
                     View Full Gallery <ArrowRight class="w-4 h-4 ml-1 group-hover:translate-x-1 transition-transform" />
                 </a>
             </div>
             
             <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 lg:gap-6">
-                <!-- Replace these with actual user photos -->
-                <div class="aspect-[4/5] rounded-2xl overflow-hidden bg-zinc-100 dark:bg-zinc-900 group relative cursor-pointer shadow-sm hover:shadow-xl transition-all duration-500 border border-zinc-200/50 dark:border-zinc-800/50 p-1">
-                    <div class="w-full h-full rounded-xl overflow-hidden relative">
-                        <img src="https://images.unsplash.com/photo-1580659325492-421ebefd71de?auto=format&fit=crop&q=80&w=800" alt="Los Angeles" class="w-full h-full object-cover scale-100 group-hover:scale-105 transition-transform duration-700 ease-out grayscale group-hover:grayscale-0">
-                        <div class="absolute inset-x-0 bottom-0 p-5 bg-gradient-to-t from-black/80 via-black/40 to-transparent">
-                            <p class="text-white font-medium text-base">Cityscapes</p>
-                            <p class="text-white/80 text-[11px] uppercase tracking-wider mt-1 font-semibold">Street Photography</p>
-                        </div>
+                <!-- Chicago -->
+                <a href="/gallery/chicago" class="group aspect-[4/5] rounded-2xl overflow-hidden bg-zinc-100 dark:bg-zinc-900 relative shadow-sm hover:shadow-xl transition-all duration-500 border border-zinc-200/50 dark:border-zinc-800/50">
+                    <img src="https://images.unsplash.com/photo-1477959858617-67f85cf4f1df?auto=format&fit=crop&q=80&w=800" alt="Chicago" class="w-full h-full object-cover scale-100 group-hover:scale-105 transition-transform duration-700 ease-out grayscale group-hover:grayscale-0" loading="lazy">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/75 via-black/10 to-transparent"></div>
+                    <div class="absolute inset-x-0 bottom-0 p-5">
+                        <p class="text-white/60 text-[11px] uppercase tracking-wider font-semibold mb-1">8 Photos</p>
+                        <p class="text-white font-serif text-xl">Chicago</p>
+                        <p class="text-white/70 text-xs mt-1 font-light">The Windy City from ground to sky</p>
                     </div>
-                </div>
+                    <div class="absolute top-4 right-4 opacity-0 group-hover:opacity-100 transition-opacity">
+                        <span class="bg-white/90 text-zinc-900 text-xs font-bold px-3 py-1 rounded-full">Browse →</span>
+                    </div>
+                </a>
                 
-                <div class="aspect-[4/5] rounded-2xl overflow-hidden bg-zinc-100 dark:bg-zinc-900 group relative cursor-pointer shadow-sm hover:shadow-xl transition-all duration-500 border border-zinc-200/50 dark:border-zinc-800/50 p-1">
-                    <div class="w-full h-full rounded-xl overflow-hidden relative">
-                        <img src="https://images.unsplash.com/photo-1521633519391-4cf1f8b1c4b1?auto=format&fit=crop&q=80&w=800" alt="Skydiving" class="w-full h-full object-cover scale-100 group-hover:scale-105 transition-transform duration-700 ease-out grayscale group-hover:grayscale-0">
-                        <div class="absolute inset-x-0 bottom-0 p-5 bg-gradient-to-t from-black/80 via-black/40 to-transparent">
-                            <p class="text-white font-medium text-base">Adventures</p>
-                            <p class="text-white/80 text-[11px] uppercase tracking-wider mt-1 font-semibold">Action & Sports</p>
-                        </div>
+                <!-- Boston -->
+                <a href="/gallery/boston" class="group aspect-[4/5] rounded-2xl overflow-hidden bg-zinc-100 dark:bg-zinc-900 relative shadow-sm hover:shadow-xl transition-all duration-500 border border-zinc-200/50 dark:border-zinc-800/50">
+                    <img src="https://images.unsplash.com/photo-1501979376754-4ff580d7e73b?auto=format&fit=crop&q=80&w=800" alt="Boston" class="w-full h-full object-cover scale-100 group-hover:scale-105 transition-transform duration-700 ease-out grayscale group-hover:grayscale-0" loading="lazy">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/75 via-black/10 to-transparent"></div>
+                    <div class="absolute inset-x-0 bottom-0 p-5">
+                        <p class="text-white/60 text-[11px] uppercase tracking-wider font-semibold mb-1">6 Photos</p>
+                        <p class="text-white font-serif text-xl">Boston</p>
+                        <p class="text-white/70 text-xs mt-1 font-light">History meets modernity in the Bay State</p>
                     </div>
-                </div>
+                    <div class="absolute top-4 right-4 opacity-0 group-hover:opacity-100 transition-opacity">
+                        <span class="bg-white/90 text-zinc-900 text-xs font-bold px-3 py-1 rounded-full">Browse →</span>
+                    </div>
+                </a>
                 
-                <div class="aspect-[4/5] rounded-2xl overflow-hidden bg-zinc-100 dark:bg-zinc-900 group relative sm:col-span-2 lg:col-span-1 sm:aspect-[21/9] lg:aspect-[4/5] cursor-pointer shadow-sm hover:shadow-xl transition-all duration-500 border border-zinc-200/50 dark:border-zinc-800/50 p-1">
-                    <div class="w-full h-full rounded-xl overflow-hidden relative">
-                        <img src="https://images.unsplash.com/photo-1459749411175-04bf5292ceea?auto=format&fit=crop&q=80&w=800" alt="Concert" class="w-full h-full object-cover scale-100 group-hover:scale-105 transition-transform duration-700 ease-out grayscale group-hover:grayscale-0">
-                        <div class="absolute inset-x-0 bottom-0 p-5 bg-gradient-to-t from-black/80 via-black/40 to-transparent">
-                            <p class="text-white font-medium text-base">Moments</p>
-                            <p class="text-white/80 text-[11px] uppercase tracking-wider mt-1 font-semibold">Events & Live</p>
-                        </div>
+                <!-- New York City -->
+                <a href="/gallery/new-york-city" class="group aspect-[4/5] rounded-2xl overflow-hidden bg-zinc-100 dark:bg-zinc-900 relative sm:col-span-2 lg:col-span-1 sm:aspect-[21/9] lg:aspect-[4/5] shadow-sm hover:shadow-xl transition-all duration-500 border border-zinc-200/50 dark:border-zinc-800/50">
+                    <img src="https://images.unsplash.com/photo-1499092346302-b8d7c22b6ce8?auto=format&fit=crop&q=80&w=800" alt="New York City" class="w-full h-full object-cover scale-100 group-hover:scale-105 transition-transform duration-700 ease-out grayscale group-hover:grayscale-0" loading="lazy">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/75 via-black/10 to-transparent"></div>
+                    <div class="absolute inset-x-0 bottom-0 p-5">
+                        <p class="text-white/60 text-[11px] uppercase tracking-wider font-semibold mb-1">7 Photos</p>
+                        <p class="text-white font-serif text-xl">New York City</p>
+                        <p class="text-white/70 text-xs mt-1 font-light">The city that never sleeps</p>
                     </div>
-                </div>
+                    <div class="absolute top-4 right-4 opacity-0 group-hover:opacity-100 transition-opacity">
+                        <span class="bg-white/90 text-zinc-900 text-xs font-bold px-3 py-1 rounded-full">Browse →</span>
+                    </div>
+                </a>
             </div>
         </section>
 
