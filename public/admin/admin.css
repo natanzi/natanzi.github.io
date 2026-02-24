@@ -1,31 +1,33 @@
 /*
  * Decap CMS — Custom Admin Styles
  * Milad Natanzi Portfolio · natanzi.com
- * Premium minimal dark theme consistent with the main site
+ * Clean premium light theme
  */
 
 /* ── Google Font ─────────────────────────────────────────────────────────── */
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Newsreader:ital,opsz,wght@0,6..72,400;1,6..72,300&display=swap');
 
-/* ── Base Variables ──────────────────────────────────────────────────────── */
+/* ── Variables ───────────────────────────────────────────────────────────── */
 :root {
-  --accent:       #3b82f6;
-  --accent-hover: #2563eb;
-  --bg-app:       #09090b;
-  --bg-panel:     #111113;
-  --bg-card:      #18181b;
-  --bg-input:     #1c1c1f;
-  --border:       rgba(255,255,255,0.07);
-  --border-focus: rgba(59,130,246,0.5);
-  --text-primary: #f4f4f5;
-  --text-secondary:#a1a1aa;
-  --text-muted:   #52525b;
-  --radius-sm:    6px;
-  --radius-md:    10px;
-  --radius-lg:    16px;
-  --shadow:       0 4px 24px rgba(0,0,0,0.5);
-  --font-sans:    'Inter', -apple-system, sans-serif;
-  --font-serif:   'Newsreader', Georgia, serif;
+  --accent: #2563eb;
+  --accent-light: #eff6ff;
+  --accent-hover: #1d4ed8;
+  --bg-app: #f8f9fa;
+  --bg-panel: #ffffff;
+  --bg-card: #ffffff;
+  --bg-input: #ffffff;
+  --border: rgba(0, 0, 0, 0.08);
+  --border-focus: rgba(37, 99, 235, 0.4);
+  --text-primary: #111827;
+  --text-secondary: #4b5563;
+  --text-muted: #9ca3af;
+  --radius-sm: 6px;
+  --radius-md: 10px;
+  --radius-lg: 16px;
+  --shadow-sm: 0 1px 4px rgba(0, 0, 0, 0.06);
+  --shadow-md: 0 4px 20px rgba(0, 0, 0, 0.08);
+  --font-sans: 'Inter', -apple-system, sans-serif;
+  --font-serif: 'Newsreader', Georgia, serif;
 }
 
 /* ── App Shell ───────────────────────────────────────────────────────────── */
@@ -39,12 +41,12 @@ body,
 
 /* ── Top Navigation Bar ──────────────────────────────────────────────────── */
 header[class*="AppHeader"] {
-  background: rgba(9,9,11,0.9) !important;
-  backdrop-filter: blur(20px) !important;
-  -webkit-backdrop-filter: blur(20px) !important;
+  background: rgba(255, 255, 255, 0.92) !important;
+  backdrop-filter: blur(16px) !important;
+  -webkit-backdrop-filter: blur(16px) !important;
   border-bottom: 1px solid var(--border) !important;
-  box-shadow: none !important;
-  padding: 0 24px !important;
+  box-shadow: var(--shadow-sm) !important;
+  padding: 0 28px !important;
 }
 
 header[class*="AppHeader"] nav a,
@@ -53,19 +55,20 @@ header[class*="AppHeaderNavLink"] {
   color: var(--text-secondary) !important;
   font-size: 0.8rem !important;
   font-weight: 500 !important;
-  letter-spacing: 0.05em !important;
+  letter-spacing: 0.04em !important;
   text-transform: uppercase !important;
   border-radius: var(--radius-sm) !important;
   padding: 6px 12px !important;
   transition: color 0.2s, background 0.2s !important;
 }
+
 header[class*="AppHeader"] nav a:hover,
 header[class*="AppHeaderNavLink"]:hover {
   color: var(--text-primary) !important;
-  background: rgba(255,255,255,0.05) !important;
+  background: var(--bg-app) !important;
 }
 
-/* Branding in nav */
+/* Branding */
 header[class*="AppHeader"] h1,
 header[class*="AppHeader"] [class*="brand"] {
   font-family: var(--font-serif) !important;
@@ -75,7 +78,7 @@ header[class*="AppHeader"] [class*="brand"] {
   letter-spacing: -0.01em !important;
 }
 
-/* ── Left Sidebar / Collection List ─────────────────────────────────────── */
+/* ── Left Sidebar ────────────────────────────────────────────────────────── */
 aside[class*="CollectionsSidebar"],
 nav[class*="CollectionsSidebar"] {
   background: var(--bg-panel) !important;
@@ -96,17 +99,19 @@ nav[class*="CollectionsSidebar"] {
   align-items: center !important;
   gap: 8px !important;
 }
+
 [class*="CollectionsSidebar"] a:hover {
-  background: rgba(255,255,255,0.05) !important;
+  background: var(--bg-app) !important;
   color: var(--text-primary) !important;
 }
+
 [class*="CollectionsSidebar"] a[class*="active"],
 [class*="CollectionsSidebar"] a[aria-current="true"] {
-  background: rgba(59,130,246,0.12) !important;
+  background: var(--accent-light) !important;
   color: var(--accent) !important;
+  font-weight: 600 !important;
 }
 
-/* Section labels */
 [class*="CollectionsSidebar"] [class*="SectionLabel"],
 [class*="CollectionsSidebar"] p {
   color: var(--text-muted) !important;
@@ -132,12 +137,14 @@ div[class*="EditorContainer"] {
   border: 1px solid var(--border) !important;
   border-radius: var(--radius-md) !important;
   margin-bottom: 8px !important;
-  transition: border-color 0.2s, box-shadow 0.2s !important;
+  box-shadow: var(--shadow-sm) !important;
+  transition: box-shadow 0.2s, border-color 0.2s !important;
 }
+
 [class*="ListItem"]:hover,
 [class*="EntryTable"] tr:hover {
-  border-color: rgba(59,130,246,0.3) !important;
-  box-shadow: 0 2px 16px rgba(59,130,246,0.08) !important;
+  border-color: rgba(37, 99, 235, 0.2) !important;
+  box-shadow: var(--shadow-md) !important;
 }
 
 [class*="ListItem"] h2,
@@ -148,7 +155,6 @@ div[class*="EditorContainer"] {
 }
 
 [class*="ListItem"] span,
-[class*="EntryListing"] [class*="date"],
 [class*="EntryListing"] [class*="meta"] {
   color: var(--text-muted) !important;
   font-size: 0.75rem !important;
@@ -161,7 +167,6 @@ div[class*="EditorContainer"] {
   border-bottom: 1px solid var(--border) !important;
   border-top: none !important;
   padding: 8px 16px !important;
-  gap: 4px !important;
 }
 
 [class*="EditorToolbar"] button,
@@ -173,14 +178,14 @@ div[class*="EditorContainer"] {
   padding: 6px 8px !important;
   transition: background 0.15s, color 0.15s !important;
 }
-[class*="EditorToolbar"] button:hover,
-[class*="Toolbar"] button:hover {
-  background: rgba(255,255,255,0.07) !important;
+
+[class*="EditorToolbar"] button:hover {
+  background: var(--bg-app) !important;
   color: var(--text-primary) !important;
 }
-[class*="EditorToolbar"] button[class*="active"],
-[class*="Toolbar"] button[class*="active"] {
-  background: rgba(59,130,246,0.15) !important;
+
+[class*="EditorToolbar"] button[class*="active"] {
+  background: var(--accent-light) !important;
   color: var(--accent) !important;
 }
 
@@ -191,12 +196,9 @@ input[type="url"],
 input[type="number"],
 input[type="search"],
 textarea,
-select,
-[class*="StyledSelect"],
-[class*="StringInput"],
-[class*="TextInput"] {
+select {
   background: var(--bg-input) !important;
-  border: 1px solid var(--border) !important;
+  border: 1px solid rgba(0, 0, 0, 0.12) !important;
   border-radius: var(--radius-sm) !important;
   color: var(--text-primary) !important;
   font-family: var(--font-sans) !important;
@@ -204,13 +206,14 @@ select,
   padding: 8px 12px !important;
   transition: border-color 0.2s, box-shadow 0.2s !important;
   outline: none !important;
+  box-shadow: var(--shadow-sm) !important;
 }
+
 input:focus,
 textarea:focus,
-select:focus,
-[class*="StyledSelect"]:focus-within {
-  border-color: var(--border-focus) !important;
-  box-shadow: 0 0 0 3px rgba(59,130,246,0.15) !important;
+select:focus {
+  border-color: var(--accent) !important;
+  box-shadow: 0 0 0 3px var(--border-focus) !important;
 }
 
 /* Field Labels */
@@ -218,9 +221,9 @@ label,
 [class*="FieldLabel"],
 [class*="Control"] label {
   color: var(--text-secondary) !important;
-  font-size: 0.75rem !important;
+  font-size: 0.72rem !important;
   font-weight: 600 !important;
-  letter-spacing: 0.06em !important;
+  letter-spacing: 0.07em !important;
   text-transform: uppercase !important;
   margin-bottom: 6px !important;
   display: block !important;
@@ -239,12 +242,12 @@ label,
 [class*="EditorWrapper"],
 [class*="MarkdownEditor"] {
   background: var(--bg-input) !important;
-  border: 1px solid var(--border) !important;
+  border: 1px solid rgba(0, 0, 0, 0.12) !important;
   border-radius: var(--radius-md) !important;
+  box-shadow: var(--shadow-sm) !important;
 }
 
 [class*="EditorWrapper"] [contenteditable],
-[class*="MarkdownEditor"] [contenteditable],
 [class*="cm-editor"],
 [class*="CodeMirror"] {
   background: var(--bg-input) !important;
@@ -256,9 +259,8 @@ label,
 
 /* ── Buttons ─────────────────────────────────────────────────────────────── */
 button[class*="primary"],
-button[data-testid*="publish"],
 [class*="PublishBtn"],
-[class*="WorkflowPublish"] {
+button[data-testid*="publish"] {
   background: var(--accent) !important;
   color: #fff !important;
   border: none !important;
@@ -267,45 +269,46 @@ button[data-testid*="publish"],
   font-weight: 600 !important;
   letter-spacing: 0.04em !important;
   padding: 8px 20px !important;
-  transition: background 0.2s, transform 0.15s, box-shadow 0.2s !important;
+  transition: background 0.2s, box-shadow 0.2s, transform 0.15s !important;
   cursor: pointer !important;
 }
-button[class*="primary"]:hover,
-[class*="PublishBtn"]:hover {
+
+button[class*="primary"]:hover {
   background: var(--accent-hover) !important;
-  box-shadow: 0 4px 16px rgba(59,130,246,0.3) !important;
+  box-shadow: 0 4px 16px rgba(37, 99, 235, 0.25) !important;
   transform: translateY(-1px) !important;
 }
 
 button[class*="secondary"],
 button[class*="cancel"],
 button[class*="default"]:not([class*="primary"]) {
-  background: var(--bg-card) !important;
+  background: #fff !important;
   color: var(--text-secondary) !important;
   border: 1px solid var(--border) !important;
   border-radius: 999px !important;
   font-size: 0.8rem !important;
   font-weight: 500 !important;
   padding: 8px 20px !important;
+  box-shadow: var(--shadow-sm) !important;
   transition: border-color 0.2s, color 0.2s !important;
 }
-button[class*="secondary"]:hover,
-button[class*="cancel"]:hover {
-  border-color: rgba(255,255,255,0.15) !important;
+
+button[class*="secondary"]:hover {
+  border-color: rgba(0, 0, 0, 0.18) !important;
   color: var(--text-primary) !important;
 }
 
-/* ── Dropdown / Select Menus ─────────────────────────────────────────────── */
+/* ── Dropdowns / Menus ───────────────────────────────────────────────────── */
 [class*="Dropdown"],
 [class*="DropdownList"],
 [class*="Menu"] {
-  background: var(--bg-card) !important;
+  background: #fff !important;
   border: 1px solid var(--border) !important;
   border-radius: var(--radius-md) !important;
-  box-shadow: var(--shadow) !important;
+  box-shadow: var(--shadow-md) !important;
   padding: 6px !important;
-  overflow: hidden !important;
 }
+
 [class*="DropdownItem"],
 [class*="MenuItem"] {
   color: var(--text-secondary) !important;
@@ -314,39 +317,35 @@ button[class*="cancel"]:hover {
   font-size: 0.85rem !important;
   transition: background 0.12s, color 0.12s !important;
 }
+
 [class*="DropdownItem"]:hover,
 [class*="MenuItem"]:hover {
-  background: rgba(255,255,255,0.06) !important;
+  background: var(--bg-app) !important;
   color: var(--text-primary) !important;
 }
 
-/* ── List Widget Items ───────────────────────────────────────────────────── */
+/* ── List Widget ─────────────────────────────────────────────────────────── */
 [class*="ListItemTopBar"],
 [class*="SortableElement"] {
-  background: var(--bg-card) !important;
+  background: #fff !important;
   border: 1px solid var(--border) !important;
   border-radius: var(--radius-md) !important;
+  box-shadow: var(--shadow-sm) !important;
   margin-bottom: 8px !important;
   padding: 12px 16px !important;
-  transition: border-color 0.2s !important;
-}
-[class*="ListItemTopBar"]:hover,
-[class*="SortableElement"]:hover {
-  border-color: rgba(59,130,246,0.25) !important;
+  transition: box-shadow 0.2s, border-color 0.2s !important;
 }
 
-/* Collapse / expand chevrons */
-[class*="Collapse"] svg,
-[class*="Expand"] svg,
-[class*="chevron"] svg {
-  color: var(--text-muted) !important;
+[class*="ListItemTopBar"]:hover {
+  border-color: rgba(37, 99, 235, 0.2) !important;
+  box-shadow: var(--shadow-md) !important;
 }
 
 /* ── Object Widget ───────────────────────────────────────────────────────── */
 [class*="ObjectWidgetTopBar"],
-[class*="ObjectControl"] > div:first-child {
-  background: rgba(59,130,246,0.06) !important;
-  border: 1px solid rgba(59,130,246,0.15) !important;
+[class*="ObjectControl"]>div:first-child {
+  background: var(--accent-light) !important;
+  border: 1px solid rgba(37, 99, 235, 0.15) !important;
   border-radius: var(--radius-md) !important;
   padding: 10px 16px !important;
   margin-bottom: 8px !important;
@@ -356,14 +355,15 @@ button[class*="cancel"]:hover {
 [class*="WorkflowCard"],
 [class*="DraftCard"],
 [class*="ReviewCard"] {
-  background: var(--bg-card) !important;
+  background: #fff !important;
   border: 1px solid var(--border) !important;
   border-radius: var(--radius-md) !important;
-  box-shadow: none !important;
+  box-shadow: var(--shadow-sm) !important;
   transition: box-shadow 0.2s, transform 0.2s !important;
 }
+
 [class*="WorkflowCard"]:hover {
-  box-shadow: var(--shadow) !important;
+  box-shadow: var(--shadow-md) !important;
   transform: translateY(-2px) !important;
 }
 
@@ -382,12 +382,13 @@ button[class*="cancel"]:hover {
 /* ── Media / Image Widget ────────────────────────────────────────────────── */
 [class*="ImageCard"],
 [class*="ImageWidgetButton"] {
-  background: var(--bg-input) !important;
-  border: 2px dashed var(--border) !important;
+  background: var(--bg-app) !important;
+  border: 2px dashed rgba(0, 0, 0, 0.12) !important;
   border-radius: var(--radius-md) !important;
   color: var(--text-muted) !important;
   transition: border-color 0.2s, color 0.2s !important;
 }
+
 [class*="ImageCard"]:hover,
 [class*="ImageWidgetButton"]:hover {
   border-color: var(--accent) !important;
@@ -397,39 +398,48 @@ button[class*="cancel"]:hover {
 /* ── Notifications / Toast ───────────────────────────────────────────────── */
 [class*="Toast"],
 [class*="Notification"] {
-  background: var(--bg-card) !important;
+  background: #fff !important;
   border: 1px solid var(--border) !important;
   border-radius: var(--radius-md) !important;
-  box-shadow: var(--shadow) !important;
+  box-shadow: var(--shadow-md) !important;
   color: var(--text-primary) !important;
   font-size: 0.875rem !important;
 }
-[class*="Toast"][class*="success"],
-[class*="Notification"][class*="success"] {
-  border-color: rgba(34,197,94,0.3) !important;
+
+[class*="Toast"][class*="success"] {
+  border-color: rgba(22, 163, 74, 0.3) !important;
 }
-[class*="Toast"][class*="error"],
-[class*="Notification"][class*="error"] {
-  border-color: rgba(239,68,68,0.3) !important;
+
+[class*="Toast"][class*="error"] {
+  border-color: rgba(220, 38, 38, 0.25) !important;
 }
 
 /* ── Scrollbar ───────────────────────────────────────────────────────────── */
-::-webkit-scrollbar { width: 6px; height: 6px; }
-::-webkit-scrollbar-track { background: transparent; }
-::-webkit-scrollbar-thumb {
-  background: rgba(255,255,255,0.1);
-  border-radius: 3px;
-}
-::-webkit-scrollbar-thumb:hover {
-  background: rgba(255,255,255,0.18);
+::-webkit-scrollbar {
+  width: 5px;
+  height: 5px;
 }
 
-/* ── Typography in Editor Preview ───────────────────────────────────────── */
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(0, 0, 0, 0.12);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(0, 0, 0, 0.2);
+}
+
+/* ── Editor Preview Pane ─────────────────────────────────────────────────── */
 [class*="PreviewPane"] {
-  background: var(--bg-app) !important;
+  background: #fff !important;
   color: var(--text-secondary) !important;
   font-family: var(--font-sans) !important;
 }
+
 [class*="PreviewPane"] h1,
 [class*="PreviewPane"] h2,
 [class*="PreviewPane"] h3 {
@@ -437,5 +447,7 @@ button[class*="cancel"]:hover {
   color: var(--text-primary) !important;
 }
 
-/* ── Transitions / Animations ────────────────────────────────────────────── */
-* { transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1); }
+/* ── Smooth Transitions ──────────────────────────────────────────────────── */
+* {
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+}
