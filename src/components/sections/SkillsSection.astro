@@ -1,0 +1,35 @@
+---
+import { Code, Server, Activity, Network, Database } from 'lucide-astro';
+---
+
+<section id="skills" class="mb-32 animate-fade-up delay-200 scroll-mt-24">
+    <div class="flex items-center mb-12">
+        <h2 class="text-sm font-semibold text-zinc-900 dark:text-zinc-100 uppercase tracking-widest flex items-center gap-2">
+            <Code class="w-4 h-4 text-orange-500" /> Skills & Tools
+        </h2>
+        <div class="ml-6 h-px bg-zinc-200 dark:bg-zinc-800 flex-grow"></div>
+    </div>
+    
+    <div class="flex flex-wrap gap-4">
+        <div class="flex items-center px-4 py-3 bg-white dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 rounded-xl shadow-sm hover:shadow-md transition-shadow">
+            <Server class="w-5 h-5 text-zinc-500 dark:text-zinc-400 mr-3" />
+            <span class="font-medium text-zinc-800 dark:text-zinc-200">Sionna & USRP</span>
+        </div>
+        <div class="flex items-center px-4 py-3 bg-white dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 rounded-xl shadow-sm hover:shadow-md transition-shadow">
+            <Activity class="w-5 h-5 text-zinc-500 dark:text-zinc-400 mr-3" />
+            <span class="font-medium text-zinc-800 dark:text-zinc-200">PyTorch</span>
+        </div>
+        <div class="flex items-center px-4 py-3 bg-white dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 rounded-xl shadow-sm hover:shadow-md transition-shadow">
+            <Code class="w-5 h-5 text-zinc-500 dark:text-zinc-400 mr-3" />
+            <span class="font-medium text-zinc-800 dark:text-zinc-200">Python & MATLAB</span>
+        </div>
+        <div class="flex items-center px-4 py-3 bg-white dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 rounded-xl shadow-sm hover:shadow-md transition-shadow">
+            <Network class="w-5 h-5 text-zinc-500 dark:text-zinc-400 mr-3" />
+            <span class="font-medium text-zinc-800 dark:text-zinc-200">O-RAN</span>
+        </div>
+        <div class="flex items-center px-4 py-3 bg-white dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 rounded-xl shadow-sm hover:shadow-md transition-shadow">
+            <Database class="w-5 h-5 text-zinc-500 dark:text-zinc-400 mr-3" />
+            <span class="font-medium text-zinc-800 dark:text-zinc-200">Docker & Kubernetes</span>
+        </div>
+    </div>
+</section>

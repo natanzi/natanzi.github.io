@@ -139,6 +139,21 @@ collections:
         file: "src/data/settings.json"
         fields:
           - { label: "Under Construction Mode", name: "under_construction", widget: "boolean", default: false }
+          - label: "Homepage Layout"
+            name: "layout"
+            widget: "list"
+            collapsed: false
+            fields:
+              - label: "Section"
+                name: "section"
+                widget: "select"
+                options:
+                  - { label: "News & Updates", value: "news" }
+                  - { label: "Experience & Career", value: "experience" }
+                  - { label: "Skills & Tools", value: "skills" }
+                  - { label: "Selected Works (Projects)", value: "projects" }
+                  - { label: "Articles & Thoughts (Blog)", value: "blog" }
+              - { label: "Visible", name: "visible", widget: "boolean", default: true }
 
   # ── Gallery — Out of Office ──────────────────────────────────────────────────
   - name: "gallery"

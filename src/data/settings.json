@@ -1,3 +1,25 @@
 {
-  "under_construction": false
+  "under_construction": false,
+  "layout": [
+    {
+      "section": "news",
+      "visible": true
+    },
+    {
+      "section": "experience",
+      "visible": true
+    },
+    {
+      "section": "skills",
+      "visible": true
+    },
+    {
+      "section": "projects",
+      "visible": true
+    },
+    {
+      "section": "blog",
+      "visible": true
+    }
+  ]
 }
