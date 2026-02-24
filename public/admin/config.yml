@@ -107,6 +107,26 @@ collections:
                   - { label: "Industry / Corporate", value: "industry" }
               - { label: "Description", name: "description", widget: "text", hint: "What you did in this role" }
 
+  # ── News & Updates ─────────────────────────────────────────────────────────────
+  - name: "news"
+    label: "News & Updates"
+    delete: false
+    editor:
+      preview: false
+    files:
+      - name: "news_entries"
+        label: "News Entries"
+        file: "src/data/news.json"
+        fields:
+          - label: "News List"
+            name: "news"
+            widget: "list"
+            collapsed: false
+            fields:
+              - { label: "Date", name: "date", widget: "string", hint: "e.g. Feb 2026" }
+              - { label: "Content", name: "content", widget: "text", hint: "The news announcement" }
+              - { label: "Link (Optional)", name: "link", widget: "string", required: false, hint: "URL to the paper, article, or announcement" }
+
   # ── Site Settings ────────────────────────────────────────────────────────────
   - name: "settings"
     label: "Site Settings"
