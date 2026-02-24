@@ -1,0 +1,18 @@
+{
+    "experience": [
+        {
+            "title": "PhD Researcher",
+            "company": "Worcester Polytechnic Institute (WPI)",
+            "period": "2023 — Present",
+            "type": "academic",
+            "description": "Spearheading research on 5G/6G wireless infrastructure, efficient spectrum management, and optimizing O-RAN architecture. Developing novel approaches by integrating Machine Learning techniques—such as Continual and Reinforcement Learning—into physical-layer communications tasks to achieve higher network autonomy."
+        },
+        {
+            "title": "Data Scientist & Engineer",
+            "company": "MTN Group",
+            "period": "2014 — 2021",
+            "type": "industry",
+            "description": "Spent seven years driving impact in the telecommunications industry, specializing in large-scale data engineering. Built and maintained critical data infrastructure, developed predictive models, and implemented network optimization algorithms for global enterprise systems handling massive daily throughput."
+        }
+    ]
+}

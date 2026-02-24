@@ -12,17 +12,56 @@ media_library:
     api_key: "383232588839585"
 
 collections:
-  - name: "blog" # Used in routes, e.g., /admin/collections/blog
-    label: "Blog Posts" # Used in the UI
-    folder: "src/content/blog" # The path to the folder where the documents are stored
-    create: true # Allow users to create new documents in this collection
-    slug: "{{year}}-{{month}}-{{day}}-{{slug}}" # Filename template, e.g., YYYY-MM-DD-title.md
-    fields: # The fields for each document, usually in front matter
+  - name: "blog"
+    label: "Blog Posts"
+    folder: "src/content/blog"
+    create: true
+    slug: "{{slug}}"
+    fields:
       - { label: "Title", name: "title", widget: "string" }
       - { label: "Publish Date", name: "date", widget: "string" }
-      - { label: "Category", name: "category", widget: "string" }
+      - label: "Category"
+        name: "category"
+        widget: "select"
+        options: ["Research", "Engineering", "AI & ML", "Career", "Opinion"]
       - { label: "Description", name: "description", widget: "text" }
+      - label: "Related Articles"
+        name: "related"
+        widget: "relation"
+        collection: "blog"
+        search_fields: ["title", "description"]
+        value_field: "{{slug}}"
+        display_fields: ["title"]
+        multiple: true
+        required: false
+        hint: "Link related posts — they will appear at the bottom of this article"
       - { label: "Body", name: "body", widget: "markdown" }
+
+  - name: "experience"
+    label: "Experience & Career"
+    delete: false
+    editor:
+      preview: false
+    files:
+      - name: "work_history"
+        label: "Work History"
+        file: "src/data/experience.json"
+        fields:
+          - label: "Experience Entries"
+            name: "experience"
+            widget: "list"
+            collapsed: false
+            fields:
+              - { label: "Job Title", name: "title", widget: "string", hint: "e.g. PhD Researcher" }
+              - { label: "Company / Institution", name: "company", widget: "string", hint: "e.g. Worcester Polytechnic Institute (WPI)" }
+              - { label: "Period", name: "period", widget: "string", hint: "e.g. 2023 — Present" }
+              - label: "Type"
+                name: "type"
+                widget: "select"
+                options:
+                  - { label: "Academic / Research", value: "academic" }
+                  - { label: "Industry / Corporate", value: "industry" }
+              - { label: "Description", name: "description", widget: "text", hint: "What you did in this role" }
 
   - name: "settings"
     label: "Site Settings"
@@ -54,11 +93,11 @@ collections:
               - { label: "City Name", name: "name", widget: "string", hint: "e.g. Chicago" }
               - { label: "URL Slug", name: "slug", widget: "string", hint: "e.g. chicago (lowercase, no spaces)" }
               - { label: "Tagline", name: "tagline", widget: "string", hint: "Short subtitle for the city" }
-              - { label: "Cover Photo URL", name: "cover", widget: "image", hint: "Upload or paste URL for the city card cover image" }
+              - { label: "Cover Photo", name: "cover", widget: "image", hint: "Upload via Cloudinary or paste URL" }
               - label: "Photos"
                 name: "photos"
                 widget: "list"
                 collapsed: true
                 fields:
-                  - { label: "Photo URL", name: "src", widget: "image", hint: "Upload or paste image URL" }
+                  - { label: "Photo", name: "src", widget: "image", hint: "Upload via Cloudinary" }
                   - { label: "Caption", name: "caption", widget: "string", hint: "Short description of the photo" }
