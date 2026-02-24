@@ -1,6 +1,9 @@
 backend:
   name: git-gateway
-  branch: main # Branch to update (optional; defaults to master)
+  branch: main
+
+# ✏️ Editorial Workflow — Kanban board with Draft / In Review / Ready states
+publish_mode: editorial_workflow
 
 media_folder: "public/uploads"
 public_folder: "/uploads"
@@ -12,6 +15,7 @@ media_library:
     api_key: "383232588839585"
 
 collections:
+  # ── Blog Posts ──────────────────────────────────────────────────────────────
   - name: "blog"
     label: "Blog Posts"
     folder: "src/content/blog"
@@ -25,6 +29,20 @@ collections:
         widget: "select"
         options: ["Research", "Engineering", "AI & ML", "Career", "Opinion"]
       - { label: "Description", name: "description", widget: "text" }
+
+      # 🏷️ Dynamic Tags
+      - label: "Tags"
+        name: "tags"
+        widget: "list"
+        allow_add: true
+        required: false
+        hint: "Add tags like: 5G/6G, O-RAN, Continual Learning, Python, ML..."
+        field:
+          label: "Tag"
+          name: "tag"
+          widget: "string"
+
+      # 🔗 Relation — link related articles
       - label: "Related Articles"
         name: "related"
         widget: "relation"
@@ -35,8 +53,34 @@ collections:
         multiple: true
         required: false
         hint: "Link related posts — they will appear at the bottom of this article"
+
+      # 🔍 SEO & Open Graph (collapsed by default)
+      - label: "SEO & Social Share"
+        name: "seo"
+        widget: "object"
+        collapsed: true
+        required: false
+        hint: "Customize how this post appears in Google and when shared on LinkedIn/Twitter"
+        fields:
+          - label: "Meta Title"
+            name: "meta_title"
+            widget: "string"
+            required: false
+            hint: "Leave blank to use the post title (max 60 chars)"
+          - label: "Meta Description"
+            name: "meta_description"
+            widget: "text"
+            required: false
+            hint: "Short summary for Google search results (max 160 chars)"
+          - label: "Social Share Image"
+            name: "og_image"
+            widget: "image"
+            required: false
+            hint: "Image shown when shared on LinkedIn/Twitter (1200×630px recommended)"
+
       - { label: "Body", name: "body", widget: "markdown" }
 
+  # ── Experience & Career ──────────────────────────────────────────────────────
   - name: "experience"
     label: "Experience & Career"
     delete: false
@@ -63,6 +107,7 @@ collections:
                   - { label: "Industry / Corporate", value: "industry" }
               - { label: "Description", name: "description", widget: "text", hint: "What you did in this role" }
 
+  # ── Site Settings ────────────────────────────────────────────────────────────
   - name: "settings"
     label: "Site Settings"
     delete: false
@@ -75,6 +120,7 @@ collections:
         fields:
           - { label: "Under Construction Mode", name: "under_construction", widget: "boolean", default: false }
 
+  # ── Gallery — Out of Office ──────────────────────────────────────────────────
   - name: "gallery"
     label: "Gallery — Out of Office"
     delete: false
@@ -101,3 +147,9 @@ collections:
                 fields:
                   - { label: "Photo", name: "src", widget: "image", hint: "Upload via Cloudinary" }
                   - { label: "Caption", name: "caption", widget: "string", hint: "Short description of the photo" }
+                  # 📍 Location Metadata
+                  - label: "Location"
+                    name: "location"
+                    widget: "string"
+                    required: false
+                    hint: "e.g. Michigan Ave & Wacker Dr, Chicago — appears as a subtle label on the photo"
