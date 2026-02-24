@@ -1,14 +1,14 @@
 {
-    "news": [
-        {
-            "date": "Feb 2026",
-            "content": "Our paper on 6G Networks and Advanced Telecommunications was accepted at IEEE INFOCOM 2026.",
-            "link": "https://natanzi.com/blog/future-of-6g"
-        },
-        {
-            "date": "Jan 2026",
-            "content": "Received the Graduate Research Fellowship to continue our work on O-RAN architectures.",
-            "link": ""
-        }
-    ]
+  "news": [
+    {
+      "date": "Feb 2026",
+      "content": "Our paper on AI-Driven Fuzzing for Vulnerability Assessment of 5G Traffic Steering Algorithms was accepted at IEEE ICC 2026.",
+      "link": "https://arxiv.org/pdf/2601.18690"
+    },
+    {
+      "date": "Jan 2026",
+      "content": "I was selected for the 2026 cohort of iREDEFINE Fellows, which will be held in Albuquerque, New Mexico.",
+      "link": "https://www.ecedha.org/Meetings/2026-ECEDHA-Annual-Conference-and-ECExpo/iREDEFINE"
+    }
+  ]
 }
