@@ -29,3 +29,30 @@ collections:
         file: "src/data/settings.json"
         fields:
           - { label: "Under Construction Mode", name: "under_construction", widget: "boolean", default: false }
+
+  - name: "gallery"
+    label: "Gallery — Out of Office"
+    delete: false
+    editor:
+      preview: false
+    files:
+      - name: "cities"
+        label: "City Collections"
+        file: "src/data/gallery.json"
+        fields:
+          - label: "Cities"
+            name: "cities"
+            widget: "list"
+            collapsed: false
+            fields:
+              - { label: "City Name", name: "name", widget: "string", hint: "e.g. Chicago" }
+              - { label: "URL Slug", name: "slug", widget: "string", hint: "e.g. chicago (lowercase, no spaces)" }
+              - { label: "Tagline", name: "tagline", widget: "string", hint: "Short subtitle for the city" }
+              - { label: "Cover Photo URL", name: "cover", widget: "image", hint: "Upload or paste URL for the city card cover image" }
+              - label: "Photos"
+                name: "photos"
+                widget: "list"
+                collapsed: true
+                fields:
+                  - { label: "Photo URL", name: "src", widget: "image", hint: "Upload or paste image URL" }
+                  - { label: "Caption", name: "caption", widget: "string", hint: "Short description of the photo" }
