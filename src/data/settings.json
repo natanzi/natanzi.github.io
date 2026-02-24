@@ -1,5 +1,6 @@
 {
   "under_construction": false,
+  "show_job_market_status": true,
   "layout": [
     {
       "section": "news",

@@ -139,6 +139,7 @@ collections:
         file: "src/data/settings.json"
         fields:
           - { label: "Under Construction Mode", name: "under_construction", widget: "boolean", default: false }
+          - { label: "Show 'In Job Market' Badge", name: "show_job_market_status", widget: "boolean", default: true }
           - label: "Homepage Layout"
             name: "layout"
             widget: "list"

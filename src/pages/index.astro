@@ -258,13 +258,15 @@ const siteUrl = "https://natanzi.com";
                 
                 <!-- Text Content -->
                 <div class="flex-1 w-full">
-                    <div class="inline-flex items-center space-x-2 px-3 py-1.5 rounded-full bg-white border border-zinc-200 shadow-sm mb-8">
-                        <span class="relative flex h-2 w-2">
-                            <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
-                            <span class="relative inline-flex rounded-full h-2 w-2 bg-emerald-500"></span>
-                        </span>
-                        <span class="text-[11px] font-semibold text-zinc-600 uppercase tracking-widest pl-1">I am in job market now</span>
-                    </div>
+                    {siteSettings.show_job_market_status && (
+                        <div class="inline-flex items-center space-x-2 px-3 py-1.5 rounded-full bg-white border border-zinc-200 shadow-sm mb-8">
+                            <span class="relative flex h-2 w-2">
+                                <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
+                                <span class="relative inline-flex rounded-full h-2 w-2 bg-emerald-500"></span>
+                            </span>
+                            <span class="text-[11px] font-semibold text-zinc-600 uppercase tracking-widest pl-1">I am in job market now</span>
+                        </div>
+                    )}
                     
 
                     
