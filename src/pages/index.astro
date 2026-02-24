@@ -714,6 +714,20 @@ const siteUrl = "https://natanzi.com";
             });
         });
 
+        // ── Smooth scroll WITHOUT adding # to URL ──────────────────────────
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                const hash = this.getAttribute('href');
+                if (!hash || hash === '#') return;
+                const target = document.querySelector(hash);
+                if (!target) return;
+                e.preventDefault();
+                target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                // Keep URL clean — no hash appended
+                history.replaceState(null, '', window.location.pathname);
+            });
+        });
+
         // Netlify Identity Login Redirect Tracker
         if (window.netlifyIdentity) {
             window.netlifyIdentity.on("init", user => {
