@@ -1,5 +1,4 @@
 ---
-layout: ../../layouts/BlogPostLayout.astro
 title: "Transitioning from Academia to Telecom Enterprise Systems"
 date: "Aug 28, 2025"
 category: "Engineering"

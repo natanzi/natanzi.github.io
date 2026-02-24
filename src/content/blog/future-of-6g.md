@@ -1,5 +1,4 @@
 ---
-layout: ../../layouts/BlogPostLayout.astro
 title: "The Future of 6G: Beyond Speed and Bandwidth"
 date: "Oct 12, 2025"
 category: "Research"

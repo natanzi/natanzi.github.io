@@ -12,14 +12,7 @@ export default defineConfig({
   vite: {
     plugins: [tailwindcss()],
     build: {
-      cssMinify: 'lightningcss',
-      minify: 'terser',
-      terserOptions: {
-        compress: {
-          drop_console: true,
-          drop_debugger: true,
-        },
-      },
+      minify: true,
     }
   },
 
