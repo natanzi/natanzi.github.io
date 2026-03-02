@@ -9,6 +9,10 @@
       "date": "Jan 2026",
       "content": "I was selected for the 2026 cohort of iREDEFINE Fellows, which will be held in Albuquerque, New Mexico.",
       "link": "https://www.ecedha.org/Meetings/2026-ECEDHA-Annual-Conference-and-ECExpo/iREDEFINE"
+    },
+    {
+      "date": "March 2026",
+      "content": "Our paper on SliceFed: Federated Constrained Multi-Agent DRL\nfor Dynamic Spectrum Slicing in 6G  was accepted at IEEE DySPAN 2026."
     }
   ]
 }
