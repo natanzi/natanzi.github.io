@@ -563,8 +563,8 @@ const siteUrl = "https://natanzi.com";
 
         const observerOptions = {
             root: null,
-            rootMargin: '0px',
-            threshold: 0.2 // Trigger when 20% of section is visible
+            rootMargin: '-20% 0px -60% 0px', // Narrow detection band near the top
+            threshold: 0 
         };
 
         const sectionObserver = new IntersectionObserver((entries) => {
