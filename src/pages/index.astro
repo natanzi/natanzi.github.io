@@ -58,11 +58,11 @@ const siteUrl = "https://natanzi.com";
       ]
     })} />
 
-    <!-- Google Fonts: Inter & Newsreader -->
+    <!-- Google Fonts: Inter, Newsreader, Montserrat -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Newsreader:ital,opsz,wght@0,6..72,300;0,6..72,400;1,6..72,300;1,6..72,400&display=swap">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Newsreader:ital,opsz,wght@0,6..72,300;0,6..72,400;1,6..72,300;1,6..72,400&display=swap" rel="stylesheet">
+    <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Montserrat:wght@300;400;500;600&family=Newsreader:ital,opsz,wght@0,6..72,300;0,6..72,400;1,6..72,300;1,6..72,400&display=swap">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Montserrat:wght@300;400;500;600&family=Newsreader:ital,opsz,wght@0,6..72,300;0,6..72,400;1,6..72,300;1,6..72,400&display=swap" rel="stylesheet">
     
     <!-- Preload Hero Image -->
     <link rel="preload" href="/Milad-Natanzi.jpg" as="image" />
@@ -76,6 +76,28 @@ const siteUrl = "https://natanzi.com";
         }
         .font-serif {
             font-family: 'Newsreader', serif;
+        }
+        .font-montserrat {
+            font-family: 'Montserrat', sans-serif;
+        }
+        
+        /* Nav Active State Underline */
+        .nav-link { position: relative; }
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            bottom: -2px; left: 0;
+            width: 100%; height: 2px;
+            background-color: #3b82f6;
+            transform: scaleX(0);
+            transform-origin: right;
+            transition: transform 0.3s ease;
+        }
+        .nav-link.active { color: #3b82f6; font-weight: 500; }
+        .dark .nav-link.active { color: #60a5fa; }
+        .nav-link.active::after {
+            transform: scaleX(1);
+            transform-origin: left;
         }
         
         /* Refined animations */
@@ -210,13 +232,13 @@ const siteUrl = "https://natanzi.com";
                 Milad Natanzi
             </a>
             
-            <div class="hidden md:flex items-center space-x-8 text-sm font-medium text-zinc-500 dark:text-zinc-400">
-                <a href="#about" class="hover:text-zinc-900 dark:hover:text-white transition-colors">About</a>
-                <a href="#news" class="hover:text-zinc-900 dark:hover:text-white transition-colors">News</a>
-                <a href="#experience" class="hover:text-zinc-900 dark:hover:text-white transition-colors">Experience</a>
-                <a href="#projects" class="hover:text-zinc-900 dark:hover:text-white transition-colors">Projects</a>
-                <a href="#blog" class="hover:text-zinc-900 dark:hover:text-white transition-colors">Blog</a>
-                <a href="/gallery" class="hover:text-zinc-900 dark:hover:text-white transition-colors">Out of Office</a>
+            <div class="hidden md:flex items-center space-x-8 text-[13px] font-montserrat font-normal tracking-[0.5px] text-zinc-500 dark:text-zinc-400 capitalize">
+                <a href="#about" class="nav-link py-1 hover:text-zinc-900 dark:hover:text-white transition-colors">About</a>
+                <a href="#news" class="nav-link py-1 hover:text-zinc-900 dark:hover:text-white transition-colors">News</a>
+                <a href="#experience" class="nav-link py-1 hover:text-zinc-900 dark:hover:text-white transition-colors">Experience</a>
+                <a href="#projects" class="nav-link py-1 hover:text-zinc-900 dark:hover:text-white transition-colors">Projects</a>
+                <a href="#blog" class="nav-link py-1 hover:text-zinc-900 dark:hover:text-white transition-colors">Blog</a>
+                <a href="/gallery" class="nav-link py-1 hover:text-zinc-900 dark:hover:text-white transition-colors">Out of office</a>
             </div>
             
             <div class="flex items-center space-x-4">
@@ -224,8 +246,8 @@ const siteUrl = "https://natanzi.com";
                     <Sun class="hidden dark:block w-4 h-4" />
                     <Moon class="block dark:hidden w-4 h-4" />
                 </button>
-                <a href="mailto:milad@natanzi.com" class="hidden md:inline-flex items-center justify-center px-5 py-2 text-xs font-semibold tracking-wide text-white bg-zinc-900 dark:bg-white dark:text-zinc-900 rounded-full hover:bg-zinc-800 dark:hover:bg-zinc-100 transition-colors shadow-sm">
-                    Get in touch
+                <a href="mailto:milad@natanzi.com" class="hidden md:inline-flex items-center justify-center px-5 py-2 text-[13px] font-montserrat font-medium tracking-[0.5px] text-white bg-zinc-900 dark:bg-white dark:text-zinc-900 rounded-full hover:bg-zinc-800 dark:hover:bg-zinc-100 transition-colors shadow-sm">
+                    Let's Talk
                 </a>
             </div>
             
@@ -239,14 +261,14 @@ const siteUrl = "https://natanzi.com";
 
     <!-- Mobile Menu Overlay -->
     <div id="mobile-menu" class="fixed inset-0 bg-white/95 backdrop-blur-md z-40 hidden flex-col justify-center items-center space-y-8 opacity-0 transition-opacity duration-300 pt-16">
-        <a href="#about" class="mobile-link text-2xl font-serif text-zinc-600 dark:text-zinc-400 hover:text-zinc-900 dark:hover:text-white transition-colors">About</a>
-        <a href="#news" class="mobile-link text-2xl font-serif text-zinc-600 dark:text-zinc-400 hover:text-zinc-900 dark:hover:text-white transition-colors">News</a>
-        <a href="#experience" class="mobile-link text-2xl font-serif text-zinc-600 dark:text-zinc-400 hover:text-zinc-900 dark:hover:text-white transition-colors">Experience</a>
-        <a href="#projects" class="mobile-link text-2xl font-serif text-zinc-600 dark:text-zinc-400 hover:text-zinc-900 dark:hover:text-white transition-colors">Projects</a>
-        <a href="#blog" class="mobile-link text-2xl font-serif text-zinc-600 dark:text-zinc-400 hover:text-zinc-900 dark:hover:text-white transition-colors">Blog</a>
-        <a href="/gallery" class="mobile-link text-2xl font-serif text-zinc-600 dark:text-zinc-400 hover:text-zinc-900 dark:hover:text-white transition-colors">Out of Office</a>
-        <a href="mailto:milad@natanzi.com" class="mobile-link mt-8 px-8 py-3 text-sm font-medium tracking-wide text-white bg-zinc-900 dark:bg-white dark:text-zinc-900 rounded-full shadow-md">
-            Get in touch
+        <a href="#about" class="mobile-link text-2xl font-montserrat font-light text-zinc-600 dark:text-zinc-400 hover:text-zinc-900 dark:hover:text-white transition-colors capitalize">About</a>
+        <a href="#news" class="mobile-link text-2xl font-montserrat font-light text-zinc-600 dark:text-zinc-400 hover:text-zinc-900 dark:hover:text-white transition-colors capitalize">News</a>
+        <a href="#experience" class="mobile-link text-2xl font-montserrat font-light text-zinc-600 dark:text-zinc-400 hover:text-zinc-900 dark:hover:text-white transition-colors capitalize">Experience</a>
+        <a href="#projects" class="mobile-link text-2xl font-montserrat font-light text-zinc-600 dark:text-zinc-400 hover:text-zinc-900 dark:hover:text-white transition-colors capitalize">Projects</a>
+        <a href="#blog" class="mobile-link text-2xl font-montserrat font-light text-zinc-600 dark:text-zinc-400 hover:text-zinc-900 dark:hover:text-white transition-colors capitalize">Blog</a>
+        <a href="/gallery" class="mobile-link text-2xl font-montserrat font-light text-zinc-600 dark:text-zinc-400 hover:text-zinc-900 dark:hover:text-white transition-colors capitalize">Out of office</a>
+        <a href="mailto:milad@natanzi.com" class="mobile-link mt-8 px-8 py-3 text-[15px] font-montserrat font-medium tracking-[0.5px] text-white bg-zinc-900 dark:bg-white dark:text-zinc-900 rounded-full shadow-md">
+            Let's Talk
         </a>
     </div>
 
@@ -534,6 +556,35 @@ const siteUrl = "https://natanzi.com";
             }
             });
         }
+
+        // Active Menu State via IntersectionObserver
+        const sections = document.querySelectorAll('section[id], header[id="about"]');
+        const navLinks = document.querySelectorAll('.nav-link');
+
+        const observerOptions = {
+            root: null,
+            rootMargin: '0px',
+            threshold: 0.2 // Trigger when 20% of section is visible
+        };
+
+        const sectionObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const id = entry.target.getAttribute('id');
+                    // Remove active from all and add to current target
+                    navLinks.forEach(link => {
+                        link.classList.remove('active');
+                        if (link.getAttribute('href') === `#${id}`) {
+                            link.classList.add('active');
+                        }
+                    });
+                }
+            });
+        }, observerOptions);
+
+        sections.forEach(section => {
+            sectionObserver.observe(section);
+        });
     </script>
 </body>
 </html>

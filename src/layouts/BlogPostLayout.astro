@@ -27,11 +27,11 @@ const { frontmatter } = Astro.props;
     <meta property="twitter:description" content={frontmatter.description}>
     {frontmatter.seo?.og_image && <meta property="twitter:image" content={frontmatter.seo.og_image}>}
 
-    <!-- Google Fonts: Inter & Newsreader -->
+    <!-- Google Fonts: Inter, Newsreader, Montserrat -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Newsreader:ital,opsz,wght@0,6..72,300;0,6..72,400;1,6..72,300;1,6..72,400&display=swap">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Newsreader:ital,opsz,wght@0,6..72,300;0,6..72,400;1,6..72,300;1,6..72,400&display=swap" rel="stylesheet">
+    <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Montserrat:wght@300;400;500;600&family=Newsreader:ital,opsz,wght@0,6..72,300;0,6..72,400;1,6..72,300;1,6..72,400&display=swap">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Montserrat:wght@300;400;500;600&family=Newsreader:ital,opsz,wght@0,6..72,300;0,6..72,400;1,6..72,300;1,6..72,400&display=swap" rel="stylesheet">
     
     <!-- Preload Author Image -->
     <link rel="preload" href="/Milad-Natanzi.jpg" as="image" />
@@ -39,6 +39,7 @@ const { frontmatter } = Astro.props;
     <style>
         body { font-family: 'Inter', sans-serif; }
         .font-serif { font-family: 'Newsreader', serif; }
+        .font-montserrat { font-family: 'Montserrat', sans-serif; }
         
         .glass-nav {
             background: rgba(250, 250, 250, 0.7);
