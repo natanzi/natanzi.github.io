@@ -1,19 +1,19 @@
 {
   "news": [
     {
+      "date": "March 2026",
+      "content": "Our paper on SliceFed: Federated Constrained Multi-Agent DRL for Dynamic Spectrum Slicing in 6G was accepted at IEEE DySPAN 2026.",
+      "link": ""
+    },
+    {
       "date": "Feb 2026",
-      "content": "Our paper has been accepted to IEEE ICC 2026.",
+      "content": "Our paper on AI-Driven Fuzzing for Vulnerability Assessment of 5G Traffic Steering Algorithms was accepted at IEEE ICC 2026.",
       "link": "https://arxiv.org/pdf/2601.18690"
     },
     {
       "date": "Jan 2026",
       "content": "I was selected for the 2026 cohort of iREDEFINE Fellows, which will be held in Albuquerque, New Mexico.",
       "link": "https://www.ecedha.org/Meetings/2026-ECEDHA-Annual-Conference-and-ECExpo/iREDEFINE"
-    },
-    {
-      "date": "March 2026",
-      "content": "Our paper has been accepted at IEEE DySPAN 2026.",
-      "link": ""
     }
   ]
 }
