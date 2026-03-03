@@ -16,7 +16,7 @@ import newsData from '../../data/news.json';
             <ul class="flex flex-col gap-4">
                 {newsData.news.map((item) => (
                     <li class="flex flex-col sm:flex-row sm:items-start gap-1 sm:gap-6 group">
-                        <span class="text-xs sm:text-sm pt-0.5 font-semibold tracking-wider text-zinc-400 dark:text-zinc-500 shrink-0 w-24 uppercase">
+                        <span class="text-xs sm:text-sm pt-0.5 font-semibold tracking-wider text-zinc-400 dark:text-zinc-500 shrink-0 w-28 whitespace-nowrap uppercase">
                             {item.date}
                         </span>
                         <div class="flex-1 text-zinc-800 dark:text-zinc-200 text-base leading-relaxed font-light">
