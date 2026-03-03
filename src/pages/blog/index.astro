@@ -102,16 +102,32 @@ import { ArrowLeft, Sun, Moon, Twitter } from 'lucide-astro';
         </p>
 
         {/* Subscribe Form */}
-        <div class="max-w-md mx-auto mb-20 relative px-4 sm:px-0">
+        <form 
+            name="subscribe" 
+            method="POST" 
+            data-netlify="true" 
+            netlify-honeypot="bot-field"
+            id="subscribe-form"
+            class="max-w-md mx-auto mb-20 relative px-4 sm:px-0"
+        >
+            <input type="hidden" name="form-name" value="subscribe" />
+            <p class="hidden">
+                <input name="bot-field" />
+            </p>
             <input 
                 type="email" 
+                name="email"
                 placeholder="Enter your email address" 
+                required
                 class="w-full pl-6 pr-32 py-4 rounded-full border border-zinc-200 dark:border-zinc-700 bg-white dark:bg-zinc-900/50 text-zinc-900 dark:text-zinc-100 shadow-sm focus:outline-none focus:border-blue-500 focus:ring-1 focus:ring-blue-500 placeholder-zinc-400" 
             />
-            <button class="absolute top-2 right-2 sm:right-2 bottom-2 px-6 font-montserrat font-medium text-[13px] text-white bg-blue-500 hover:bg-blue-600 rounded-full transition-colors shadow-sm">
+            <button type="submit" class="absolute top-2 right-2 sm:right-2 bottom-2 px-6 font-montserrat font-medium text-[13px] text-white bg-blue-500 hover:bg-blue-600 rounded-full transition-colors shadow-sm">
                 Subscribe
             </button>
-        </div>
+            <div id="subscribe-success" class="hidden absolute -bottom-8 left-0 right-0 text-sm font-medium text-emerald-600 dark:text-emerald-400 animate-fade-up">
+                Thanks for subscribing!
+            </div>
+        </form>
 
         {/* Category Filters */}
         <div class="flex flex-wrap justify-center gap-6 sm:gap-8 mb-12 text-[15px] font-medium font-inter">
@@ -192,6 +208,30 @@ import { ArrowLeft, Sun, Moon, Twitter } from 'lucide-astro';
                     document.documentElement.classList.add('dark');
                     localStorage.setItem('theme', 'dark');
                 }
+            });
+        }
+
+        // Netlify Form Submission Handler (AJAX)
+        const subscribeForm = document.getElementById('subscribe-form');
+        const successMessage = document.getElementById('subscribe-success');
+
+        if (subscribeForm) {
+            subscribeForm.addEventListener('submit', (e) => {
+                e.preventDefault();
+                const formData = new FormData(subscribeForm);
+                fetch('/', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+                    body: new URLSearchParams(formData).toString()
+                })
+                .then(() => {
+                    successMessage.classList.remove('hidden');
+                    subscribeForm.reset();
+                    setTimeout(() => {
+                        successMessage.classList.add('hidden');
+                    }, 5000); // Hide after 5 seconds
+                })
+                .catch((error) => console.error(error));
             });
         }
     </script>
