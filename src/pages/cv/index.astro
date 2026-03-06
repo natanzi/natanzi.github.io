@@ -1,6 +1,6 @@
 ---
 import '../../styles/global.css';
-import { ArrowLeft, Sun, Moon, FileText, Download } from 'lucide-astro';
+import { ArrowLeft, Sun, Moon, FileText, Download, Menu, X } from 'lucide-astro';
 import cvData from '../../data/cv.json';
 import { marked } from 'marked';
 ---
@@ -108,16 +108,40 @@ import { marked } from 'marked';
                 <a href="/#experience" class="nav-link py-1 hover:text-zinc-900 dark:hover:text-white transition-colors">Experience</a>
                 <a href="/#projects" class="nav-link py-1 hover:text-zinc-900 dark:hover:text-white transition-colors">Projects</a>
                 <a href="/#blog" class="nav-link py-1 hover:text-zinc-900 dark:hover:text-white transition-colors">Blog</a>
+                <a href="/gallery" class="nav-link py-1 hover:text-zinc-900 dark:hover:text-white transition-colors">Out of office</a>
             </div>
             
             <div class="flex items-center space-x-4">
-                <button id="theme-toggle" class="p-2 text-zinc-500 hover:text-zinc-900 dark:text-zinc-400 dark:hover:text-white transition-colors focus:outline-none rounded-full border border-transparent hover:border-zinc-200 dark:hover:border-zinc-800">
+                <button id="theme-toggle" class="p-2 text-zinc-500 hover:text-zinc-900 dark:text-zinc-400 dark:hover:text-white transition-colors focus:outline-none rounded-full border border-transparent hover:border-zinc-200 dark:hover:border-zinc-800 hidden md:block">
                     <Sun class="hidden dark:block w-4 h-4" />
                     <Moon class="block dark:hidden w-4 h-4" />
                 </button>
+                <a href="mailto:milad@natanzi.com" class="hidden md:inline-flex items-center justify-center px-5 py-2 text-[13px] font-montserrat font-medium tracking-[0.5px] text-white bg-zinc-900 dark:bg-white dark:text-zinc-900 rounded-full hover:bg-zinc-800 dark:hover:bg-zinc-100 transition-colors shadow-sm">
+                    Let's Talk
+                </a>
             </div>
+            
+            <!-- Mobile Menu Toggle -->
+            <button id="mobile-menu-btn" class="md:hidden text-zinc-500 hover:text-zinc-900 p-2 -mr-2 focus:outline-none">
+                <div id="icon-menu-wrapper"><Menu class="w-6 h-6" /></div>
+                <div id="icon-close-wrapper" class="hidden"><X class="w-6 h-6" /></div>
+            </button>
         </div>
     </nav>
+
+    <!-- Mobile Menu Overlay -->
+    <div id="mobile-menu" class="fixed inset-0 bg-white/95 backdrop-blur-md z-40 hidden flex-col justify-center items-center space-y-8 opacity-0 transition-opacity duration-300 pt-16">
+        <a href="/#about" class="mobile-link text-2xl font-montserrat font-light text-zinc-600 dark:text-zinc-400 hover:text-zinc-900 dark:hover:text-white transition-colors capitalize">About</a>
+        <a href="/#news" class="mobile-link text-2xl font-montserrat font-light text-zinc-600 dark:text-zinc-400 hover:text-zinc-900 dark:hover:text-white transition-colors capitalize">News</a>
+        <a href="/cv" class="mobile-link text-2xl font-montserrat font-light text-zinc-900 dark:text-white transition-colors capitalize">CV</a>
+        <a href="/#experience" class="mobile-link text-2xl font-montserrat font-light text-zinc-600 dark:text-zinc-400 hover:text-zinc-900 dark:hover:text-white transition-colors capitalize">Experience</a>
+        <a href="/#projects" class="mobile-link text-2xl font-montserrat font-light text-zinc-600 dark:text-zinc-400 hover:text-zinc-900 dark:hover:text-white transition-colors capitalize">Projects</a>
+        <a href="/#blog" class="mobile-link text-2xl font-montserrat font-light text-zinc-600 dark:text-zinc-400 hover:text-zinc-900 dark:hover:text-white transition-colors capitalize">Blog</a>
+        <a href="/gallery" class="mobile-link text-2xl font-montserrat font-light text-zinc-600 dark:text-zinc-400 hover:text-zinc-900 dark:hover:text-white transition-colors capitalize">Out of office</a>
+        <a href="mailto:milad@natanzi.com" class="mobile-link mt-8 px-8 py-3 text-[15px] font-montserrat font-medium tracking-[0.5px] text-white bg-zinc-900 dark:bg-white dark:text-zinc-900 rounded-full shadow-md">
+            Let's Talk
+        </a>
+    </div>
 
     <main class="max-w-4xl mx-auto px-6 pt-24 pb-16 md:pt-32 md:pb-24">
         <header class="mb-10 flex flex-col sm:flex-row sm:items-end justify-between border-b border-zinc-200 dark:border-zinc-800 pb-8 gap-6">
@@ -147,6 +171,15 @@ import { marked } from 'marked';
 
     <!-- Scripts -->
     <script>
+        // Mobile Menu Toggle Logic
+        const mobileBtn = document.getElementById('mobile-menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+        const iconMenuWrapper = document.getElementById('icon-menu-wrapper');
+        const iconCloseWrapper = document.getElementById('icon-close-wrapper');
+        const mobileLinks = document.querySelectorAll('.mobile-link');
+        
+        let menuOpen = false;
+
         // Theme Toggle Logic
         const themeToggleBtn = document.getElementById('theme-toggle');
         if (themeToggleBtn) {
@@ -160,6 +193,43 @@ import { marked } from 'marked';
                 }
             });
         }
+
+        function toggleMenu() {
+            if (!mobileBtn) return;
+            menuOpen = !menuOpen;
+            if (menuOpen) {
+                mobileMenu.classList.remove('hidden');
+                setTimeout(() => {
+                    mobileMenu.classList.remove('opacity-0');
+                    mobileMenu.classList.add('opacity-100');
+                    document.body.classList.add('no-scroll');
+                    iconMenuWrapper.classList.add('hidden');
+                    iconCloseWrapper.classList.remove('hidden');
+                }, 10);
+            } else {
+                mobileMenu.classList.remove('opacity-100');
+                mobileMenu.classList.add('opacity-0');
+                document.body.classList.remove('no-scroll');
+                iconCloseWrapper.classList.add('hidden');
+                iconMenuWrapper.classList.remove('hidden');
+                
+                // Wait for fade out before hiding
+                setTimeout(() => {
+                    mobileMenu.classList.add('hidden');
+                }, 300);
+            }
+        }
+
+        if (mobileBtn) {
+            mobileBtn.addEventListener('click', toggleMenu);
+        }
+
+        // Close menu when clicking a link
+        mobileLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                if(menuOpen) toggleMenu();
+            });
+        });
     </script>
 </body>
 </html>
