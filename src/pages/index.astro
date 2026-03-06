@@ -293,7 +293,7 @@ const siteUrl = "https://natanzi.com";
                     
 
                     
-                    <div class="text-base md:text-lg text-zinc-600 dark:text-zinc-400 font-light leading-relaxed mb-8 max-w-2xl space-y-4 prose-a:text-blue-500 hover:prose-a:underline prose-strong:text-zinc-800 dark:prose-strong:text-zinc-200">
+                    <div class="text-base md:text-lg text-zinc-600 dark:text-zinc-400 font-light leading-relaxed mb-8 max-w-2xl space-y-4 [&_a]:text-blue-600 dark:[&_a]:text-blue-400 [&_a]:underline [&_a]:underline-offset-2 hover:[&_a]:text-blue-700 dark:hover:[&_a]:text-blue-300 [&_a]:transition-colors [&_strong]:text-zinc-800 dark:[&_strong]:text-zinc-200 [&_strong]:font-medium">
                         <div class="text-lg text-zinc-800 dark:text-zinc-200" set:html={marked.parseInline(aboutData.intro || '')} />
                         <div set:html={marked.parseInline(aboutData.middle || '')} />
                         <ul class="list-disc pl-5 space-y-1">
