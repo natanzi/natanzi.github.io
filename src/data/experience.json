@@ -1,25 +1,25 @@
 {
-    "experience": [
-        {
-            "title": "PhD Researcher",
-            "company": "Worcester Polytechnic Institute (WPI) - Worcester, MA, USA",
-            "period": "2023 — Present",
-            "type": "academic",
-            "description": "Spearheading research on 5G/6G wireless infrastructure, efficient spectrum management, and optimizing O-RAN architecture. Developing novel approaches by integrating Machine Learning techniques—such as Continual and Reinforcement Learning—into physical-layer communications tasks to achieve higher network autonomy."
-        },
-        {
-            "title": "Data Scientist",
-            "company": "MTN Group",
-            "period": "2017 — 2022",
-            "type": "industry",
-            "description": "Drove impact in the telecommunications industry, specializing in large-scale data engineering. Built and maintained critical data infrastructure, developed predictive models, and implemented network optimization algorithms for global enterprise systems handling massive daily throughput."
-        },
-        {
-            "title": "RF Engineer",
-            "company": "Telecommunication Vendor",
-            "period": "2014 — 2017",
-            "type": "industry",
-            "description": "Executed radio frequency network planning, optimization, and performance analysis. Contributed to the deployment and configuration of telecommunication equipment to ensure high-quality wireless coverage and capacity."
-        }
-    ]
+  "experience": [
+    {
+      "title": "PhD Researcher",
+      "company": "Worcester Polytechnic Institute (WPI) - Worcester, MA, USA",
+      "period": "2023 — Present",
+      "type": "academic",
+      "description": "Spearheading research on 5G/6G wireless infrastructure, efficient spectrum management, and optimizing O-RAN architecture. Developing novel approaches by integrating Machine Learning techniques—such as Continual and Reinforcement Learning—into physical-layer communications tasks to achieve higher network autonomy."
+    },
+    {
+      "title": "Data Stoward",
+      "company": "MTN Group",
+      "period": "2017 — 2022",
+      "type": "industry",
+      "description": "At MTN Irancell, I specialized in large-scale data engineering and revenue assurance, managing and analyzing massive volumes of Call Detail Records (CDRs) within the Ericsson Charging System. I built critical monitoring infrastructure and developed proactive control mechanisms that enabled granular network performance tracking at the gNodeB and cell levels, directly safeguarding revenue streams for millions of subscribers."
+    },
+    {
+      "title": "RF Engineer",
+      "company": "Telecommunication Vendor",
+      "period": "2014 — 2017",
+      "type": "industry",
+      "description": "Executed radio frequency network planning, optimization, and performance analysis. Contributed to the deployment and configuration of telecommunication equipment to ensure high-quality wireless coverage and capacity."
+    }
+  ]
 }
