@@ -8,6 +8,7 @@ import siteSettings from '../data/settings.json';
 import aboutData from '../data/about.json';
 import experienceData from '../data/experience.json';
 import newsData from '../data/news.json';
+import { marked } from 'marked';
 // Import Section Components
 import NewsSection from '../components/sections/NewsSection.astro';
 import ExperienceSection from '../components/sections/ExperienceSection.astro';
@@ -292,15 +293,15 @@ const siteUrl = "https://natanzi.com";
                     
 
                     
-                    <div class="text-base md:text-lg text-zinc-600 dark:text-zinc-400 font-light leading-relaxed mb-8 max-w-2xl space-y-4">
-                        <p class="text-lg text-zinc-800 dark:text-zinc-200" set:html={aboutData.intro.replace('Worcester Polytechnic Institute (WPI)', '<strong class="text-zinc-800 dark:text-zinc-200 font-medium">Worcester Polytechnic Institute (WPI)</strong>')} />
-                        <p>{aboutData.middle}</p>
+                    <div class="text-base md:text-lg text-zinc-600 dark:text-zinc-400 font-light leading-relaxed mb-8 max-w-2xl space-y-4 prose-a:text-blue-500 hover:prose-a:underline prose-strong:text-zinc-800 dark:prose-strong:text-zinc-200">
+                        <div class="text-lg text-zinc-800 dark:text-zinc-200" set:html={marked.parseInline(aboutData.intro || '')} />
+                        <div set:html={marked.parseInline(aboutData.middle || '')} />
                         <ul class="list-disc pl-5 space-y-1">
                             {aboutData.bullets.map((bullet) => (
-                                <li>{bullet.point}</li>
+                                <li set:html={marked.parseInline(bullet.point || '')} />
                             ))}
                         </ul>
-                        <p>{aboutData.conclusion}</p>
+                        <div set:html={marked.parseInline(aboutData.conclusion || '')} />
                     </div>
 
                     <div class="flex flex-wrap gap-2 mb-10 max-w-2xl">

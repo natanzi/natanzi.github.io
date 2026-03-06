@@ -138,14 +138,14 @@ collections:
         label: "About Me Section"
         file: "src/data/about.json"
         fields:
-          - { label: "Introduction", name: "intro", widget: "text", hint: "The opening paragraph" }
-          - { label: "Middle Paragraph", name: "middle", widget: "text", hint: "Text before the bullet points" }
+          - { label: "Introduction", name: "intro", widget: "markdown", buttons: ["bold", "italic", "link"], hint: "The opening paragraph" }
+          - { label: "Middle Paragraph", name: "middle", widget: "markdown", buttons: ["bold", "italic", "link"], hint: "Text before the bullet points" }
           - label: "Bullet Points"
             name: "bullets"
             widget: "list"
             fields:
-              - { label: "Point", name: "point", widget: "string" }
-          - { label: "Conclusion", name: "conclusion", widget: "text", hint: "The final paragraph" }
+              - { label: "Point", name: "point", widget: "markdown", buttons: ["bold", "italic", "link"] }
+          - { label: "Conclusion", name: "conclusion", widget: "markdown", buttons: ["bold", "italic", "link"], hint: "The final paragraph" }
           
       - name: "general"
         label: "General Settings"
