@@ -127,6 +127,33 @@ collections:
               - { label: "Content", name: "content", widget: "text", hint: "The news announcement" }
               - { label: "Link (Optional)", name: "link", widget: "string", required: false, hint: "URL to the paper, article, or announcement" }
 
+  # ── Skills & Tools ─────────────────────────────────────────────────────────────
+  - name: "skills"
+    label: "Skills & Tools"
+    delete: false
+    editor:
+      preview: false
+    files:
+      - name: "skills_list"
+        label: "Skills Categories"
+        file: "src/data/skills.json"
+        fields:
+          - label: "Categories"
+            name: "categories"
+            widget: "list"
+            collapsed: false
+            fields:
+              - { label: "Category Name", name: "category", widget: "string", hint: "e.g. Programming & Data Science" }
+              - label: "Icon"
+                name: "icon"
+                widget: "select"
+                options: ["Code", "Database", "Cpu", "Server", "Radio", "Network", "ShieldAlert", "Activity", "Briefcase"]
+              - label: "Skills"
+                name: "skills"
+                widget: "list"
+                fields:
+                  - { label: "Skill Name", name: "name", widget: "string" }
+
   # ── Site Settings & About Me ─────────────────────────────────────────────────
   - name: "settings"
     label: "Site Settings & Content"

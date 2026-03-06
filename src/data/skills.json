@@ -1,0 +1,88 @@
+{
+    "categories": [
+        {
+            "category": "Programming & Data Science",
+            "icon": "Code",
+            "skills": [
+                {
+                    "name": "Python"
+                },
+                {
+                    "name": "SQL"
+                },
+                {
+                    "name": "R"
+                },
+                {
+                    "name": "Apache Spark"
+                },
+                {
+                    "name": "Git & Version Control"
+                }
+            ]
+        },
+        {
+            "category": "Telecommunications",
+            "icon": "Radio",
+            "skills": [
+                {
+                    "name": "5G & 6G Wireless"
+                },
+                {
+                    "name": "O-RAN Architecture"
+                },
+                {
+                    "name": "Beamforming Optimization"
+                },
+                {
+                    "name": "Software-Defined Radio (SDR)"
+                },
+                {
+                    "name": "Traffic Steering"
+                }
+            ]
+        },
+        {
+            "category": "Machine Learning & AI",
+            "icon": "Cpu",
+            "skills": [
+                {
+                    "name": "PyTorch / TensorFlow"
+                },
+                {
+                    "name": "Reinforcement Learning (RL)"
+                },
+                {
+                    "name": "Continual Learning"
+                },
+                {
+                    "name": "Federated Learning"
+                },
+                {
+                    "name": "Scikit-Learn"
+                }
+            ]
+        },
+        {
+            "category": "Infrastructure & Systems",
+            "icon": "Server",
+            "skills": [
+                {
+                    "name": "Linux / Bash"
+                },
+                {
+                    "name": "Docker & Kubernetes"
+                },
+                {
+                    "name": "GPU Clusters Management"
+                },
+                {
+                    "name": "Cloud Platforms (AWS/GCP)"
+                },
+                {
+                    "name": "Apache Kafka"
+                }
+            ]
+        }
+    ]
+}
