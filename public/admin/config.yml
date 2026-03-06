@@ -127,13 +127,26 @@ collections:
               - { label: "Content", name: "content", widget: "text", hint: "The news announcement" }
               - { label: "Link (Optional)", name: "link", widget: "string", required: false, hint: "URL to the paper, article, or announcement" }
 
-  # ── Site Settings ────────────────────────────────────────────────────────────
+  # ── Site Settings & About Me ─────────────────────────────────────────────────
   - name: "settings"
-    label: "Site Settings"
+    label: "Site Settings & Content"
     delete: false
     editor:
       preview: false
     files:
+      - name: "about"
+        label: "About Me Section"
+        file: "src/data/about.json"
+        fields:
+          - { label: "Introduction", name: "intro", widget: "text", hint: "The opening paragraph" }
+          - { label: "Middle Paragraph", name: "middle", widget: "text", hint: "Text before the bullet points" }
+          - label: "Bullet Points"
+            name: "bullets"
+            widget: "list"
+            fields:
+              - { label: "Point", name: "point", widget: "string" }
+          - { label: "Conclusion", name: "conclusion", widget: "text", hint: "The final paragraph" }
+          
       - name: "general"
         label: "General Settings"
         file: "src/data/settings.json"

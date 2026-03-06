@@ -1,0 +1,11 @@
+{
+    "intro": "Hello! I am Milad, a Ph.D. Candidate and researcher in the Department of Electrical and Computer Engineering at Worcester Polytechnic Institute (WPI).",
+    "middle": "My research bridges the gap between advanced artificial intelligence and next-generation telecommunications. Specifically, my interests focus on:",
+    "bullets": [
+        "5G and 6G wireless infrastructure and O-RAN architecture.",
+        "Beamforming optimization and spectrum management.",
+        "Integrating Machine Learning (Continual & Reinforcement Learning) into physical-layer systems.",
+        "Building and managing high-performance GPU clusters and software-defined radio (SDR) environments."
+    ],
+    "conclusion": "Prior to my academic career, I spent over seven years as a Data Scientist and Engineer in the telecommunications industry, working with global enterprise systems including the MTN Group. I am currently completing my Ph.D. under the supervision of Dr. Bo Tang."
+}
