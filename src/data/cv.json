@@ -1,0 +1,5 @@
+{
+    "title": "Curriculum Vitae",
+    "pdf_link": "",
+    "content": "## Milad Natanzi\nPh.D. Candidate & Researcher\n\n### Education\n\n**Worcester Polytechnic Institute (WPI)**\n*Ph.D. in Electrical and Computer Engineering* | 2023 – Present\n\n### Research Interests\n- 5G and 6G Wireless Systems\n- O-RAN Architecture\n- Reinforcement Learning\n\n### Professional Experience\n\n**Core Network Planning Manager**\n*MTN Irancell* | 2017 – 2023\n- Led a team to design and optimize the core network infrastructure.\n- Spearheaded the transition towards NFV and cloud-native network architectures.\n\n### Publications\n- **SliceFed: Federated Constrained Multi-Agent DRL for Dynamic Spectrum Slicing in 6G**\n  *IEEE DySPAN 2026*\n\n- **AI-Driven Fuzzing for Vulnerability Assessment of 5G Traffic Steering Algorithms**\n  *IEEE ICC 2026*"
+}

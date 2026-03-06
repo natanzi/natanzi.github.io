@@ -127,6 +127,21 @@ collections:
               - { label: "Content", name: "content", widget: "text", hint: "The news announcement" }
               - { label: "Link (Optional)", name: "link", widget: "string", required: false, hint: "URL to the paper, article, or announcement" }
 
+  # ── Curriculum Vitae (CV) ──────────────────────────────────────────────────
+  - name: "cv"
+    label: "CV / Resume"
+    delete: false
+    editor:
+      preview: false
+    files:
+      - name: "cv_entries"
+        label: "CV Content"
+        file: "src/data/cv.json"
+        fields:
+          - { label: "Page Title", name: "title", widget: "string", default: "Curriculum Vitae" }
+          - { label: "PDF Download Link (Optional)", name: "pdf_link", widget: "string", required: false, hint: "E.g. /files/Milad_Natanzi_CV.pdf" }
+          - { label: "CV Content", name: "content", widget: "markdown", hint: "Write your full CV here using Markdown formatting." }
+
   # ── Skills & Tools ─────────────────────────────────────────────────────────────
   - name: "skills"
     label: "Skills & Tools"
