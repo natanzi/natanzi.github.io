@@ -1,235 +1,390 @@
 ---
-import '../../styles/global.css';
-import { ArrowLeft, Sun, Moon, FileText, Download, Menu, X } from 'lucide-astro';
-import cvData from '../../data/cv.json';
-import { marked } from 'marked';
+import "../../styles/global.css";
+import {
+    ArrowLeft,
+    Sun,
+    Moon,
+    FileText,
+    Download,
+    Menu,
+    X,
+} from "lucide-astro";
+import cvData from "../../data/cv.json";
+import { marked } from "marked";
 ---
 
 <html lang="en" class="scroll-smooth">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>{cvData.title || 'Curriculum Vitae'} | Milad Natanzi</title>
-    
-    <!-- SEO & Meta Tags -->
-    <meta name="description" content="Curriculum Vitae of Milad Natanzi.">
-    
-    <!-- Google Fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Montserrat:wght@300;400;500;600&family=Newsreader:ital,opsz,wght@0,6..72,300;0,6..72,400;1,6..72,300;1,6..72,400&display=swap">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Montserrat:wght@300;400;500;600&family=Newsreader:ital,opsz,wght@0,6..72,300;0,6..72,400;1,6..72,300;1,6..72,400&display=swap" rel="stylesheet">
-    
-    <style>
-        body { font-family: 'Inter', sans-serif; }
-        .font-serif { font-family: 'Newsreader', serif; }
-        .font-montserrat { font-family: 'Montserrat', sans-serif; }
-        
-        .glass-nav {
-            background: rgba(250, 250, 250, 0.9);
-            backdrop-filter: blur(16px);
-            -webkit-backdrop-filter: blur(16px);
-            border-bottom: 1px solid rgba(0, 0, 0, 0.05);
-        }
-        
-        .dark .glass-nav {
-            background: rgba(9, 9, 11, 0.9);
-            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
-        }
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>{cvData.title || "Curriculum Vitae"} | Milad Natanzi</title>
 
-        .bg-glow {
-            position: fixed;
-            top: 0; left: 0; right: 0; bottom: 0;
-            overflow: hidden;
-            z-index: -1;
-            pointer-events: none;
-        }
-        .bg-glow::before {
-            content: '';
-            position: absolute;
-            top: -10%; left: -5%;
-            width: 50vw; height: 50vw;
-            border-radius: 50%;
-            background: radial-gradient(circle, rgba(59, 130, 246, 0.04) 0%, rgba(250, 250, 250, 0) 70%);
-        }
-        
-        .dark .bg-glow::before {
-            background: radial-gradient(circle, rgba(59, 130, 246, 0.08) 0%, rgba(9, 9, 11, 0) 70%);
-        }
-        
-        /* Custom enhancements for the Markdown content */
-        .cv-content h1, .cv-content h2, .cv-content h3 {
-            font-family: 'Montserrat', sans-serif;
-            letter-spacing: -0.02em;
-        }
-        .cv-content h1 { color: #18181b; }
-        .dark .cv-content h1 { color: #f4f4f5; }
-        
-        .cv-content a {
-            color: #2563eb;
-            text-decoration-color: transparent;
-            text-underline-offset: 4px;
-            transition: all 0.2s;
-            font-weight: 500;
-        }
-        .dark .cv-content a { color: #60a5fa; }
-        .cv-content a:hover {
-            color: #1d4ed8;
-            text-decoration: underline;
-            text-decoration-color: currentColor;
-        }
-        .dark .cv-content a:hover { color: #93c5fd; }
-    </style>
-    
-    <!-- Initialize Theme Script -->
-    <script is:inline>
-        if (localStorage.getItem('theme') === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
-            document.documentElement.classList.add('dark');
-        } else {
-            document.documentElement.classList.remove('dark');
-        }
-    </script>
-</head>
-<body class="bg-[#fafafa] dark:bg-zinc-950 text-zinc-900 dark:text-zinc-200 antialiased min-h-screen transition-colors duration-300">
+        <!-- SEO & Meta Tags -->
+        <meta name="description" content="Curriculum Vitae of Milad Natanzi." />
 
-    <div class="bg-glow"></div>
+        <!-- Google Fonts -->
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+        <link
+            rel="preload"
+            as="style"
+            href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Montserrat:wght@300;400;500;600&family=Newsreader:ital,opsz,wght@0,6..72,300;0,6..72,400;1,6..72,300;1,6..72,400&display=swap"
+        />
+        <link
+            href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Montserrat:wght@300;400;500;600&family=Newsreader:ital,opsz,wght@0,6..72,300;0,6..72,400;1,6..72,300;1,6..72,400&display=swap"
+            rel="stylesheet"
+        />
 
-    <!-- Navigation -->
-    <nav class="fixed top-0 left-0 right-0 z-50 glass-nav transition-all duration-300" id="main-nav">
-        <div class="max-w-5xl mx-auto px-6 h-16 flex items-center justify-between">
-            <a href="/" class="font-sans text-[1.35rem] font-bold tracking-tight text-transparent bg-clip-text bg-gradient-to-r from-zinc-900 to-zinc-500 dark:from-zinc-100 dark:to-zinc-400 hover:opacity-80 transition-opacity">
-                Milad Natanzi
-            </a>
-            
-            <div class="hidden md:flex items-center space-x-8 text-[13px] font-montserrat font-normal tracking-[0.5px] text-zinc-500 dark:text-zinc-400 capitalize">
-                <a href="/#about" class="nav-link py-1 hover:text-zinc-900 dark:hover:text-white transition-colors">About</a>
-                <a href="/#news" class="nav-link py-1 hover:text-zinc-900 dark:hover:text-white transition-colors">News</a>
-                <a href="/cv" class="nav-link py-1 text-zinc-900 dark:text-white transition-colors font-medium">CV</a>
-                <a href="/#experience" class="nav-link py-1 hover:text-zinc-900 dark:hover:text-white transition-colors">Experience</a>
-                <a href="/#projects" class="nav-link py-1 hover:text-zinc-900 dark:hover:text-white transition-colors">Projects</a>
-                <a href="/#blog" class="nav-link py-1 hover:text-zinc-900 dark:hover:text-white transition-colors">Blog</a>
-                <a href="/gallery" class="nav-link py-1 hover:text-zinc-900 dark:hover:text-white transition-colors">Out of office</a>
-            </div>
-            
-            <div class="flex items-center space-x-4">
-                <button id="theme-toggle" class="p-2 text-zinc-500 hover:text-zinc-900 dark:text-zinc-400 dark:hover:text-white transition-colors focus:outline-none rounded-full border border-transparent hover:border-zinc-200 dark:hover:border-zinc-800 hidden md:block">
-                    <Sun class="hidden dark:block w-4 h-4" />
-                    <Moon class="block dark:hidden w-4 h-4" />
-                </button>
-                <a href="mailto:milad@natanzi.com" class="hidden md:inline-flex items-center justify-center px-5 py-2 text-[13px] font-montserrat font-medium tracking-[0.5px] text-white bg-zinc-900 dark:bg-white dark:text-zinc-900 rounded-full hover:bg-zinc-800 dark:hover:bg-zinc-100 transition-colors shadow-sm">
-                    Let's Talk
-                </a>
-            </div>
-            
-            <!-- Mobile Menu Toggle -->
-            <button id="mobile-menu-btn" class="md:hidden text-zinc-500 hover:text-zinc-900 p-2 -mr-2 focus:outline-none">
-                <div id="icon-menu-wrapper"><Menu class="w-6 h-6" /></div>
-                <div id="icon-close-wrapper" class="hidden"><X class="w-6 h-6" /></div>
-            </button>
-        </div>
-    </nav>
-
-    <!-- Mobile Menu Overlay -->
-    <div id="mobile-menu" class="fixed inset-0 bg-white/95 backdrop-blur-md z-40 hidden flex-col justify-center items-center space-y-8 opacity-0 transition-opacity duration-300 pt-16">
-        <a href="/#about" class="mobile-link text-2xl font-montserrat font-light text-zinc-600 dark:text-zinc-400 hover:text-zinc-900 dark:hover:text-white transition-colors capitalize">About</a>
-        <a href="/#news" class="mobile-link text-2xl font-montserrat font-light text-zinc-600 dark:text-zinc-400 hover:text-zinc-900 dark:hover:text-white transition-colors capitalize">News</a>
-        <a href="/cv" class="mobile-link text-2xl font-montserrat font-light text-zinc-900 dark:text-white transition-colors capitalize">CV</a>
-        <a href="/#experience" class="mobile-link text-2xl font-montserrat font-light text-zinc-600 dark:text-zinc-400 hover:text-zinc-900 dark:hover:text-white transition-colors capitalize">Experience</a>
-        <a href="/#projects" class="mobile-link text-2xl font-montserrat font-light text-zinc-600 dark:text-zinc-400 hover:text-zinc-900 dark:hover:text-white transition-colors capitalize">Projects</a>
-        <a href="/#blog" class="mobile-link text-2xl font-montserrat font-light text-zinc-600 dark:text-zinc-400 hover:text-zinc-900 dark:hover:text-white transition-colors capitalize">Blog</a>
-        <a href="/gallery" class="mobile-link text-2xl font-montserrat font-light text-zinc-600 dark:text-zinc-400 hover:text-zinc-900 dark:hover:text-white transition-colors capitalize">Out of office</a>
-        <a href="mailto:milad@natanzi.com" class="mobile-link mt-8 px-8 py-3 text-[15px] font-montserrat font-medium tracking-[0.5px] text-white bg-zinc-900 dark:bg-white dark:text-zinc-900 rounded-full shadow-md">
-            Let's Talk
-        </a>
-    </div>
-
-    <main class="max-w-4xl mx-auto px-6 pt-24 pb-16 md:pt-32 md:pb-24">
-        <header class="mb-10 flex flex-col sm:flex-row sm:items-end justify-between border-b border-zinc-200 dark:border-zinc-800 pb-8 gap-6">
-            <div>
-                <div class="inline-flex items-center justify-center p-2.5 rounded-xl bg-orange-50 dark:bg-orange-900/20 text-orange-600 dark:text-orange-400 mb-4">
-                    <FileText class="w-5 h-5" />
-                </div>
-                <h1 class="text-3xl md:text-4xl font-extrabold text-zinc-900 dark:text-white mb-2 font-montserrat tracking-tight">
-                    {cvData.title || 'Curriculum Vitae'}
-                </h1>
-            </div>
-            {cvData.pdf_link && (
-                <a href={cvData.pdf_link} target="_blank" class="inline-flex items-center justify-center px-4 py-2.5 text-sm font-semibold tracking-wide text-white bg-zinc-900 dark:bg-zinc-100 dark:text-zinc-900 rounded-xl hover:bg-zinc-800 dark:hover:bg-white transition-colors shadow-sm shrink-0">
-                    <Download class="w-4 h-4 mr-2" /> Download PDF
-                </a>
-            )}
-        </header>
-
-        <article class="cv-content prose prose-zinc dark:prose-invert prose-lg max-w-none prose-headings:font-bold prose-h1:text-4xl prose-h2:text-2xl prose-h2:mt-10 prose-h2:mb-4 prose-h3:text-lg prose-h3:mt-6 prose-p:text-zinc-600 dark:prose-p:text-zinc-400 prose-ul:text-zinc-600 dark:prose-ul:text-zinc-400 prose-li:my-1 prose-hr:border-zinc-200 dark:prose-hr:border-zinc-800">
-            <div set:html={marked.parse(cvData.content || '')} />
-        </article>
-    </main>
-
-    <footer class="mt-8 py-10 border-t border-zinc-200 dark:border-zinc-800 text-center text-sm font-medium text-zinc-500 dark:text-zinc-400">
-        © 2026 Milad Natanzi. All rights reserved.
-    </footer>
-
-    <!-- Scripts -->
-    <script>
-        // Mobile Menu Toggle Logic
-        const mobileBtn = document.getElementById('mobile-menu-btn');
-        const mobileMenu = document.getElementById('mobile-menu');
-        const iconMenuWrapper = document.getElementById('icon-menu-wrapper');
-        const iconCloseWrapper = document.getElementById('icon-close-wrapper');
-        const mobileLinks = document.querySelectorAll('.mobile-link');
-        
-        let menuOpen = false;
-
-        // Theme Toggle Logic
-        const themeToggleBtn = document.getElementById('theme-toggle');
-        if (themeToggleBtn) {
-            themeToggleBtn.addEventListener('click', function() {
-                if (document.documentElement.classList.contains('dark')) {
-                    document.documentElement.classList.remove('dark');
-                    localStorage.setItem('theme', 'light');
-                } else {
-                    document.documentElement.classList.add('dark');
-                    localStorage.setItem('theme', 'dark');
-                }
-            });
-        }
-
-        function toggleMenu() {
-            if (!mobileBtn) return;
-            menuOpen = !menuOpen;
-            if (menuOpen) {
-                mobileMenu.classList.remove('hidden');
-                setTimeout(() => {
-                    mobileMenu.classList.remove('opacity-0');
-                    mobileMenu.classList.add('opacity-100');
-                    document.body.classList.add('no-scroll');
-                    iconMenuWrapper.classList.add('hidden');
-                    iconCloseWrapper.classList.remove('hidden');
-                }, 10);
-            } else {
-                mobileMenu.classList.remove('opacity-100');
-                mobileMenu.classList.add('opacity-0');
-                document.body.classList.remove('no-scroll');
-                iconCloseWrapper.classList.add('hidden');
-                iconMenuWrapper.classList.remove('hidden');
-                
-                // Wait for fade out before hiding
-                setTimeout(() => {
-                    mobileMenu.classList.add('hidden');
-                }, 300);
+        <style>
+            body {
+                font-family: "Inter", sans-serif;
             }
-        }
+            .font-serif {
+                font-family: "Newsreader", serif;
+            }
+            .font-montserrat {
+                font-family: "Montserrat", sans-serif;
+            }
 
-        if (mobileBtn) {
-            mobileBtn.addEventListener('click', toggleMenu);
-        }
+            .glass-nav {
+                background: rgba(250, 250, 250, 0.9);
+                backdrop-filter: blur(16px);
+                -webkit-backdrop-filter: blur(16px);
+                border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+            }
 
-        // Close menu when clicking a link
-        mobileLinks.forEach(link => {
-            link.addEventListener('click', () => {
-                if(menuOpen) toggleMenu();
+            .dark .glass-nav {
+                background: rgba(9, 9, 11, 0.9);
+                border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+            }
+
+            .bg-glow {
+                position: fixed;
+                top: 0;
+                left: 0;
+                right: 0;
+                bottom: 0;
+                overflow: hidden;
+                z-index: -1;
+                pointer-events: none;
+            }
+            .bg-glow::before {
+                content: "";
+                position: absolute;
+                top: -10%;
+                left: -5%;
+                width: 50vw;
+                height: 50vw;
+                border-radius: 50%;
+                background: radial-gradient(
+                    circle,
+                    rgba(59, 130, 246, 0.04) 0%,
+                    rgba(250, 250, 250, 0) 70%
+                );
+            }
+
+            .dark .bg-glow::before {
+                background: radial-gradient(
+                    circle,
+                    rgba(59, 130, 246, 0.08) 0%,
+                    rgba(9, 9, 11, 0) 70%
+                );
+            }
+
+            /* Custom enhancements for the Markdown content */
+            .cv-content h1,
+            .cv-content h2,
+            .cv-content h3 {
+                font-family: "Montserrat", sans-serif;
+                letter-spacing: -0.02em;
+            }
+            .cv-content h1 {
+                color: #18181b;
+            }
+            .dark .cv-content h1 {
+                color: #f4f4f5;
+            }
+
+            .cv-content a {
+                color: #2563eb;
+                text-decoration-color: transparent;
+                text-underline-offset: 4px;
+                transition: all 0.2s;
+                font-weight: 500;
+            }
+            .dark .cv-content a {
+                color: #60a5fa;
+            }
+            .cv-content a:hover {
+                color: #1d4ed8;
+                text-decoration: underline;
+                text-decoration-color: currentColor;
+            }
+            .dark .cv-content a:hover {
+                color: #93c5fd;
+            }
+        </style>
+
+        <!-- Initialize Theme Script -->
+        <script is:inline>
+            if (
+                localStorage.getItem("theme") === "dark" ||
+                (!("theme" in localStorage) &&
+                    window.matchMedia("(prefers-color-scheme: dark)").matches)
+            ) {
+                document.documentElement.classList.add("dark");
+            } else {
+                document.documentElement.classList.remove("dark");
+            }
+        </script>
+    </head>
+    <body
+        class="bg-[#fafafa] dark:bg-zinc-950 text-zinc-900 dark:text-zinc-200 antialiased min-h-screen transition-colors duration-300"
+    >
+        <div class="bg-glow"></div>
+
+        <!-- Navigation -->
+        <nav
+            class="fixed top-0 left-0 right-0 z-50 glass-nav transition-all duration-300"
+            id="main-nav"
+        >
+            <div
+                class="max-w-5xl mx-auto px-6 h-16 flex items-center justify-between"
+            >
+                <a
+                    href="/"
+                    class="font-sans text-[1.35rem] font-bold tracking-tight text-transparent bg-clip-text bg-gradient-to-r from-zinc-900 to-zinc-500 dark:from-zinc-100 dark:to-zinc-400 hover:opacity-80 transition-opacity"
+                >
+                    Milad Natanzi
+                </a>
+
+                <div
+                    class="hidden md:flex items-center space-x-8 text-[13px] font-montserrat font-normal tracking-[0.5px] text-zinc-500 dark:text-zinc-400 capitalize"
+                >
+                    <a
+                        href="/#about"
+                        class="nav-link py-1 hover:text-zinc-900 dark:hover:text-white transition-colors"
+                        >About</a
+                    >
+                    <a
+                        href="/#news"
+                        class="nav-link py-1 hover:text-zinc-900 dark:hover:text-white transition-colors"
+                        >News</a
+                    >
+                    <a
+                        href="/cv"
+                        class="nav-link py-1 text-zinc-900 dark:text-white transition-colors font-medium"
+                        >CV</a
+                    >
+                    <a
+                        href="/#experience"
+                        class="nav-link py-1 hover:text-zinc-900 dark:hover:text-white transition-colors"
+                        >Experience</a
+                    >
+                    <a
+                        href="/#projects"
+                        class="nav-link py-1 hover:text-zinc-900 dark:hover:text-white transition-colors"
+                        >Projects</a
+                    >
+                    <a
+                        href="/#blog"
+                        class="nav-link py-1 hover:text-zinc-900 dark:hover:text-white transition-colors"
+                        >Blog</a
+                    >
+                    <a
+                        href="/gallery"
+                        class="nav-link py-1 hover:text-zinc-900 dark:hover:text-white transition-colors"
+                        >Out of office</a
+                    >
+                </div>
+
+                <div class="flex items-center space-x-4">
+                    <button
+                        id="theme-toggle"
+                        class="p-2 text-zinc-500 hover:text-zinc-900 dark:text-zinc-400 dark:hover:text-white transition-colors focus:outline-none rounded-full border border-transparent hover:border-zinc-200 dark:hover:border-zinc-800 hidden md:block"
+                    >
+                        <Sun class="hidden dark:block w-4 h-4" />
+                        <Moon class="block dark:hidden w-4 h-4" />
+                    </button>
+                    <a
+                        href="mailto:milad@natanzi.com"
+                        class="hidden md:inline-flex items-center justify-center px-5 py-2 text-[13px] font-montserrat font-medium tracking-[0.5px] text-white bg-zinc-900 dark:bg-white dark:text-zinc-900 rounded-full hover:bg-zinc-800 dark:hover:bg-zinc-100 transition-colors shadow-sm"
+                    >
+                        Let's Talk
+                    </a>
+                </div>
+
+                <!-- Mobile Menu Toggle -->
+                <button
+                    id="mobile-menu-btn"
+                    class="md:hidden text-zinc-500 hover:text-zinc-900 p-2 -mr-2 focus:outline-none"
+                >
+                    <div id="icon-menu-wrapper"><Menu class="w-6 h-6" /></div>
+                    <div id="icon-close-wrapper" class="hidden">
+                        <X class="w-6 h-6" />
+                    </div>
+                </button>
+            </div>
+        </nav>
+
+        <!-- Mobile Menu Overlay -->
+        <div
+            id="mobile-menu"
+            class="fixed inset-0 bg-white/98 dark:bg-zinc-950/98 backdrop-blur-xl z-[60] hidden flex-col justify-center items-center opacity-0 transition-opacity duration-300"
+        >
+            <nav class="flex flex-col items-center space-y-6 w-full px-6">
+                <a
+                    href="/#about"
+                    class="mobile-link text-3xl font-montserrat font-light text-zinc-800 dark:text-zinc-200 hover:text-blue-500 dark:hover:text-blue-400 transition-colors capitalize"
+                    >About</a
+                >
+                <a
+                    href="/#news"
+                    class="mobile-link text-3xl font-montserrat font-light text-zinc-800 dark:text-zinc-200 hover:text-blue-500 dark:hover:text-blue-400 transition-colors capitalize"
+                    >News</a
+                >
+                <a
+                    href="/cv"
+                    class="mobile-link text-3xl font-montserrat font-light text-zinc-900 dark:text-white transition-colors capitalize"
+                    >CV</a
+                >
+                <a
+                    href="/#experience"
+                    class="mobile-link text-3xl font-montserrat font-light text-zinc-800 dark:text-zinc-200 hover:text-blue-500 dark:hover:text-blue-400 transition-colors capitalize"
+                    >Experience</a
+                >
+                <a
+                    href="/#projects"
+                    class="mobile-link text-3xl font-montserrat font-light text-zinc-800 dark:text-zinc-200 hover:text-blue-500 dark:hover:text-blue-400 transition-colors capitalize"
+                    >Projects</a
+                >
+                <a
+                    href="/#blog"
+                    class="mobile-link text-3xl font-montserrat font-light text-zinc-800 dark:text-zinc-200 hover:text-blue-500 dark:hover:text-blue-400 transition-colors capitalize"
+                    >Blog</a
+                >
+                <a
+                    href="/gallery"
+                    class="mobile-link text-3xl font-montserrat font-light text-zinc-800 dark:text-zinc-200 hover:text-blue-500 dark:hover:text-blue-400 transition-colors capitalize"
+                    >Out of office</a
+                >
+
+                <div class="pt-8 w-full max-w-[240px]">
+                    <a
+                        href="mailto:milad@natanzi.com"
+                        class="mobile-link flex items-center justify-center px-6 py-4 text-[15px] font-montserrat font-medium tracking-[1px] text-white bg-zinc-900 dark:bg-white dark:text-zinc-900 rounded-full shadow-lg active:scale-95 transition-transform uppercase"
+                    >
+                        Let's Talk
+                    </a>
+                </div>
+            </nav>
+        </div>
+
+        <main class="max-w-4xl mx-auto px-6 pt-24 pb-16 md:pt-32 md:pb-24">
+            <header
+                class="mb-10 flex flex-col sm:flex-row sm:items-end justify-between border-b border-zinc-200 dark:border-zinc-800 pb-8 gap-6"
+            >
+                <div>
+                    <div
+                        class="inline-flex items-center justify-center p-2.5 rounded-xl bg-orange-50 dark:bg-orange-900/20 text-orange-600 dark:text-orange-400 mb-4"
+                    >
+                        <FileText class="w-5 h-5" />
+                    </div>
+                    <h1
+                        class="text-3xl md:text-4xl font-extrabold text-zinc-900 dark:text-white mb-2 font-montserrat tracking-tight"
+                    >
+                        {cvData.title || "Curriculum Vitae"}
+                    </h1>
+                </div>
+                {
+                    cvData.pdf_link && (
+                        <a
+                            href={cvData.pdf_link}
+                            target="_blank"
+                            class="inline-flex items-center justify-center px-4 py-2.5 text-sm font-semibold tracking-wide text-white bg-zinc-900 dark:bg-zinc-100 dark:text-zinc-900 rounded-xl hover:bg-zinc-800 dark:hover:bg-white transition-colors shadow-sm shrink-0"
+                        >
+                            <Download class="w-4 h-4 mr-2" /> Download PDF
+                        </a>
+                    )
+                }
+            </header>
+
+            <article
+                class="cv-content prose prose-zinc dark:prose-invert prose-lg max-w-none prose-headings:font-bold prose-h1:text-4xl prose-h2:text-2xl prose-h2:mt-10 prose-h2:mb-4 prose-h3:text-lg prose-h3:mt-6 prose-p:text-zinc-600 dark:prose-p:text-zinc-400 prose-ul:text-zinc-600 dark:prose-ul:text-zinc-400 prose-li:my-1 prose-hr:border-zinc-200 dark:prose-hr:border-zinc-800"
+            >
+                <div set:html={marked.parse(cvData.content || "")}></div>
+            </article>
+        </main>
+
+        <footer
+            class="mt-8 py-10 border-t border-zinc-200 dark:border-zinc-800 text-center text-sm font-medium text-zinc-500 dark:text-zinc-400"
+        >
+            © 2026 Milad Natanzi. All rights reserved.
+        </footer>
+
+        <!-- Scripts -->
+        <script>
+            // Mobile Menu Toggle Logic
+            const mobileBtn = document.getElementById("mobile-menu-btn");
+            const mobileMenu = document.getElementById("mobile-menu");
+            const iconMenuWrapper =
+                document.getElementById("icon-menu-wrapper");
+            const iconCloseWrapper =
+                document.getElementById("icon-close-wrapper");
+            const mobileLinks = document.querySelectorAll(".mobile-link");
+
+            let menuOpen = false;
+
+            // Theme Toggle Logic
+            const themeToggleBtn = document.getElementById("theme-toggle");
+            if (themeToggleBtn) {
+                themeToggleBtn.addEventListener("click", function () {
+                    if (document.documentElement.classList.contains("dark")) {
+                        document.documentElement.classList.remove("dark");
+                        localStorage.setItem("theme", "light");
+                    } else {
+                        document.documentElement.classList.add("dark");
+                        localStorage.setItem("theme", "dark");
+                    }
+                });
+            }
+
+            function toggleMenu() {
+                if (!mobileBtn) return;
+                menuOpen = !menuOpen;
+                if (menuOpen) {
+                    mobileMenu.classList.remove("hidden");
+                    setTimeout(() => {
+                        mobileMenu.classList.remove("opacity-0");
+                        mobileMenu.classList.add("opacity-100");
+                        document.body.classList.add("no-scroll");
+                        iconMenuWrapper.classList.add("hidden");
+                        iconCloseWrapper.classList.remove("hidden");
+                    }, 10);
+                } else {
+                    mobileMenu.classList.remove("opacity-100");
+                    mobileMenu.classList.add("opacity-0");
+                    document.body.classList.remove("no-scroll");
+                    iconCloseWrapper.classList.add("hidden");
+                    iconMenuWrapper.classList.remove("hidden");
+
+                    // Wait for fade out before hiding
+                    setTimeout(() => {
+                        mobileMenu.classList.add("hidden");
+                    }, 300);
+                }
+            }
+
+            if (mobileBtn) {
+                mobileBtn.addEventListener("click", toggleMenu);
+            }
+
+            // Close menu when clicking a link
+            mobileLinks.forEach((link) => {
+                link.addEventListener("click", () => {
+                    if (menuOpen) toggleMenu();
+                });
             });
-        });
-    </script>
-</body>
+        </script>
+    </body>
 </html>

@@ -262,16 +262,22 @@ const siteUrl = "https://natanzi.com";
     </nav>
 
     <!-- Mobile Menu Overlay -->
-    <div id="mobile-menu" class="fixed inset-0 bg-white/95 backdrop-blur-md z-40 hidden flex-col justify-center items-center space-y-8 opacity-0 transition-opacity duration-300 pt-16">
-        <a href="#about" class="mobile-link text-2xl font-montserrat font-light text-zinc-600 dark:text-zinc-400 hover:text-zinc-900 dark:hover:text-white transition-colors capitalize">About</a>
-        <a href="#news" class="mobile-link text-2xl font-montserrat font-light text-zinc-600 dark:text-zinc-400 hover:text-zinc-900 dark:hover:text-white transition-colors capitalize">News</a>
-        <a href="#experience" class="mobile-link text-2xl font-montserrat font-light text-zinc-600 dark:text-zinc-400 hover:text-zinc-900 dark:hover:text-white transition-colors capitalize">Experience</a>
-        <a href="#projects" class="mobile-link text-2xl font-montserrat font-light text-zinc-600 dark:text-zinc-400 hover:text-zinc-900 dark:hover:text-white transition-colors capitalize">Projects</a>
-        <a href="#blog" class="mobile-link text-2xl font-montserrat font-light text-zinc-600 dark:text-zinc-400 hover:text-zinc-900 dark:hover:text-white transition-colors capitalize">Blog</a>
-        <a href="/gallery" class="mobile-link text-2xl font-montserrat font-light text-zinc-600 dark:text-zinc-400 hover:text-zinc-900 dark:hover:text-white transition-colors capitalize">Out of office</a>
-        <a href="mailto:milad@natanzi.com" class="mobile-link mt-8 px-8 py-3 text-[15px] font-montserrat font-medium tracking-[0.5px] text-white bg-zinc-900 dark:bg-white dark:text-zinc-900 rounded-full shadow-md">
-            Let's Talk
-        </a>
+    <div id="mobile-menu" class="fixed inset-0 bg-white/98 dark:bg-zinc-950/98 backdrop-blur-xl z-[60] hidden flex-col justify-center items-center opacity-0 transition-opacity duration-300">
+        <nav class="flex flex-col items-center space-y-6 w-full px-6">
+            <a href="#about" class="mobile-link text-3xl font-montserrat font-light text-zinc-800 dark:text-zinc-200 hover:text-blue-500 dark:hover:text-blue-400 transition-colors capitalize">About</a>
+            <a href="#news" class="mobile-link text-3xl font-montserrat font-light text-zinc-800 dark:text-zinc-200 hover:text-blue-500 dark:hover:text-blue-400 transition-colors capitalize">News</a>
+            <a href="/cv" class="mobile-link text-3xl font-montserrat font-light text-zinc-800 dark:text-zinc-200 hover:text-blue-500 dark:hover:text-blue-400 transition-colors capitalize">CV</a>
+            <a href="#experience" class="mobile-link text-3xl font-montserrat font-light text-zinc-800 dark:text-zinc-200 hover:text-blue-500 dark:hover:text-blue-400 transition-colors capitalize">Experience</a>
+            <a href="#projects" class="mobile-link text-3xl font-montserrat font-light text-zinc-800 dark:text-zinc-200 hover:text-blue-500 dark:hover:text-blue-400 transition-colors capitalize">Projects</a>
+            <a href="#blog" class="mobile-link text-3xl font-montserrat font-light text-zinc-800 dark:text-zinc-200 hover:text-blue-500 dark:hover:text-blue-400 transition-colors capitalize">Blog</a>
+            <a href="/gallery" class="mobile-link text-3xl font-montserrat font-light text-zinc-800 dark:text-zinc-200 hover:text-blue-500 dark:hover:text-blue-400 transition-colors capitalize">Out of office</a>
+            
+            <div class="pt-8 w-full max-w-[240px]">
+                <a href="mailto:milad@natanzi.com" class="mobile-link flex items-center justify-center px-6 py-4 text-[15px] font-montserrat font-medium tracking-[1px] text-white bg-zinc-900 dark:bg-white dark:text-zinc-900 rounded-full shadow-lg active:scale-95 transition-transform uppercase">
+                    Let's Talk
+                </a>
+            </div>
+        </nav>
     </div>
 
     <main class="max-w-5xl mx-auto px-6 pt-32 pb-24 md:pt-40 md:pb-32">
