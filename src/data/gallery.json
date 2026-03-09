@@ -39,6 +39,28 @@
           "caption": "NYC"
         }
       ]
+    },
+    {
+      "name": "Los Angeles",
+      "cover": "https://res.cloudinary.com/ddtuv5tpv/image/upload/v1773020971/IMG_6335_iaaucf.jpg",
+      "photos": [
+        {
+          "src": "https://res.cloudinary.com/ddtuv5tpv/image/upload/v1773020969/IMG_6299_pgqafr.jpg",
+          "caption": "Utah"
+        },
+        {
+          "caption": "Utah",
+          "src": "https://res.cloudinary.com/ddtuv5tpv/image/upload/v1773020969/IMG_6299_pgqafr.jpg"
+        },
+        {
+          "src": "https://res.cloudinary.com/ddtuv5tpv/image/upload/v1773020967/IMG_6268_eroyfx.jpg",
+          "caption": "Utah"
+        },
+        {
+          "src": "https://res.cloudinary.com/ddtuv5tpv/image/upload/v1773020958/IMG_6372_dlc1mo.jpg",
+          "caption": "Utah"
+        }
+      ]
     }
   ]
 }
