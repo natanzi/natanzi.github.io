@@ -60,35 +60,23 @@
       "slug": "new-york-city",
       "name": "New York City",
       "tagline": "The city that never sleeps",
-      "cover": "https://images.unsplash.com/photo-1499092346302-b8d7c22b6ce8?auto=format&fit=crop&q=80&w=800",
+      "cover": "https://res.cloudinary.com/ddtuv5tpv/image/upload/v1773018121/IMG_8075_nosknl.jpg",
       "photos": [
         {
-          "src": "https://images.unsplash.com/photo-1499092346302-b8d7c22b6ce8?auto=format&fit=crop&q=80&w=1200",
-          "caption": "Manhattan skyline at night"
+          "src": "https://res.cloudinary.com/ddtuv5tpv/image/upload/v1773018149/IMG_7801_gyk49c.jpg",
+          "caption": "NYC"
         },
         {
-          "src": "https://images.unsplash.com/photo-1546977474-49aeea0408a8?auto=format&fit=crop&q=80&w=1200",
-          "caption": "Brooklyn Bridge at sunrise"
+          "src": "https://res.cloudinary.com/ddtuv5tpv/image/upload/v1773018148/IMG_8107_qintrw.jpg",
+          "caption": "NYC"
         },
         {
-          "src": "https://images.unsplash.com/photo-1534430480872-3498386e7856?auto=format&fit=crop&q=80&w=1200",
-          "caption": "Times Square"
+          "src": "https://res.cloudinary.com/ddtuv5tpv/image/upload/v1773018133/IMG_7822_upldzy.jpg",
+          "caption": "NYC"
         },
         {
-          "src": "https://images.unsplash.com/photo-1543872084-c7bd3822856f?auto=format&fit=crop&q=80&w=1200",
-          "caption": "Central Park in fall"
-        },
-        {
-          "src": "https://images.unsplash.com/photo-1490644658840-3f2e3f8c5625?auto=format&fit=crop&q=80&w=1200",
-          "caption": "The High Line"
-        },
-        {
-          "src": "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&q=80&w=1200",
-          "caption": "New York streets"
-        },
-        {
-          "src": "https://images.unsplash.com/photo-1582037928769-181f2644ecb7?auto=format&fit=crop&q=80&w=1200",
-          "caption": "Statue of Liberty"
+          "src": "https://res.cloudinary.com/ddtuv5tpv/image/upload/v1773018127/IMG_7996_wrdrgd.jpg",
+          "caption": "NYC"
         }
       ]
     }
