@@ -41,7 +41,7 @@
       ]
     },
     {
-      "name": "Los Angeles",
+      "name": "Salt Lake City",
       "cover": "https://res.cloudinary.com/ddtuv5tpv/image/upload/v1773020971/IMG_6335_iaaucf.jpg",
       "photos": [
         {
@@ -60,7 +60,9 @@
           "src": "https://res.cloudinary.com/ddtuv5tpv/image/upload/v1773020958/IMG_6372_dlc1mo.jpg",
           "caption": "Utah"
         }
-      ]
+      ],
+      "slug": "Utah",
+      "tagline": "Utah"
     }
   ]
 }
