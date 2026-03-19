@@ -80,7 +80,9 @@
           "caption": "DC"
         }
       ],
-      "name": "DC"
+      "name": "DC",
+      "slug": "dc",
+      "tagline": "The Nation's Capital"
     }
   ]
 }

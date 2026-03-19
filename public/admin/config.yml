@@ -228,8 +228,8 @@ collections:
             collapsed: false
             fields:
               - { label: "City Name", name: "name", widget: "string", hint: "e.g. Chicago" }
-              - { label: "URL Slug", name: "slug", widget: "string", hint: "e.g. chicago (lowercase, no spaces)" }
-              - { label: "Tagline", name: "tagline", widget: "string", hint: "Short subtitle for the city" }
+              - { label: "URL Slug", name: "slug", widget: "string", required: true, hint: "e.g. chicago (lowercase, no spaces)" }
+              - { label: "Tagline", name: "tagline", widget: "string", required: true, hint: "Short subtitle for the city" }
               - { label: "Cover Photo", name: "cover", widget: "image", hint: "Upload via Cloudinary or paste URL" }
               - label: "Photos"
                 name: "photos"
