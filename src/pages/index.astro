@@ -8,6 +8,7 @@ import siteSettings from '../data/settings.json';
 import aboutData from '../data/about.json';
 import experienceData from '../data/experience.json';
 import newsData from '../data/news.json';
+import galleryData from '../data/gallery.json';
 import { marked } from 'marked';
 // Import Section Components
 import NewsSection from '../components/sections/NewsSection.astro';
@@ -388,47 +389,23 @@ const siteUrl = "https://natanzi.com";
             </div>
             
             <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 lg:gap-6">
-                <!-- Chicago -->
-                <a href="/gallery/chicago" class="group aspect-[4/5] rounded-2xl overflow-hidden bg-zinc-100 dark:bg-zinc-900 relative shadow-sm hover:shadow-xl transition-all duration-500 border border-zinc-200/50 dark:border-zinc-800/50">
-                    <img src="https://images.unsplash.com/photo-1477959858617-67f85cf4f1df?auto=format&fit=crop&q=80&w=800" alt="Chicago" class="w-full h-full object-cover scale-100 group-hover:scale-105 transition-transform duration-700 ease-out grayscale group-hover:grayscale-0" loading="lazy">
-                    <div class="absolute inset-0 bg-gradient-to-t from-black/75 via-black/10 to-transparent"></div>
-                    <div class="absolute inset-x-0 bottom-0 p-5">
-                        <p class="text-white/60 text-[11px] uppercase tracking-wider font-semibold mb-1">8 Photos</p>
-                        <p class="text-white font-serif text-xl">Chicago</p>
-                        <p class="text-white/70 text-xs mt-1 font-light">The Windy City from ground to sky</p>
-                    </div>
-                    <div class="absolute top-4 right-4 opacity-0 group-hover:opacity-100 transition-opacity">
-                        <span class="bg-white/90 text-zinc-900 text-xs font-bold px-3 py-1 rounded-full">Browse →</span>
-                    </div>
-                </a>
-                
-                <!-- Boston -->
-                <a href="/gallery/boston" class="group aspect-[4/5] rounded-2xl overflow-hidden bg-zinc-100 dark:bg-zinc-900 relative shadow-sm hover:shadow-xl transition-all duration-500 border border-zinc-200/50 dark:border-zinc-800/50">
-                    <img src="https://images.unsplash.com/photo-1501979376754-4ff580d7e73b?auto=format&fit=crop&q=80&w=800" alt="Boston" class="w-full h-full object-cover scale-100 group-hover:scale-105 transition-transform duration-700 ease-out grayscale group-hover:grayscale-0" loading="lazy">
-                    <div class="absolute inset-0 bg-gradient-to-t from-black/75 via-black/10 to-transparent"></div>
-                    <div class="absolute inset-x-0 bottom-0 p-5">
-                        <p class="text-white/60 text-[11px] uppercase tracking-wider font-semibold mb-1">6 Photos</p>
-                        <p class="text-white font-serif text-xl">Boston</p>
-                        <p class="text-white/70 text-xs mt-1 font-light">History meets modernity in the Bay State</p>
-                    </div>
-                    <div class="absolute top-4 right-4 opacity-0 group-hover:opacity-100 transition-opacity">
-                        <span class="bg-white/90 text-zinc-900 text-xs font-bold px-3 py-1 rounded-full">Browse →</span>
-                    </div>
-                </a>
-                
-                <!-- New York City -->
-                <a href="/gallery/new-york-city" class="group aspect-[4/5] rounded-2xl overflow-hidden bg-zinc-100 dark:bg-zinc-900 relative sm:col-span-2 lg:col-span-1 sm:aspect-[21/9] lg:aspect-[4/5] shadow-sm hover:shadow-xl transition-all duration-500 border border-zinc-200/50 dark:border-zinc-800/50">
-                    <img src="https://images.unsplash.com/photo-1499092346302-b8d7c22b6ce8?auto=format&fit=crop&q=80&w=800" alt="New York City" class="w-full h-full object-cover scale-100 group-hover:scale-105 transition-transform duration-700 ease-out grayscale group-hover:grayscale-0" loading="lazy">
-                    <div class="absolute inset-0 bg-gradient-to-t from-black/75 via-black/10 to-transparent"></div>
-                    <div class="absolute inset-x-0 bottom-0 p-5">
-                        <p class="text-white/60 text-[11px] uppercase tracking-wider font-semibold mb-1">7 Photos</p>
-                        <p class="text-white font-serif text-xl">New York City</p>
-                        <p class="text-white/70 text-xs mt-1 font-light">The city that never sleeps</p>
-                    </div>
-                    <div class="absolute top-4 right-4 opacity-0 group-hover:opacity-100 transition-opacity">
-                        <span class="bg-white/90 text-zinc-900 text-xs font-bold px-3 py-1 rounded-full">Browse →</span>
-                    </div>
-                </a>
+                {galleryData.cities.slice(0, 3).map((city, index) => (
+                    <a href={`/gallery/${city.slug}`} class:list={[
+                        "group aspect-[4/5] rounded-2xl overflow-hidden bg-zinc-100 dark:bg-zinc-900 relative shadow-sm hover:shadow-xl transition-all duration-500 border border-zinc-200/50 dark:border-zinc-800/50",
+                        index === 2 && "sm:col-span-2 lg:col-span-1 sm:aspect-[21/9] lg:aspect-[4/5]"
+                    ]}>
+                        <img src={city.cover} alt={city.name} class="w-full h-full object-cover scale-100 group-hover:scale-105 transition-transform duration-700 ease-out grayscale group-hover:grayscale-0" loading="lazy" />
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/75 via-black/10 to-transparent"></div>
+                        <div class="absolute inset-x-0 bottom-0 p-5">
+                            <p class="text-white/60 text-[11px] uppercase tracking-wider font-semibold mb-1">{city.photos.length} Photos</p>
+                            <p class="text-white font-serif text-xl">{city.name}</p>
+                            <p class="text-white/70 text-xs mt-1 font-light">{city.tagline}</p>
+                        </div>
+                        <div class="absolute top-4 right-4 opacity-0 group-hover:opacity-100 transition-opacity">
+                            <span class="bg-white/90 text-zinc-900 text-xs font-bold px-3 py-1 rounded-full">Browse →</span>
+                        </div>
+                    </a>
+                ))}
             </div>
         </section>
 
