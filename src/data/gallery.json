@@ -83,6 +83,26 @@
       "name": "DC",
       "slug": "dc",
       "tagline": "The Nation's Capital"
+    },
+    {
+      "photos": [
+        {
+          "src": "https://res.cloudinary.com/ddtuv5tpv/image/upload/v1775444647/4_fqen01.jpg",
+          "caption": "#"
+        },
+        {
+          "src": "https://res.cloudinary.com/ddtuv5tpv/image/upload/v1775444646/3_dy83fm.jpg",
+          "caption": "#"
+        },
+        {
+          "src": "https://res.cloudinary.com/ddtuv5tpv/image/upload/v1775444646/2_vwkhcx.jpg",
+          "caption": "#"
+        }
+      ],
+      "cover": "https://res.cloudinary.com/ddtuv5tpv/image/upload/v1775444646/1_xkmcmi.jpg",
+      "name": "Albuquerque",
+      "slug": "New Mexico",
+      "tagline": "The Duke City of the Rio Grande Valley"
     }
   ]
 }
