@@ -211,9 +211,9 @@ collections:
                   - { label: "Articles & Thoughts (Blog)", value: "blog" }
               - { label: "Visible", name: "visible", widget: "boolean", default: true }
 
-  # ── Gallery — Out of Office ──────────────────────────────────────────────────
+  # ── Gallery — Travel ──────────────────────────────────────────────────
   - name: "gallery"
-    label: "Gallery — Out of Office"
+    label: "Gallery — Travel"
     delete: false
     editor:
       preview: false
