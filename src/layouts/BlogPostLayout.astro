@@ -246,10 +246,10 @@ const heroImage = frontmatter.image || "https://images.unsplash.com/photo-154274
                 <div class="flex items-center justify-between mb-4 mt-12 border-b border-zinc-100 dark:border-zinc-800/60 pb-4">
                     <span class="text-xs font-bold tracking-wider text-zinc-900 dark:text-zinc-100">Share this article</span>
                     <div class="flex items-center gap-4 text-zinc-500 dark:text-zinc-400">
-                        <a href={`https://twitter.com/intent/tweet?text=${encodeURIComponent(frontmatter.title)}`} target="_blank" class="flex items-center hover:text-blue-500 transition-colors text-[11px] font-medium tracking-wide">
+                        <a href={`https://twitter.com/intent/tweet?text=${encodeURIComponent(frontmatter.title)}`} target="_blank" rel="noopener noreferrer" class="flex items-center hover:text-blue-500 transition-colors text-[11px] font-medium tracking-wide">
                             <Twitter class="w-3.5 h-3.5 mr-1.5" /> Tweet
                         </a>
-                        <a href={`https://www.linkedin.com/shareArticle?mini=true&url=${encodeURIComponent('https://natanzi.com/blog/' + frontmatter.title)}`} target="_blank" class="flex items-center hover:text-blue-700 dark:hover:text-blue-500 transition-colors text-[11px] font-medium tracking-wide">
+                        <a href={`https://www.linkedin.com/shareArticle?mini=true&url=${encodeURIComponent('https://natanzi.com/blog/' + frontmatter.title)}`} target="_blank" rel="noopener noreferrer" class="flex items-center hover:text-blue-700 dark:hover:text-blue-500 transition-colors text-[11px] font-medium tracking-wide">
                             <Linkedin class="w-3.5 h-3.5 mr-1.5" /> Share
                         </a>
                         <button onclick="navigator.clipboard.writeText(window.location.href); alert('Link copied!');" class="flex items-center hover:text-zinc-900 dark:hover:text-white transition-colors text-[11px] font-medium tracking-wide">
@@ -292,7 +292,7 @@ const heroImage = frontmatter.image || "https://images.unsplash.com/photo-154274
                 <div class="text-center pt-8 border-t border-zinc-100 dark:border-zinc-800/50">
                     <p class="text-xs font-bold tracking-widest text-zinc-900 dark:text-zinc-100 mb-6">Share this article</p>
                     <div class="flex items-center justify-center gap-6 text-zinc-500 dark:text-zinc-400">
-                        <a href={`https://twitter.com/intent/tweet?text=${encodeURIComponent(frontmatter.title)}`} target="_blank" class="flex items-center hover:text-blue-500 transition-colors text-xs font-medium tracking-wide">
+                        <a href={`https://twitter.com/intent/tweet?text=${encodeURIComponent(frontmatter.title)}`} target="_blank" rel="noopener noreferrer" class="flex items-center hover:text-blue-500 transition-colors text-xs font-medium tracking-wide">
                             <Twitter class="w-4 h-4 mr-2" /> Tweet
                         </a>
                         <a href={`mailto:?subject=${encodeURIComponent(frontmatter.title)}&body=Read this article by Milad Natanzi`} class="flex items-center hover:text-red-500 transition-colors text-xs font-medium tracking-wide">
