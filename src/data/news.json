@@ -1,6 +1,11 @@
 {
   "news": [
     {
+      "date": "June 2026",
+      "content": "Selected to attend the Deep Learning for Science Summer School 2026, a highly competitive program with over 600 applicants and an acceptance rate of approximately 35%.",
+      "link": ""
+    },
+    {
       "date": "March 2026",
       "content": "Our paper has been accepted at IEEE DySPAN 2026.",
       "link": ""
