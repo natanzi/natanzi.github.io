@@ -262,8 +262,10 @@ collections:
             collapsed: false
             fields:
               - { label: "Project Title", name: "title", widget: "string" }
+              - { label: "URL Slug", name: "slug", widget: "string", hint: "e.g. harmony (lowercase, no spaces)" }
               - { label: "Description", name: "description", widget: "text" }
-              - { label: "Project URL / Link", name: "url", widget: "string", default: "#" }
+              - { label: "Page Link / URL", name: "url", widget: "string", default: "/projects/harmony", hint: "Local routing path, e.g. /projects/harmony" }
+              - { label: "External Link (Optional)", name: "external_url", widget: "string", required: false, hint: "e.g. GitHub Repository, Project Site, or Paper PDF" }
               - label: "Tags / Technologies"
                 name: "tags"
                 widget: "list"
@@ -273,3 +275,4 @@ collections:
                 widget: "select"
                 options: ["Radio", "ShieldAlert", "Network", "Activity", "Cpu", "Code", "Database", "Server", "Briefcase"]
                 default: "Code"
+              - { label: "Detailed Page Content", name: "content", widget: "markdown", required: false, hint: "Detailed markdown content for the project detail page" }

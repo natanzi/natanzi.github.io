@@ -1,32 +1,44 @@
 {
   "projects": [
     {
+      "slug": "weavemind",
       "title": "WeaveMind",
       "description": "A novel pattern-driven beamforming architecture designed for 6G environments. It utilizes Local Context Memory and Stability Anchors to dramatically improve signal reliability and targeting in high-density areas.",
-      "url": "#",
+      "url": "/projects/weavemind",
+      "external_url": "",
       "tags": ["Python", "PyTorch", "MATLAB"],
-      "icon": "Radio"
+      "icon": "Radio",
+      "content": "### Introduction to WeaveMind\n\nWeaveMind is an innovative, pattern-driven beamforming architecture engineered specifically for the highly complex environments of 6G wireless networks. By shifting away from traditional static or feedback-heavy dynamic beam selection, WeaveMind utilizes predictive machine learning algorithms to anticipate device movements and environmental shifts, aligning spatial targeting with surgical precision.\n\n### Key Technical Architecture\n\n1. **Local Context Memory (LCM):** Utilizes spatial temporal history of the surrounding radio environment to predict shadowing and interference patterns before they occur.\n2. **Stability Anchors:** A set of signal stabilization algorithms that prevent packet drop during fast handoffs and dynamic channel state information (CSI) fluctuations.\n\n### Outcomes & Results\n\n- Improved signal reliability in high-mobility scenarios by up to **35%**.\n- Reduced beam alignment latency from 12ms to **2.4ms**.\n- Substantial throughput consistency across dense urban cells."
     },
     {
+      "slug": "ai-driven-fuzzing",
       "title": "AI-Driven Fuzzing",
       "description": "A highly scalable framework for vulnerability analysis in 5G traffic steering algorithms. It employs NSGA-II multi-objective optimization to isolate hidden protocol weaknesses before they compromise network stability.",
-      "url": "#",
+      "url": "/projects/ai-driven-fuzzing",
+      "external_url": "",
       "tags": ["Security", "Optimization"],
-      "icon": "ShieldAlert"
+      "icon": "ShieldAlert",
+      "content": "### Vulnerability Analysis in Traffic Steering\n\nAI-Driven Fuzzing is a highly scalable security framework designed to isolate and mitigate adversarial weaknesses within 5G traffic steering controllers. By introducing automated state-based testing, the framework ensures next-generation routing policies are resilient against protocol-level attacks and edge-case exploits.\n\n### Core Methodology\n\n- **Multi-Objective Optimization:** Uses the NSGA-II genetic algorithm to explore the massive input-state space of traffic steering controllers, finding scenarios that simultaneously maximize routing conflict and packet loss.\n- **Protocol Fuzzing:** Synthesizes irregular RAN control messaging packets, simulating adversarial edge environments to test fallback reliability."
     },
     {
+      "slug": "harmony",
       "title": "HARMONY",
       "description": "HARMONY brings agentic AI to O-RAN testing: a multi-agent system that autonomously manages, diagnoses, and reconfigures a live 5G SA testbed through natural language.",
-      "url": "https://github.com/natanzi",
+      "url": "/projects/harmony",
+      "external_url": "https://github.com/natanzi",
       "tags": ["O-RAN", "Multi-Agent Systems", "5G SA"],
-      "icon": "Network"
+      "icon": "Network",
+      "content": "### Agentic AI in Open RAN testing\n\nHARMONY is a state-of-the-art multi-agent AI framework designed to orchestrate, diagnose, and self-heal 5G Standalone (SA) deployments under Open RAN (O-RAN) architectures. It acts as an autonomous operations controller, permitting network operators to communicate complex test sequences, slice definitions, and fault diagnostics through simple natural language.\n\n### How It Works\n\n- **Specialized AI Agents:** HARMONY splits core tasks across three distinct specialized agent types:\n  1. **Diagnostics Agent:** Analyzes live metrics and log files from the central unit (CU) and distributed unit (DU) to find protocol faults.\n  2. **Configuration Agent:** Updates radio configurations via standardized REST APIs and Netconf/YANG schemas.\n  3. **Verification Agent:** Deploys virtual user equipment (UEs) to test throughput and packet latency, verifying configuration updates.\n- **Autonomous Self-Healing Loop:** If a fault is diagnosed, the agents cooperatively plan a rollback or mitigation sequence without manual engineering intervention."
     },
     {
+      "slug": "fairshare",
       "title": "FairShare",
       "description": "A decentralized resource sharing protocol for edge devices. Utilizes federated learning to allow edge clusters to cooperatively manage power limits without central cloud orchestrators.",
-      "url": "https://github.com/natanzi",
+      "url": "/projects/fairshare",
+      "external_url": "https://github.com/natanzi",
       "tags": ["Edge Computing", "Federated Learning"],
-      "icon": "Activity"
+      "icon": "Activity",
+      "content": "### Dynamic Edge Orchestration\n\nFairShare is a decentralized, cooperative resource sharing protocol designed to enable edge compute nodes to optimize cluster power distribution and resource load-balancing autonomously. By avoiding centralized cloud orchestrators, FairShare eliminates single points of failure and significantly minimizes network overhead.\n\n### Core Technologies\n\n- **Federated Resource Allocation:** Nodes communicate model parameters regarding their power margins and compute usage rather than raw traffic data.\n- **Adaptive Power Control:** Keeps total edge cluster power usage below set bounds while ensuring critical low-latency edge jobs receive optimal computing resource shares."
     }
   ]
 }
