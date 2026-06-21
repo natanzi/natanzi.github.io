@@ -244,3 +244,32 @@ collections:
                     widget: "string"
                     required: false
                     hint: "e.g. Michigan Ave & Wacker Dr, Chicago — appears as a subtle label on the photo"
+
+  # ── Selected Works (Projects) ────────────────────────────────────────────────
+  - name: "projects"
+    label: "Projects & Selected Works"
+    delete: false
+    editor:
+      preview: false
+    files:
+      - name: "projects_list"
+        label: "Projects List"
+        file: "src/data/projects.json"
+        fields:
+          - label: "Projects"
+            name: "projects"
+            widget: "list"
+            collapsed: false
+            fields:
+              - { label: "Project Title", name: "title", widget: "string" }
+              - { label: "Description", name: "description", widget: "text" }
+              - { label: "Project URL / Link", name: "url", widget: "string", default: "#" }
+              - label: "Tags / Technologies"
+                name: "tags"
+                widget: "list"
+                field: { label: "Tag", name: "tag", widget: "string" }
+              - label: "Icon"
+                name: "icon"
+                widget: "select"
+                options: ["Radio", "ShieldAlert", "Network", "Activity", "Cpu", "Code", "Database", "Server", "Briefcase"]
+                default: "Code"

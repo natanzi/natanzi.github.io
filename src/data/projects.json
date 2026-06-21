@@ -1,0 +1,32 @@
+{
+  "projects": [
+    {
+      "title": "WeaveMind",
+      "description": "A novel pattern-driven beamforming architecture designed for 6G environments. It utilizes Local Context Memory and Stability Anchors to dramatically improve signal reliability and targeting in high-density areas.",
+      "url": "#",
+      "tags": ["Python", "PyTorch", "MATLAB"],
+      "icon": "Radio"
+    },
+    {
+      "title": "AI-Driven Fuzzing",
+      "description": "A highly scalable framework for vulnerability analysis in 5G traffic steering algorithms. It employs NSGA-II multi-objective optimization to isolate hidden protocol weaknesses before they compromise network stability.",
+      "url": "#",
+      "tags": ["Security", "Optimization"],
+      "icon": "ShieldAlert"
+    },
+    {
+      "title": "HARMONY",
+      "description": "HARMONY brings agentic AI to O-RAN testing: a multi-agent system that autonomously manages, diagnoses, and reconfigures a live 5G SA testbed through natural language.",
+      "url": "https://github.com/natanzi",
+      "tags": ["O-RAN", "Multi-Agent Systems", "5G SA"],
+      "icon": "Network"
+    },
+    {
+      "title": "FairShare",
+      "description": "A decentralized resource sharing protocol for edge devices. Utilizes federated learning to allow edge clusters to cooperatively manage power limits without central cloud orchestrators.",
+      "url": "https://github.com/natanzi",
+      "tags": ["Edge Computing", "Federated Learning"],
+      "icon": "Activity"
+    }
+  ]
+}
