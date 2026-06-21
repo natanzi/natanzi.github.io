@@ -24,6 +24,7 @@ collections:
     fields:
       - { label: "Title", name: "title", widget: "string" }
       - { label: "Publish Date", name: "date", widget: "string" }
+      - { label: "Cover Image", name: "image", widget: "image", required: false, hint: "Upload a cover image for the blog post banner (recommended: 1200x630px)" }
       - label: "Category"
         name: "category"
         widget: "select"
