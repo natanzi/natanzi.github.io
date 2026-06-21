@@ -3,6 +3,7 @@ title: Agentic RAN and opportunities
 date: Jun 21
 category: Opinion
 description: "Agentic AI in the RAN: Breaking Silos and Building the 6G Future"
+image: https://res.cloudinary.com/ddtuv5tpv/image/upload/Agentic_wjry8e
 tags:
   - Agentic RAN
 ---
