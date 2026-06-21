@@ -2,8 +2,8 @@
 title: Transitioning from Academia to Telecom Enterprise Systems
 date: Aug 28, 2025
 category: Engineering
-description: Lessons learned working with massive-scale data architectures at
-  MTN Group, and how they shape my current approach to network optimization.
+description: Lessons learned working with massive-scale data architectures, and
+  how they shape my current approach to network optimization.
 ---
 Moving from the highly controlled environment of academic research to the unforgiving scale of an enterprise telecom network is a humbling experience. At a university lab, a failure means a red trace on your oscilloscope or a crashed Python script. In a live network serving millions of users, a failure means thousands of people lose connectivity, emergency services are disrupted, and revenue metrics drop instantly.
 
