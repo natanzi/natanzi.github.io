@@ -1,5 +1,13 @@
 ---
 import { ArrowRight } from 'lucide-astro';
+
+// Load all markdown files from the blog directory
+const postImportResult = import.meta.glob('../../content/blog/**/*.md', { eager: true });
+const posts = Object.values(postImportResult) as any[];
+
+// Sort posts by date descending and get the top 3
+posts.sort((a, b) => new Date(b.frontmatter.date).valueOf() - new Date(a.frontmatter.date).valueOf());
+const recentPosts = posts.slice(0, 3);
 ---
 
 <section id="blog" class="mb-32 animate-fade-up delay-200 scroll-mt-24">
@@ -17,51 +25,27 @@ import { ArrowRight } from 'lucide-astro';
 
     {/* Blog Cards Grid */}
     <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 text-left border-t border-zinc-100 dark:border-zinc-800/60 pt-10">
-        
-        {/* Card 1 */}
-        <a href="/blog/future-of-6g" class="group flex flex-col bg-white dark:bg-zinc-900/40 rounded-2xl overflow-hidden hover:shadow-[0_8px_30px_rgb(0,0,0,0.04)] dark:hover:shadow-[0_8px_30px_rgb(0,0,0,0.2)] transition-shadow border border-zinc-100 dark:border-zinc-800/80">
-            <div class="aspect-[4/3] overflow-hidden bg-zinc-100 dark:bg-zinc-800">
-                <img src="https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&q=80&w=800&h=600" alt="Future of 6G" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
-            </div>
-            <div class="p-5 md:p-6 flex flex-col flex-grow">
-                <h4 class="text-lg font-bold font-montserrat text-zinc-900 dark:text-zinc-100 mb-3 leading-snug group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors">
-                    The Future of 6G: Beyond Speed and Bandwidth
-                </h4>
-                <p class="text-zinc-500 dark:text-zinc-400 text-sm leading-relaxed line-clamp-2 mt-auto">
-                    Exploring how physical-layer machine learning and continuous adaptation will fundamentally restructure network deployments.
-                </p>
-            </div>
-        </a>
-
-        {/* Card 2 */}
-        <a href="/blog/academia-to-telecom" class="group flex flex-col bg-white dark:bg-zinc-900/40 rounded-2xl overflow-hidden hover:shadow-[0_8px_30px_rgb(0,0,0,0.04)] dark:hover:shadow-[0_8px_30px_rgb(0,0,0,0.2)] transition-shadow border border-zinc-100 dark:border-zinc-800/80">
-            <div class="aspect-[4/3] overflow-hidden bg-zinc-100 dark:bg-zinc-800">
-                <img src="https://images.unsplash.com/photo-1573164713988-8665fc963095?auto=format&fit=crop&q=80&w=800&h=600" alt="Transition to Telecom" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
-            </div>
-            <div class="p-5 md:p-6 flex flex-col flex-grow">
-                <h4 class="text-lg font-bold font-montserrat text-zinc-900 dark:text-zinc-100 mb-3 leading-snug group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors">
-                    Transitioning from Academia to Telecom Enterprise Systems
-                </h4>
-                <p class="text-zinc-500 dark:text-zinc-400 text-sm leading-relaxed line-clamp-2 mt-auto">
-                    Lessons learned working with massive-scale data architectures at MTN Group and transitioning back to PhD research.
-                </p>
-            </div>
-        </a>
-
-        {/* Card 3 (Placeholder for layout visually matching 3 cols) */}
-        <a href="#" class="group flex flex-col bg-white dark:bg-zinc-900/40 rounded-2xl overflow-hidden hover:shadow-[0_8px_30px_rgb(0,0,0,0.04)] dark:hover:shadow-[0_8px_30px_rgb(0,0,0,0.2)] transition-shadow border border-zinc-100 dark:border-zinc-800/80">
-            <div class="aspect-[4/3] overflow-hidden bg-zinc-100 dark:bg-zinc-800 relative">
-                <img src="https://images.unsplash.com/photo-1555949963-aa79dcee981c?auto=format&fit=crop&q=80&w=800&h=600" alt="AI in Networks" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
-            </div>
-            <div class="p-5 md:p-6 flex flex-col flex-grow">
-                <h4 class="text-lg font-bold font-montserrat text-zinc-900 dark:text-zinc-100 mb-3 leading-snug group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors">
-                    Dynamic Spectrum Slicing in 6G Networks using AI
-                </h4>
-                <p class="text-zinc-500 dark:text-zinc-400 text-sm leading-relaxed line-clamp-2 mt-auto">
-                    An overview of how Multi-Agent Deep Reinforcement Learning can optimize spectrum allocation.
-                </p>
-            </div>
-        </a>
-
+        {
+            recentPosts.map((post) => {
+                const slug = post.file.split('/').pop().split('.').shift();
+                const heroImage = post.frontmatter.image || "https://images.unsplash.com/photo-1542744173-8e7e53415bb0?q=80&w=800&auto=format&fit=crop";
+                return (
+                    <a href={`/blog/${slug}`} class="group flex flex-col bg-white dark:bg-zinc-900/40 rounded-2xl overflow-hidden hover:shadow-[0_8px_30px_rgb(0,0,0,0.04)] dark:hover:shadow-[0_8px_30px_rgb(0,0,0,0.2)] transition-shadow border border-zinc-100 dark:border-zinc-800/80">
+                        <div class="aspect-[4/3] overflow-hidden bg-zinc-100 dark:bg-zinc-800">
+                            <img src={heroImage} alt={post.frontmatter.title} class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
+                        </div>
+                        <div class="p-5 md:p-6 flex flex-col flex-grow">
+                            <span class="text-[10px] font-bold tracking-wider text-blue-500 uppercase mb-2 block">{post.frontmatter.category || "Research"}</span>
+                            <h4 class="text-lg font-bold font-montserrat text-zinc-900 dark:text-zinc-100 mb-3 leading-snug group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors">
+                                {post.frontmatter.title}
+                            </h4>
+                            <p class="text-zinc-500 dark:text-zinc-400 text-sm leading-relaxed line-clamp-2 mt-auto">
+                                {post.frontmatter.description}
+                            </p>
+                        </div>
+                    </a>
+                );
+            })
+        }
     </div>
 </section>
