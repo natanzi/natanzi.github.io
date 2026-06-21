@@ -177,11 +177,12 @@ posts.sort((a, b) => new Date(b.frontmatter.date).valueOf() - new Date(a.frontma
 
         {/* Category Filters */}
         <div class="flex flex-wrap justify-center gap-6 sm:gap-8 mb-12 text-[15px] font-medium font-inter">
-            <button class="text-blue-500 font-semibold">All Article</button>
-            <button class="text-zinc-500 dark:text-zinc-400 hover:text-zinc-900 dark:hover:text-zinc-100 transition-colors">Research</button>
-            <button class="text-zinc-500 dark:text-zinc-400 hover:text-zinc-900 dark:hover:text-zinc-100 transition-colors">Engineering</button>
-            <button class="text-zinc-500 dark:text-zinc-400 hover:text-zinc-900 dark:hover:text-zinc-100 transition-colors">Telecom</button>
-            <button class="text-zinc-500 dark:text-zinc-400 hover:text-zinc-900 dark:hover:text-zinc-100 transition-colors">AI & ML</button>
+            <button class="filter-btn text-blue-500 font-semibold cursor-pointer" data-filter="all">All Articles</button>
+            <button class="filter-btn text-zinc-500 dark:text-zinc-400 hover:text-zinc-900 dark:hover:text-zinc-100 transition-colors cursor-pointer" data-filter="Research">Research</button>
+            <button class="filter-btn text-zinc-500 dark:text-zinc-400 hover:text-zinc-900 dark:hover:text-zinc-100 transition-colors cursor-pointer" data-filter="Engineering">Engineering</button>
+            <button class="filter-btn text-zinc-500 dark:text-zinc-400 hover:text-zinc-900 dark:hover:text-zinc-100 transition-colors cursor-pointer" data-filter="Telecom">Telecom</button>
+            <button class="filter-btn text-zinc-500 dark:text-zinc-400 hover:text-zinc-900 dark:hover:text-zinc-100 transition-colors cursor-pointer" data-filter="AI & ML">AI & ML</button>
+            <button class="filter-btn text-zinc-500 dark:text-zinc-400 hover:text-zinc-900 dark:hover:text-zinc-100 transition-colors cursor-pointer" data-filter="Opinion">Opinion</button>
         </div>
 
         {/* Blog Cards Grid */}
@@ -191,7 +192,7 @@ posts.sort((a, b) => new Date(b.frontmatter.date).valueOf() - new Date(a.frontma
                     const slug = post.file.split('/').pop().split('.').shift();
                     const heroImage = post.frontmatter.image || "https://images.unsplash.com/photo-1542744173-8e7e53415bb0?q=80&w=800&auto=format&fit=crop";
                     return (
-                        <a href={`/blog/${slug}`} class="group flex flex-col bg-white dark:bg-zinc-900/40 rounded-2xl overflow-hidden hover:shadow-[0_8px_30px_rgb(0,0,0,0.04)] dark:hover:shadow-[0_8px_30px_rgb(0,0,0,0.2)] transition-shadow border border-zinc-100 dark:border-zinc-800/80">
+                        <a href={`/blog/${slug}`} data-category={post.frontmatter.category || "Research"} class="blog-card group flex flex-col bg-white dark:bg-zinc-900/40 rounded-2xl overflow-hidden hover:shadow-[0_8px_30px_rgb(0,0,0,0.04)] dark:hover:shadow-[0_8px_30px_rgb(0,0,0,0.2)] transition-all duration-300 border border-zinc-100 dark:border-zinc-800/80">
                             <div class="aspect-[4/3] overflow-hidden bg-zinc-100 dark:bg-zinc-800">
                                 <img src={heroImage} alt={post.frontmatter.title} class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
                             </div>
@@ -257,6 +258,34 @@ posts.sort((a, b) => new Date(b.frontmatter.date).valueOf() - new Date(a.frontma
                 .catch((error) => console.error(error));
             });
         }
+
+        // Category Filtering Logic
+        const filterButtons = document.querySelectorAll('.filter-btn');
+        const blogCards = document.querySelectorAll('.blog-card');
+
+        filterButtons.forEach(btn => {
+            btn.addEventListener('click', () => {
+                const filter = btn.getAttribute('data-filter');
+
+                // Toggle active styles on buttons
+                filterButtons.forEach(b => {
+                    b.classList.remove('text-blue-500', 'font-semibold');
+                    b.classList.add('text-zinc-500', 'dark:text-zinc-400');
+                });
+                btn.classList.add('text-blue-500', 'font-semibold');
+                btn.classList.remove('text-zinc-500', 'dark:text-zinc-400');
+
+                // Filter cards dynamically
+                blogCards.forEach(card => {
+                    const category = card.getAttribute('data-category');
+                    if (filter === 'all' || category.toLowerCase() === filter.toLowerCase()) {
+                        card.classList.remove('hidden');
+                    } else {
+                        card.classList.add('hidden');
+                    }
+                });
+            });
+        });
     </script>
 </body>
 </html>
