@@ -2,4 +2,25 @@ User-agent: *
 Allow: /
 Disallow: /admin/
 
+# Explicitly allow AI crawlers for LLM search visibility
+User-agent: GPTBot
+Allow: /
+Disallow: /admin/
+
+User-agent: Google-Extended
+Allow: /
+Disallow: /admin/
+
+User-agent: CCBot
+Allow: /
+Disallow: /admin/
+
+User-agent: anthropic-ai
+Allow: /
+Disallow: /admin/
+
+User-agent: cohere-ai
+Allow: /
+Disallow: /admin/
+
 Sitemap: https://natanzi.com/sitemap-index.xml

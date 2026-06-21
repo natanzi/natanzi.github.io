@@ -3,17 +3,53 @@ import galleryData from "../../data/gallery.json";
 import "../../styles/global.css";
 import { Sun, Moon, Menu, X } from "lucide-astro";
 const cities = galleryData.cities;
+
+const canonicalUrl = new URL(Astro.url.pathname, "https://natanzi.com").href;
+const title = "Travel — Gallery | Milad Natanzi";
+const description = "A visual journal of places visited by Milad Natanzi. Moments from places I’ve lived, explored, and visited.";
 ---
 
 <html lang="en" class="scroll-smooth">
     <head>
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <title>Travel — Gallery | Milad Natanzi</title>
-        <meta
-            name="description"
-            content="A visual journal of places visited by Milad Natanzi. Moments from places I’ve lived, explored, and visited."
-        />
+        <title>{title}</title>
+        <meta name="description" content={description} />
+        <link rel="canonical" href={canonicalUrl} />
+
+        <!-- Open Graph / Facebook -->
+        <meta property="og:type" content="website" />
+        <meta property="og:url" content={canonicalUrl} />
+        <meta property="og:title" content={title} />
+        <meta property="og:description" content={description} />
+        <meta property="og:image" content="https://natanzi.com/Milad-Natanzi.jpg" />
+
+        <!-- Twitter -->
+        <meta property="twitter:card" content="summary_large_image" />
+        <meta property="twitter:url" content={canonicalUrl} />
+        <meta property="twitter:title" content={title} />
+        <meta property="twitter:description" content={description} />
+        <meta property="twitter:image" content="https://natanzi.com/Milad-Natanzi.jpg" />
+
+        <!-- JSON-LD Breadcrumbs -->
+        <script type="application/ld+json" set:html={JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "BreadcrumbList",
+          "itemListElement": [
+            {
+              "@type": "ListItem",
+              "position": 1,
+              "name": "Home",
+              "item": "https://natanzi.com"
+            },
+            {
+              "@type": "ListItem",
+              "position": 2,
+              "name": "Gallery",
+              "item": canonicalUrl
+            }
+          ]
+        })} />
 
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />

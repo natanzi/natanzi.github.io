@@ -1,16 +1,55 @@
 ---
 import '../../styles/global.css';
 import { ArrowLeft, Sun, Moon, Twitter } from 'lucide-astro';
+
+const canonicalUrl = new URL(Astro.url.pathname, "https://natanzi.com").href;
+const title = "Blog | Milad Natanzi";
+const description = "Read the latest articles and technical insights on 5G/6G networks, O-RAN security, edge computing, and artificial intelligence by Milad Natanzi.";
 ---
 
 <html lang="en" class="scroll-smooth">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Blog | Milad Natanzi</title>
+    <title>{title}</title>
     
     <!-- SEO & Meta Tags -->
-    <meta name="description" content="Read my latest articles and tips on AI, Telecom, and Engineering.">
+    <meta name="description" content={description}>
+    <link rel="canonical" href={canonicalUrl} />
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content={canonicalUrl} />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:image" content="https://natanzi.com/Milad-Natanzi.jpg" />
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image" />
+    <meta property="twitter:url" content={canonicalUrl} />
+    <meta property="twitter:title" content={title} />
+    <meta property="twitter:description" content={description} />
+    <meta property="twitter:image" content="https://natanzi.com/Milad-Natanzi.jpg" />
+
+    <!-- JSON-LD Breadcrumbs -->
+    <script type="application/ld+json" set:html={JSON.stringify({
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Home",
+          "item": "https://natanzi.com"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Blog",
+          "item": canonicalUrl
+        }
+      ]
+    })} />
     
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">

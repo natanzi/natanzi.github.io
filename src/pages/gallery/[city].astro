@@ -11,17 +11,60 @@ export async function getStaticPaths() {
 }
 
 const { city } = Astro.props;
+
+const canonicalUrl = new URL(Astro.url.pathname, "https://natanzi.com").href;
+const title = `${city.name} — Travel | Milad Natanzi`;
+const description = `Explore photos from ${city.name} taken by Milad Natanzi. ${city.tagline || ''}`;
+const ogImage = city.cover || "https://natanzi.com/Milad-Natanzi.jpg";
 ---
 
 <html lang="en" class="scroll-smooth">
     <head>
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <title>{city.name} — Travel | Milad Natanzi</title>
-        <meta
-            name="description"
-            content={`Photos from ${city.name} by Milad Natanzi. ${city.tagline}`}
-        />
+        <title>{title}</title>
+        <meta name="description" content={description} />
+        <link rel="canonical" href={canonicalUrl} />
+
+        <!-- Open Graph / Facebook -->
+        <meta property="og:type" content="website" />
+        <meta property="og:url" content={canonicalUrl} />
+        <meta property="og:title" content={title} />
+        <meta property="og:description" content={description} />
+        <meta property="og:image" content={ogImage} />
+
+        <!-- Twitter -->
+        <meta property="twitter:card" content="summary_large_image" />
+        <meta property="twitter:url" content={canonicalUrl} />
+        <meta property="twitter:title" content={title} />
+        <meta property="twitter:description" content={description} />
+        <meta property="twitter:image" content={ogImage} />
+
+        <!-- JSON-LD Breadcrumbs -->
+        <script type="application/ld+json" set:html={JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "BreadcrumbList",
+          "itemListElement": [
+            {
+              "@type": "ListItem",
+              "position": 1,
+              "name": "Home",
+              "item": "https://natanzi.com"
+            },
+            {
+              "@type": "ListItem",
+              "position": 2,
+              "name": "Gallery",
+              "item": "https://natanzi.com/gallery"
+            },
+            {
+              "@type": "ListItem",
+              "position": 3,
+              "name": city.name,
+              "item": canonicalUrl
+            }
+          ]
+        })} />
 
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />

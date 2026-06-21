@@ -32,6 +32,7 @@ const siteUrl = "https://natanzi.com";
     <meta name="description" content={siteDescription}>
     <meta name="author" content="Milad Natanzi">
     <link rel="canonical" href={siteUrl} />
+    <meta name="llms.txt" content="/llms.txt" />
     
     <!-- Open Graph / Facebook -->
     <meta property="og:type" content="website">
@@ -50,13 +51,68 @@ const siteUrl = "https://natanzi.com";
     <!-- JSON-LD Structured Data -->
     <script type="application/ld+json" set:html={JSON.stringify({
       "@context": "https://schema.org",
-      "@type": "Person",
-      "name": "Milad Natanzi",
-      "jobTitle": "PhD Candidate, ECE Researcher & Data Scientist",
-      "url": "https://natanzi.com",
-      "sameAs": [
-        "https://www.linkedin.com/in/miladnatanzi",
-        "https://github.com/natanzi"
+      "@graph": [
+        {
+          "@type": "WebSite",
+          "@id": "https://natanzi.com/#website",
+          "url": "https://natanzi.com",
+          "name": "Milad Natanzi",
+          "description": "Milad Natanzi is a PhD Candidate in ECE at WPI, specializing in O-RAN, 5G/6G systems, and AI/ML-driven network optimization.",
+          "publisher": {
+            "@id": "https://natanzi.com/#person"
+          }
+        },
+        {
+          "@type": "ProfilePage",
+          "@id": "https://natanzi.com/#profile",
+          "url": "https://natanzi.com",
+          "name": "Milad Natanzi Profile Page",
+          "mainEntity": {
+            "@id": "https://natanzi.com/#person"
+          }
+        },
+        {
+          "@type": "Person",
+          "@id": "https://natanzi.com/#person",
+          "name": "Milad Natanzi",
+          "givenName": "Milad",
+          "familyName": "Natanzi",
+          "jobTitle": "PhD Candidate & Graduate Research Assistant",
+          "url": "https://natanzi.com",
+          "email": "milad@natanzi.com",
+          "image": "https://natanzi.com/Milad-Natanzi.jpg",
+          "description": "PhD Candidate in ECE at Worcester Polytechnic Institute specializing in AI/ML network optimization, O-RAN architecture, and 5G/6G wireless security.",
+          "affiliation": {
+            "@type": "EducationalOrganization",
+            "name": "Worcester Polytechnic Institute",
+            "alternateName": "WPI",
+            "url": "https://www.wpi.edu"
+          },
+          "alumniOf": [
+            {
+              "@type": "EducationalOrganization",
+              "name": "Worcester Polytechnic Institute",
+              "url": "https://www.wpi.edu"
+            }
+          ],
+          "knowsAbout": [
+            "O-RAN",
+            "Open RAN",
+            "5G SA",
+            "6G Systems",
+            "Beamforming Optimization",
+            "Multi-Agent AI",
+            "Network Security",
+            "Federated Learning",
+            "Software-Defined Networking",
+            "Telecom RF Optimization"
+          ],
+          "sameAs": [
+            "https://www.linkedin.com/in/miladnatanzi",
+            "https://github.com/natanzi",
+            "https://scholar.google.com/citations?user=P7cClxAAAAAJ&hl=en"
+          ]
+        }
       ]
     })} />
 
@@ -298,7 +354,12 @@ const siteUrl = "https://natanzi.com";
                         </div>
                     )}
                     
-
+                    <h1 class="text-4xl md:text-5xl font-extrabold font-montserrat tracking-tight text-zinc-950 dark:text-white mb-2">
+                        Milad Natanzi
+                    </h1>
+                    <p class="text-lg md:text-xl text-blue-600 dark:text-blue-400 font-medium font-montserrat tracking-wide mb-6">
+                        PhD Candidate & ECE Researcher at WPI
+                    </p>
                     
                     <div class="text-base md:text-lg text-zinc-800 dark:text-zinc-200 font-normal leading-relaxed mb-8 max-w-2xl space-y-4 [&_a]:text-blue-600 dark:[&_a]:text-blue-400 hover:[&_a]:text-blue-700 dark:hover:[&_a]:text-blue-300 [&_a]:underline [&_a]:underline-offset-4 [&_a]:transition-colors [&_strong]:text-zinc-950 dark:[&_strong]:text-white [&_strong]:font-bold">
                         <div class="text-lg text-zinc-800 dark:text-zinc-200" set:html={marked.parseInline(aboutData.intro || '')} />
@@ -346,14 +407,12 @@ const siteUrl = "https://natanzi.com";
                     <div class="relative z-10 aspect-[3/4] rounded-2xl overflow-hidden shadow-2xl shadow-zinc-200/50 border border-white bg-white">
                         <!-- Placeholder Image (Replace with user's actual photo) -->
                         <img src="/Milad-Natanzi.jpg" 
-                             alt="Milad" 
+                             alt="Milad Natanzi — ECE Researcher and Data Scientist at WPI" 
                              class="w-full h-full object-cover object-center hero-image-mask hover:scale-105 transition-transform duration-1000 ease-out" />
                     </div>
                 </div>
 
             </div>
-        </header>
-
         </header>
 
         <!-- Dynamic CMS-Driven Sections -->

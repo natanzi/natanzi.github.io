@@ -45,17 +45,77 @@ const colors = [
 const projectIndex = projectsData.projects.findIndex(p => p.slug === project.slug);
 const theme = colors[projectIndex !== -1 ? projectIndex % colors.length : 0];
 const IconComponent = getIcon(project.icon);
+
+const canonicalUrl = new URL(Astro.url.pathname, "https://natanzi.com").href;
+const title = `${project.title} | Milad Natanzi`;
+const description = project.description;
 ---
 
 <html lang="en" class="scroll-smooth">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>{project.title} | Milad Natanzi</title>
+    <title>{title}</title>
     
     <!-- SEO & Meta Tags -->
-    <meta name="description" content={project.description}>
+    <meta name="description" content={description}>
     <meta name="author" content="Milad Natanzi">
+    <link rel="canonical" href={canonicalUrl} />
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content={canonicalUrl} />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:image" content="https://natanzi.com/Milad-Natanzi.jpg" />
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image" />
+    <meta property="twitter:url" content={canonicalUrl} />
+    <meta property="twitter:title" content={title} />
+    <meta property="twitter:description" content={description} />
+    <meta property="twitter:image" content="https://natanzi.com/Milad-Natanzi.jpg" />
+
+    <!-- JSON-LD Breadcrumbs -->
+    <script type="application/ld+json" set:html={JSON.stringify({
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Home",
+          "item": "https://natanzi.com"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Projects",
+          "item": "https://natanzi.com/projects"
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": project.title,
+          "item": canonicalUrl
+        }
+      ]
+    })} />
+
+    <!-- JSON-LD CreativeWork -->
+    <script type="application/ld+json" set:html={JSON.stringify({
+      "@context": "https://schema.org",
+      "@type": "CreativeWork",
+      "name": project.title,
+      "description": project.description,
+      "url": canonicalUrl,
+      "author": {
+        "@type": "Person",
+        "name": "Milad Natanzi",
+        "url": "https://natanzi.com"
+      },
+      "keywords": project.tags
+    })} />
     
     <!-- Google Fonts: Inter, Newsreader, Montserrat -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -207,6 +267,13 @@ const IconComponent = getIcon(project.icon);
     </div>
 
     <main class="max-w-4xl mx-auto px-6 pt-32 pb-24 md:pt-40 md:pb-32">
+        <!-- Hero Image -->
+        {project.image && (
+            <div class="relative w-full aspect-[21/9] md:aspect-[24/10] overflow-hidden rounded-3xl mb-12 shadow-xl border border-white dark:border-zinc-800 bg-white">
+                <img src={project.image} alt={project.title} class="w-full h-full object-cover" />
+            </div>
+        )}
+
         <!-- Hero header card -->
         <div class="glass-card rounded-3xl p-8 md:p-12 mb-12 relative overflow-hidden">
             <div class="absolute -inset-4 bg-gradient-to-tr from-blue-100/20 via-emerald-50/15 to-transparent dark:from-blue-900/10 dark:via-zinc-850/10 rounded-3xl blur-2xl z-0"></div>

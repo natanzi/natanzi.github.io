@@ -263,6 +263,7 @@ collections:
             fields:
               - { label: "Project Title", name: "title", widget: "string" }
               - { label: "URL Slug", name: "slug", widget: "string", hint: "e.g. harmony (lowercase, no spaces)" }
+              - { label: "Cover Image", name: "image", widget: "image", required: false, hint: "Upload an image of the project (recommended size: 800x450px)" }
               - { label: "Description", name: "description", widget: "text" }
               - { label: "Page Link / URL", name: "url", widget: "string", default: "/projects/harmony", hint: "Local routing path, e.g. /projects/harmony" }
               - { label: "External Link (Optional)", name: "external_url", widget: "string", required: false, hint: "e.g. GitHub Repository, Project Site, or Paper PDF" }
