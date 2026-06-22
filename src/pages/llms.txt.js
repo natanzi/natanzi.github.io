@@ -1,6 +1,7 @@
 import aboutData from '../data/about.json';
 import projectsData from '../data/projects.json';
 import experienceData from '../data/experience.json';
+import siteSettings from '../data/settings.json';
 
 export async function GET(context) {
     // Fetch blog posts to dynamically construct latest blog titles
@@ -41,11 +42,11 @@ ${cleanConclusion}
 ## Info
 - **Affiliation:** Worcester Polytechnic Institute (WPI)
 - **Role:** Ph.D. Candidate & Graduate Research Assistant
-- **Email:** milad@natanzi.com
+- **Email:** ${siteSettings.email || 'milad@natanzi.com'}
 - **Website:** https://natanzi.com
-- **GitHub:** https://github.com/natanzi
-- **LinkedIn:** https://www.linkedin.com/in/miladnatanzi
-- **Google Scholar:** https://scholar.google.com/citations?user=P7cClxAAAAAJ&hl=en
+- **GitHub:** ${siteSettings.github || 'https://github.com/natanzi'}
+- **LinkedIn:** ${siteSettings.linkedin || 'https://www.linkedin.com/in/miladnatanzi'}
+- **Google Scholar:** ${siteSettings.scholar || 'https://scholar.google.com/citations?user=P7cClxAAAAAJ&hl=en'}
 
 ## Research Focus & Expertise
 - **O-RAN & Open RAN:** Developer of the OAIC (Open AI Cellular) and OAIC-T frameworks for testing and securing AI controllers in next-generation networks.

@@ -1,6 +1,10 @@
 {
   "under_construction": false,
   "show_job_market_status": true,
+  "email": "milad@natanzi.com",
+  "linkedin": "https://linkedin.com/in/miladnatanzi",
+  "scholar": "https://scholar.google.com/citations?user=P7cClxAAAAAJ&hl=en",
+  "github": "https://github.com/natanzi",
   "layout": [
     {
       "section": "news",

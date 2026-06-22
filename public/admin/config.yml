@@ -196,6 +196,10 @@ collections:
         fields:
           - { label: "Under Construction Mode", name: "under_construction", widget: "boolean", default: false }
           - { label: "Show 'In Job Market' Badge", name: "show_job_market_status", widget: "boolean", default: true }
+          - { label: "Email Address", name: "email", widget: "string", default: "milad@natanzi.com" }
+          - { label: "LinkedIn URL", name: "linkedin", widget: "string", default: "https://linkedin.com/in/miladnatanzi" }
+          - { label: "Google Scholar URL", name: "scholar", widget: "string", default: "https://scholar.google.com/citations?user=P7cClxAAAAAJ&hl=en" }
+          - { label: "GitHub URL", name: "github", widget: "string", default: "https://github.com/natanzi" }
           - label: "Homepage Layout"
             name: "layout"
             widget: "list"
