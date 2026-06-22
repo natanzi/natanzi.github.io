@@ -1,43 +1,24 @@
-# Astro Starter Kit: Minimal
+# Milad Natanzi — Personal Website & Portfolio
 
-```sh
-npm create astro@latest -- --template minimal
-```
+Welcome to the repository for my personal academic and professional website, hosted at [natanzi.com](https://natanzi.com).
 
-> 🧑‍🚀 **Seasoned astronaut?** Delete this file. Have fun!
+This website serves as a hub for my Ph.D. research, telecom experience, technical publications, blog articles, and travel gallery.
 
-## 🚀 Project Structure
+## 🛠️ Stack & Technologies
+- **Framework:** [Astro](https://astro.build) (Static Site Generator)
+- **Styling:** [Tailwind CSS](https://tailwindcss.com)
+- **Content Management:** [Decap CMS](https://decapcms.org) (Git-based CMS for blog posts, CV entries, news, and projects)
+- **Deployment:** GitHub Pages / Netlify
 
-Inside of your Astro project, you'll see the following folders and files:
+## 📝 Content Management (Admin Panel)
+You can manage all pages, experience history, news announcements, travel photos, and blog posts directly from the CMS admin dashboard at:
+👉 **[natanzi.com/admin](https://natanzi.com/admin/)**
 
-```text
-/
-├── public/
-├── src/
-│   └── pages/
-│       └── index.astro
-└── package.json
-```
+All changes published from the admin panel are committed back to this repository and deployed automatically.
 
-Astro looks for `.astro` or `.md` files in the `src/pages/` directory. Each page is exposed as a route based on its file name.
-
-There's nothing special about `src/components/`, but that's where we like to put any Astro/React/Vue/Svelte/Preact components.
-
-Any static assets, like images, can be placed in the `public/` directory.
-
-## 🧞 Commands
-
-All commands are run from the root of the project, from a terminal:
-
-| Command                   | Action                                           |
-| :------------------------ | :----------------------------------------------- |
-| `npm install`             | Installs dependencies                            |
-| `npm run dev`             | Starts local dev server at `localhost:4321`      |
-| `npm run build`           | Build your production site to `./dist/`          |
-| `npm run preview`         | Preview your build locally, before deploying     |
-| `npm run astro ...`       | Run CLI commands like `astro add`, `astro check` |
-| `npm run astro -- --help` | Get help using the Astro CLI                     |
-
-## 👀 Want to learn more?
-
-Feel free to check [our documentation](https://docs.astro.build) or jump into our [Discord server](https://astro.build/chat).
+## 📂 Project Structure
+- `src/pages/` - Site pages and routes (Home, Blog, CV, News, Projects, Gallery, and dynamic detail pages).
+- `src/layouts/` - Reusable page layouts (e.g., Blog Layout).
+- `src/data/` - JSON data files managed by Decap CMS (experience, projects, skills, site settings, gallery).
+- `src/content/` - Markdown blog posts managed by Decap CMS.
+- `public/` - Static assets (uploads, fonts, icons, Netlify CMS configs).
