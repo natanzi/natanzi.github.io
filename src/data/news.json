@@ -39,6 +39,11 @@
       "content": "I was selected to attend 2026 INTERSECT Bootcamp at Princeton University, July 13-17, 2026",
       "date": "April 2026",
       "link": "https://intersect-training.org/bootcamp26-announce/"
+    },
+    {
+      "date": "July 2026",
+      "content": "Our Survey paper finaly released. it is about Large Language Model Vulnerabilities: Attacks, Risks, Defenses, and Open Problems.",
+      "link": "https://arxiv.org/abs/2606.31639"
     }
   ]
 }
