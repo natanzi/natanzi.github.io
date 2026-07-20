@@ -20,7 +20,7 @@
   --border-focus: rgba(0, 0, 0, 0.15);
   --text-primary: #111827;
   --text-secondary: #4b5563;
-  --text-muted: #9ca3af;
+  --text-muted: #6b7280;
   --radius-sm: 4px;
   --radius-md: 6px;
   --radius-lg: 12px;
@@ -152,12 +152,14 @@ div[class*="EditorContainer"] {
   color: var(--text-primary) !important;
   font-size: 0.95rem !important;
   font-weight: 500 !important;
+  text-wrap: balance !important;
 }
 
 [class*="ListItem"] span,
 [class*="EntryListing"] [class*="meta"] {
   color: var(--text-muted) !important;
   font-size: 0.75rem !important;
+  font-variant-numeric: tabular-nums !important;
 }
 
 /* ── Editor Toolbar ──────────────────────────────────────────────────────── */
@@ -255,6 +257,7 @@ label,
   font-family: 'SF Mono', 'Fira Code', monospace !important;
   font-size: 0.875rem !important;
   line-height: 1.7 !important;
+  max-width: 75ch !important;
 }
 
 /* ── Buttons ─────────────────────────────────────────────────────────────── */
@@ -440,20 +443,37 @@ button[class*="secondary"]:hover {
   font-family: var(--font-sans) !important;
 }
 
+[class*="PreviewPane"] p {
+  text-wrap: pretty !important;
+  max-width: 75ch !important;
+}
+
 [class*="PreviewPane"] h1,
 [class*="PreviewPane"] h2,
 [class*="PreviewPane"] h3 {
   font-family: var(--font-serif) !important;
   color: var(--text-primary) !important;
+  text-wrap: balance !important;
 }
 
 /* ── Smooth Transitions (scoped for performance) ────────────────────────── */
+/* Ease-out for entrance/interaction feedback per impeccable motion rules */
 a, button, input, textarea, select,
 [class*="ListItem"], [class*="WorkflowCard"], [class*="ListItemTopBar"],
 [class*="ImageCard"], [class*="ImageWidgetButton"],
 [class*="DropdownItem"], [class*="MenuItem"],
 [class*="SidebarNavLink"], [class*="AppHeaderNavLink"] {
-  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  transition-timing-function: cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* ── Reduced Motion ─────────────────────────────────────────────────────── */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
 }
 
 /* ── Loading Screen ──────────────────────────────────────────────────────── */
@@ -524,7 +544,7 @@ a, button, input, textarea, select,
     --border-focus: rgba(255, 255, 255, 0.18);
     --text-primary: #fafafa;
     --text-secondary: #a1a1aa;
-    --text-muted: #52525b;
+    --text-muted: #71717a;
     --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.2);
     --shadow-md: 0 4px 12px rgba(0, 0, 0, 0.3);
   }
