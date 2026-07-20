@@ -9,23 +9,23 @@
 
 /* ── Variables ───────────────────────────────────────────────────────────── */
 :root {
-  --accent: #2563eb;
-  --accent-light: #eff6ff;
-  --accent-hover: #1d4ed8;
-  --bg-app: #f8f9fa;
+  --accent: #09090b;
+  --accent-light: #f4f4f5;
+  --accent-hover: #27272a;
+  --bg-app: #fafafa;
   --bg-panel: #ffffff;
   --bg-card: #ffffff;
-  --bg-input: #ffffff;
-  --border: rgba(0, 0, 0, 0.08);
-  --border-focus: rgba(37, 99, 235, 0.4);
+  --bg-input: #fcfcfc;
+  --border: rgba(0, 0, 0, 0.06);
+  --border-focus: rgba(0, 0, 0, 0.15);
   --text-primary: #111827;
   --text-secondary: #4b5563;
   --text-muted: #9ca3af;
-  --radius-sm: 6px;
-  --radius-md: 10px;
-  --radius-lg: 16px;
-  --shadow-sm: 0 1px 4px rgba(0, 0, 0, 0.06);
-  --shadow-md: 0 4px 20px rgba(0, 0, 0, 0.08);
+  --radius-sm: 4px;
+  --radius-md: 6px;
+  --radius-lg: 12px;
+  --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.03);
+  --shadow-md: 0 4px 12px rgba(0, 0, 0, 0.04);
   --font-sans: 'Inter', -apple-system, sans-serif;
   --font-serif: 'Newsreader', Georgia, serif;
 }
@@ -143,7 +143,7 @@ div[class*="EditorContainer"] {
 
 [class*="ListItem"]:hover,
 [class*="EntryTable"] tr:hover {
-  border-color: rgba(37, 99, 235, 0.2) !important;
+  border-color: var(--border-focus) !important;
   box-shadow: var(--shadow-md) !important;
 }
 
@@ -275,7 +275,7 @@ button[data-testid*="publish"] {
 
 button[class*="primary"]:hover {
   background: var(--accent-hover) !important;
-  box-shadow: 0 4px 16px rgba(37, 99, 235, 0.25) !important;
+  box-shadow: var(--shadow-md) !important;
   transform: translateY(-1px) !important;
 }
 
@@ -337,15 +337,15 @@ button[class*="secondary"]:hover {
 }
 
 [class*="ListItemTopBar"]:hover {
-  border-color: rgba(37, 99, 235, 0.2) !important;
+  border-color: var(--border-focus) !important;
   box-shadow: var(--shadow-md) !important;
 }
 
 /* ── Object Widget ───────────────────────────────────────────────────────── */
 [class*="ObjectWidgetTopBar"],
 [class*="ObjectControl"]>div:first-child {
-  background: var(--accent-light) !important;
-  border: 1px solid rgba(37, 99, 235, 0.15) !important;
+  background: var(--bg-card) !important;
+  border: 1px solid var(--border) !important;
   border-radius: var(--radius-md) !important;
   padding: 10px 16px !important;
   margin-bottom: 8px !important;
