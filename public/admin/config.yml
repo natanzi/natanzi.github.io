@@ -21,9 +21,10 @@ collections:
     folder: "src/content/blog"
     create: true
     slug: "{{slug}}"
+    summary: "{{title}} — {{date}}"
     fields:
       - { label: "Title", name: "title", widget: "string" }
-      - { label: "Publish Date", name: "date", widget: "string" }
+      - { label: "Publish Date", name: "date", widget: "datetime", date_format: "YYYY-MM-DD", time_format: false, format: "YYYY-MM-DD" }
       - { label: "Cover Image", name: "image", widget: "image", required: false, hint: "Upload a cover image for the blog post banner (recommended: 1200x630px)" }
       - label: "Category"
         name: "category"
@@ -233,7 +234,7 @@ collections:
             collapsed: false
             fields:
               - { label: "City Name", name: "name", widget: "string", hint: "e.g. Chicago" }
-              - { label: "URL Slug", name: "slug", widget: "string", required: true, hint: "e.g. chicago (lowercase, no spaces)" }
+              - { label: "URL Slug", name: "slug", widget: "string", required: true, hint: "e.g. chicago (lowercase, no spaces)", pattern: ['^[a-z0-9]+(?:-[a-z0-9]+)*$', 'Slug must be lowercase letters, numbers, and hyphens only'] }
               - { label: "Tagline", name: "tagline", widget: "string", required: true, hint: "Short subtitle for the city" }
               - { label: "Cover Photo", name: "cover", widget: "image", hint: "Upload via Cloudinary or paste URL" }
               - label: "Photos"
@@ -267,7 +268,7 @@ collections:
             collapsed: false
             fields:
               - { label: "Project Title", name: "title", widget: "string" }
-              - { label: "URL Slug", name: "slug", widget: "string", hint: "e.g. harmony (lowercase, no spaces)" }
+              - { label: "URL Slug", name: "slug", widget: "string", hint: "e.g. harmony (lowercase, no spaces)", pattern: ['^[a-z0-9]+(?:-[a-z0-9]+)*$', 'Slug must be lowercase letters, numbers, and hyphens only'] }
               - { label: "Cover Image", name: "image", widget: "image", required: false, hint: "Upload an image of the project (recommended size: 800x450px)" }
               - { label: "Description", name: "description", widget: "text" }
               - { label: "Page Link / URL", name: "url", widget: "string", default: "/projects/harmony", hint: "Local routing path, e.g. /projects/harmony" }

@@ -5,7 +5,7 @@
  */
 
 /* ── Google Font ─────────────────────────────────────────────────────────── */
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Newsreader:ital,opsz,wght@0,6..72,400;1,6..72,300&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Newsreader:ital,opsz,wght@0,6..72,400;1,6..72,300&display=swap');
 
 /* ── Variables ───────────────────────────────────────────────────────────── */
 :root {
@@ -447,7 +447,142 @@ button[class*="secondary"]:hover {
   color: var(--text-primary) !important;
 }
 
-/* ── Smooth Transitions ──────────────────────────────────────────────────── */
-* {
+/* ── Smooth Transitions (scoped for performance) ────────────────────────── */
+a, button, input, textarea, select,
+[class*="ListItem"], [class*="WorkflowCard"], [class*="ListItemTopBar"],
+[class*="ImageCard"], [class*="ImageWidgetButton"],
+[class*="DropdownItem"], [class*="MenuItem"],
+[class*="SidebarNavLink"], [class*="AppHeaderNavLink"] {
   transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* ── Loading Screen ──────────────────────────────────────────────────────── */
+.nc-app-loading {
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  min-height: 100vh !important;
+  background: var(--bg-app) !important;
+}
+
+.nc-app-loading::after {
+  content: 'Loading…' !important;
+  font-family: var(--font-serif) !important;
+  font-style: italic !important;
+  font-size: 1.1rem !important;
+  color: var(--text-muted) !important;
+  letter-spacing: 0.02em !important;
+  animation: loadPulse 1.8s ease-in-out infinite !important;
+}
+
+@keyframes loadPulse {
+  0%, 100% { opacity: 0.4; }
+  50% { opacity: 1; }
+}
+
+/* ── Netlify Identity Login Widget ───────────────────────────────────────── */
+.netlify-identity-menu,
+.netlify-identity-button {
+  font-family: var(--font-sans) !important;
+}
+
+.netlify-identity-button {
+  background: var(--accent) !important;
+  color: #fff !important;
+  border: none !important;
+  border-radius: 4px !important;
+  font-size: 0.8rem !important;
+  font-weight: 600 !important;
+  padding: 8px 20px !important;
+  cursor: pointer !important;
+  transition: background 0.2s !important;
+}
+
+.netlify-identity-button:hover {
+  background: var(--accent-hover) !important;
+}
+
+/* Identity popup modal */
+.netlify-identity-page .modalContainer,
+[class*="netlify-identity"] .modalContainer {
+  font-family: var(--font-sans) !important;
+  border-radius: var(--radius-lg) !important;
+  box-shadow: 0 24px 48px rgba(0, 0, 0, 0.12) !important;
+}
+
+/* ── Dark Mode ───────────────────────────────────────────────────────────── */
+@media (prefers-color-scheme: dark) {
+  :root {
+    --accent: #e4e4e7;
+    --accent-light: rgba(255, 255, 255, 0.06);
+    --accent-hover: #d4d4d8;
+    --bg-app: #0a0a0b;
+    --bg-panel: #111113;
+    --bg-card: #18181b;
+    --bg-input: #18181b;
+    --border: rgba(255, 255, 255, 0.07);
+    --border-focus: rgba(255, 255, 255, 0.18);
+    --text-primary: #fafafa;
+    --text-secondary: #a1a1aa;
+    --text-muted: #52525b;
+    --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.2);
+    --shadow-md: 0 4px 12px rgba(0, 0, 0, 0.3);
+  }
+
+  header[class*="AppHeader"] {
+    background: rgba(17, 17, 19, 0.92) !important;
+  }
+
+  button[class*="secondary"],
+  button[class*="cancel"],
+  button[class*="default"]:not([class*="primary"]) {
+    background: var(--bg-card) !important;
+    color: var(--text-secondary) !important;
+  }
+
+  [class*="Dropdown"],
+  [class*="DropdownList"],
+  [class*="Menu"] {
+    background: var(--bg-card) !important;
+  }
+
+  [class*="ListItemTopBar"],
+  [class*="SortableElement"],
+  [class*="WorkflowCard"],
+  [class*="DraftCard"],
+  [class*="ReviewCard"] {
+    background: var(--bg-card) !important;
+  }
+
+  [class*="Toast"],
+  [class*="Notification"] {
+    background: var(--bg-card) !important;
+  }
+
+  [class*="PreviewPane"] {
+    background: var(--bg-panel) !important;
+  }
+
+  input[type="text"],
+  input[type="email"],
+  input[type="url"],
+  input[type="number"],
+  input[type="search"],
+  textarea,
+  select {
+    border-color: var(--border) !important;
+  }
+
+  [class*="EditorWrapper"],
+  [class*="MarkdownEditor"] {
+    border-color: var(--border) !important;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background: rgba(255, 255, 255, 0.1);
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    background: rgba(255, 255, 255, 0.18);
+  }
 }
